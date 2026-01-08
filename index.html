@@ -2962,9 +2962,9 @@
             <li class="nav-item"><a class="nav-link" href="#process">Process</a></li>
             <li class="nav-item"><a class="nav-link" href="#cases">Cases</a></li>
             <li class="nav-item"><a class="nav-link" href="#downloads">Downloads</a></li>
-            <li class="nav-item"><a class="nav-link" href="javascript:void(0)" data-open-quote="1" data-quote-trigger="1">Contact</a></li>
+            <li class="nav-item"><a class="nav-link" href="javascript:void(0)" data-open-quote="1" data-quote-trigger="1" onclick="openQuoteModal(''); return false;">Contact</a></li>
             <li class="nav-item d-none d-lg-block ms-lg-2">
-              <a class="btn btn-brand btn-sm px-3" href="javascript:void(0)" data-open-quote="1" data-quote-trigger="1">Get Instant Quote</a>
+              <a class="btn btn-brand btn-sm px-3" href="javascript:void(0)" data-open-quote="1" data-quote-trigger="1" onclick="openQuoteModal(''); return false;">Get Instant Quote</a>
             </li>
             <li class="nav-item d-none d-lg-block ms-lg-2">
               <a class="btn btn-outline-dark btn-sm px-3" href="https://wa.me/86189622292350" target="_blank" rel="noopener">WhatsApp</a>
@@ -2985,7 +2985,7 @@
           <p class="hero-subtitle mb-4">Upload your drawing · Get tonnage & mold suggestion in 24 hours</p>
           <div class="d-flex flex-wrap gap-2 mt-3 hero-cta-row hero-cta-wrap">
             <a href="#solutions" class="btn btn-brand btn-lg d-none d-md-inline-flex">Explore Solutions</a>
-            <a href="javascript:void(0)" class="btn btn-outline-light btn-lg hero-cta-primary" data-open-quote="1" data-quote-trigger="1">Get Quote</a>
+            <a href="javascript:void(0)" class="btn btn-outline-light btn-lg hero-cta-primary" data-open-quote="1" data-quote-trigger="1" onclick="openQuoteModal(''); return false;">Get Quote</a>
             <a href="#cases" class="btn btn-outline-brand btn-lg btn-cases hero-cta-secondary">See Cases</a>
           </div>
           <div class="mt-4 small text-white-50">EXW/CIF · CE/UL options · On-site commissioning · Lead time 25–45 days</div>
@@ -3032,7 +3032,7 @@
               <div class="text-muted-2 small">LN28 fast drawing · 200–300T</div>
               <div class="dir-card-actions d-flex flex-column flex-md-row gap-2 mt-3">
                 <a href="#lunchbox" class="btn btn-outline-secondary btn-sm dir-view-details">View Details</a>
-                <button class="btn btn-brand btn-sm js-quote dir-get-quote" data-product="Lunch Box" data-quote-trigger="1" data-open-quote="1">Get Quote</button>
+                <button type="button" class="btn btn-brand btn-sm js-quote dir-get-quote" data-product="Lunch Box" data-quote-trigger="1" data-open-quote="1" onclick="openQuoteModal('Lunch Box');">Get Quote</button>
               </div>
             </div>
           </div>
@@ -3047,7 +3047,7 @@
               <div class="text-muted-2 small">LN98 water bulging · 200–300T</div>
               <div class="dir-card-actions d-flex flex-column flex-md-row gap-2 mt-3">
                 <a href="#kettle" class="btn btn-outline-secondary btn-sm dir-view-details">View Details</a>
-                <button class="btn btn-brand btn-sm js-quote dir-get-quote" data-product="Kettle" data-quote-trigger="1" data-open-quote="1">Get Quote</button>
+                <button type="button" class="btn btn-brand btn-sm js-quote dir-get-quote" data-product="Kettle" data-quote-trigger="1" data-open-quote="1" onclick="openQuoteModal('Kettle');">Get Quote</button>
               </div>
             </div>
           </div>
@@ -3062,7 +3062,7 @@
               <div class="text-muted-2 small">LN61 cold extrusion · HVAC</div>
               <div class="dir-card-actions d-flex flex-column flex-md-row gap-2 mt-3">
                 <a href="#pipe" class="btn btn-outline-secondary btn-sm dir-view-details">View Details</a>
-                <button class="btn btn-brand btn-sm js-quote dir-get-quote" data-product="Pipe" data-quote-trigger="1" data-open-quote="1">Get Quote</button>
+                <button type="button" class="btn btn-brand btn-sm js-quote dir-get-quote" data-product="Pipe" data-quote-trigger="1" data-open-quote="1" onclick="openQuoteModal('Pipe');">Get Quote</button>
               </div>
             </div>
           </div>
@@ -3077,7 +3077,7 @@
               <div class="text-muted-2 small">LN41 C-frame · compact</div>
               <div class="dir-card-actions d-flex flex-column flex-md-row gap-2 mt-3">
                 <a href="#cframe" class="btn btn-outline-secondary btn-sm dir-view-details">View Details</a>
-                <button class="btn btn-brand btn-sm js-quote dir-get-quote" data-product="Other" data-quote-trigger="1" data-open-quote="1">Get Quote</button>
+                <button type="button" class="btn btn-brand btn-sm js-quote dir-get-quote" data-product="Other" data-quote-trigger="1" data-open-quote="1" onclick="openQuoteModal('Other');">Get Quote</button>
               </div>
             </div>
           </div>
@@ -3092,7 +3092,7 @@
               <div class="text-muted-2 small">LN32-S · precision</div>
               <div class="dir-card-actions d-flex flex-column flex-md-row gap-2 mt-3">
                 <a href="#fineblank" class="btn btn-outline-secondary btn-sm dir-view-details">View Details</a>
-                <button class="btn btn-brand btn-sm js-quote dir-get-quote" data-product="Other" data-quote-trigger="1" data-open-quote="1">Get Quote</button>
+                <button type="button" class="btn btn-brand btn-sm js-quote dir-get-quote" data-product="Other" data-quote-trigger="1" data-open-quote="1" onclick="openQuoteModal('Other');">Get Quote</button>
               </div>
             </div>
           </div>
@@ -3107,7 +3107,7 @@
               <div class="text-muted-2 small">LN32/LN34-S · straightening</div>
               <div class="dir-card-actions d-flex flex-column flex-md-row gap-2 mt-3">
                 <a href="#bearing" class="btn btn-outline-secondary btn-sm dir-view-details">View Details</a>
-                <button class="btn btn-brand btn-sm js-quote dir-get-quote" data-product="Other" data-quote-trigger="1" data-open-quote="1">Get Quote</button>
+                <button type="button" class="btn btn-brand btn-sm js-quote dir-get-quote" data-product="Other" data-quote-trigger="1" data-open-quote="1" onclick="openQuoteModal('Other');">Get Quote</button>
               </div>
             </div>
           </div>
@@ -3122,7 +3122,7 @@
               <div class="text-muted-2 small">LN34 heavy duty · high rigidity</div>
               <div class="dir-card-actions d-flex flex-column flex-md-row gap-2 mt-3">
                 <a href="#sink" class="btn btn-outline-secondary btn-sm dir-view-details">View Details</a>
-                <button class="btn btn-brand btn-sm js-quote dir-get-quote" data-product="Sink" data-quote-trigger="1" data-open-quote="1">Get Quote</button>
+                <button type="button" class="btn btn-brand btn-sm js-quote dir-get-quote" data-product="Sink" data-quote-trigger="1" data-open-quote="1" onclick="openQuoteModal('Sink');">Get Quote</button>
               </div>
             </div>
           </div>
@@ -3137,7 +3137,7 @@
               <div class="text-muted-2 small">LN99 internal high pressure</div>
               <div class="dir-card-actions d-flex flex-column flex-md-row gap-2 mt-3">
                 <a href="#auto" class="btn btn-outline-secondary btn-sm dir-view-details">View Details</a>
-                <button class="btn btn-brand btn-sm js-quote dir-get-quote" data-product="Auto" data-quote-trigger="1" data-open-quote="1">Get Quote</button>
+                <button type="button" class="btn btn-brand btn-sm js-quote dir-get-quote" data-product="Auto" data-quote-trigger="1" data-open-quote="1" onclick="openQuoteModal('Auto');">Get Quote</button>
               </div>
             </div>
           </div>
@@ -3151,7 +3151,7 @@
           </div>
           <div class="d-flex gap-2">
             <a href="#catalog" class="btn btn-outline-dark btn-sm">Browse Full Catalog</a>
-            <a href="javascript:void(0)" class="btn btn-brand btn-sm" data-open-quote="1" data-quote-trigger="1">Get Instant Quote</a>
+            <a href="javascript:void(0)" class="btn btn-brand btn-sm" data-open-quote="1" data-quote-trigger="1" onclick="openQuoteModal(''); return false;">Get Instant Quote</a>
           </div>
         </div>
       </div>
@@ -3167,7 +3167,7 @@
           <p class="text-muted-2 section-sub mb-0 catalog-subtitle">Each block is structured like a mini product page: product → process → recommended models → options → quick specs.</p>
         </div>
         <div class="d-flex gap-2 catalog-cta-buttons">
-          <a href="javascript:void(0)" class="btn btn-brand" data-open-quote="1" data-quote-trigger="1">Get Quote</a>
+          <a href="javascript:void(0)" class="btn btn-brand" data-open-quote="1" data-quote-trigger="1" onclick="openQuoteModal(''); return false;">Get Quote</a>
           <a href="https://wa.me/86189622292350" class="btn btn-outline-dark" target="_blank" rel="noopener">WhatsApp</a>
         </div>
       </div>
@@ -3182,7 +3182,7 @@
             </div>
             <!-- 移动端按钮（显示在图片下方） -->
             <div class="d-flex flex-column gap-2 mt-3 mobile-cta-row d-lg-none">
-              <button class="btn btn-brand js-quote" data-product="Lunch Box" data-quote-trigger="1" data-open-quote="1"><span class="cta-desktop">Get Lunch Box Press Quote</span><span class="cta-mobile">Get Lunch Box Press Quote</span></button>
+              <button type="button" class="btn btn-brand js-quote" data-product="Lunch Box" data-quote-trigger="1" data-open-quote="1" onclick="openQuoteModal('Lunch Box');"><span class="cta-desktop">Get Lunch Box Press Quote</span><span class="cta-mobile">Get Lunch Box Press Quote</span></button>
               <a class="btn btn-outline-secondary" href="#process"><span class="cta-desktop">See Process</span><span class="cta-mobile">View Process & Options</span></a>
             </div>
           </div>
@@ -3209,7 +3209,7 @@
             </div>
 
             <div class="d-flex flex-wrap gap-2 mt-3 d-none d-lg-flex">
-              <button class="btn btn-brand js-quote" data-product="Lunch Box" data-quote-trigger="1" data-open-quote="1"><span class="cta-desktop">Get Lunch Box Press Quote</span><span class="cta-mobile">Get Lunch Box Press Quote</span></button>
+              <button type="button" class="btn btn-brand js-quote" data-product="Lunch Box" data-quote-trigger="1" data-open-quote="1" onclick="openQuoteModal('Lunch Box');"><span class="cta-desktop">Get Lunch Box Press Quote</span><span class="cta-mobile">Get Lunch Box Press Quote</span></button>
               <a class="btn btn-outline-secondary" href="#process"><span class="cta-desktop">See Process</span><span class="cta-mobile">View Process & Options</span></a>
             </div>
             <div class="small text-muted-2 mt-2">*Output depends on mold/cycle/material. Share your drawing for exact calculation.</div>
@@ -3227,7 +3227,7 @@
             </div>
             <!-- 移动端按钮（显示在图片下方） -->
             <div class="d-flex flex-column gap-2 mt-3 mobile-cta-row d-lg-none">
-              <button class="btn btn-brand js-quote" data-product="Kettle" data-quote-trigger="1" data-open-quote="1"><span class="cta-desktop">Get Kettle/Cup Press Quote</span><span class="cta-mobile">Get Kettle/Cup Press Quote</span></button>
+              <button type="button" class="btn btn-brand js-quote" data-product="Kettle" data-quote-trigger="1" data-open-quote="1" onclick="openQuoteModal('Kettle');"><span class="cta-desktop">Get Kettle/Cup Press Quote</span><span class="cta-mobile">Get Kettle/Cup Press Quote</span></button>
               <a class="btn btn-outline-secondary" href="#process"><span class="cta-desktop">See Process</span><span class="cta-mobile">View Process & Options</span></a>
             </div>
           </div>
@@ -3252,7 +3252,7 @@
             </div>
 
             <div class="d-flex flex-wrap gap-2 mt-3 d-none d-lg-flex">
-              <button class="btn btn-brand js-quote" data-product="Kettle" data-quote-trigger="1" data-open-quote="1"><span class="cta-desktop">Get Kettle/Cup Press Quote</span><span class="cta-mobile">Get Kettle/Cup Press Quote</span></button>
+              <button type="button" class="btn btn-brand js-quote" data-product="Kettle" data-quote-trigger="1" data-open-quote="1" onclick="openQuoteModal('Kettle');"><span class="cta-desktop">Get Kettle/Cup Press Quote</span><span class="cta-mobile">Get Kettle/Cup Press Quote</span></button>
               <a class="btn btn-outline-secondary" href="#process"><span class="cta-desktop">See Process</span><span class="cta-mobile">View Process & Options</span></a>
             </div>
           </div>
@@ -3269,7 +3269,7 @@
             </div>
             <!-- 移动端按钮（显示在图片下方） -->
             <div class="d-flex flex-column gap-2 mt-3 mobile-cta-row d-lg-none">
-              <button class="btn btn-brand js-quote" data-product="Pipe" data-quote-trigger="1" data-open-quote="1"><span class="cta-desktop">Get Pipe Fitting Press Quote</span><span class="cta-mobile">Get Pipe Fitting Press Quote</span></button>
+              <button type="button" class="btn btn-brand js-quote" data-product="Pipe" data-quote-trigger="1" data-open-quote="1" onclick="openQuoteModal('Pipe');"><span class="cta-desktop">Get Pipe Fitting Press Quote</span><span class="cta-mobile">Get Pipe Fitting Press Quote</span></button>
               <a class="btn btn-outline-secondary" href="#process"><span class="cta-desktop">See Process</span><span class="cta-mobile">View Process & Options</span></a>
             </div>
           </div>
@@ -3294,7 +3294,7 @@
             </div>
 
             <div class="d-flex flex-wrap gap-2 mt-3 d-none d-lg-flex">
-              <button class="btn btn-brand js-quote" data-product="Pipe" data-quote-trigger="1" data-open-quote="1"><span class="cta-desktop">Get Pipe Fitting Press Quote</span><span class="cta-mobile">Get Pipe Fitting Press Quote</span></button>
+              <button type="button" class="btn btn-brand js-quote" data-product="Pipe" data-quote-trigger="1" data-open-quote="1" onclick="openQuoteModal('Pipe');"><span class="cta-desktop">Get Pipe Fitting Press Quote</span><span class="cta-mobile">Get Pipe Fitting Press Quote</span></button>
               <a class="btn btn-outline-secondary" href="#process"><span class="cta-desktop">See Process</span><span class="cta-mobile">View Process & Options</span></a>
             </div>
           </div>
@@ -3311,7 +3311,7 @@
             </div>
             <!-- 移动端按钮（显示在图片下方） -->
             <div class="d-flex flex-column gap-2 mt-3 mobile-cta-row d-lg-none">
-              <button class="btn btn-brand js-quote" data-product="Other" data-quote-trigger="1" data-open-quote="1">Get Press Quote</button>
+              <button type="button" class="btn btn-brand js-quote" data-product="Other" data-quote-trigger="1" data-open-quote="1" onclick="openQuoteModal('Other');">Get Press Quote</button>
             </div>
           </div>
           <div class="col-lg-7">
@@ -3333,7 +3333,7 @@
             </div>
 
             <div class="d-flex flex-wrap gap-2 mt-3 d-none d-lg-flex">
-              <button class="btn btn-brand js-quote" data-product="Other" data-quote-trigger="1" data-open-quote="1">Get Press Quote</button>
+              <button type="button" class="btn btn-brand js-quote" data-product="Other" data-quote-trigger="1" data-open-quote="1" onclick="openQuoteModal('Other');">Get Press Quote</button>
             </div>
           </div>
         </div>
@@ -3349,7 +3349,7 @@
             </div>
             <!-- 移动端按钮（显示在图片下方） -->
             <div class="d-flex flex-column gap-2 mt-3 mobile-cta-row d-lg-none">
-              <button class="btn btn-brand js-quote" data-product="Other" data-quote-trigger="1" data-open-quote="1">Get Press Quote</button>
+              <button type="button" class="btn btn-brand js-quote" data-product="Other" data-quote-trigger="1" data-open-quote="1" onclick="openQuoteModal('Other');">Get Press Quote</button>
             </div>
           </div>
           <div class="col-lg-7">
@@ -3371,7 +3371,7 @@
             </div>
 
             <div class="d-flex flex-wrap gap-2 mt-3 d-none d-lg-flex">
-              <button class="btn btn-brand js-quote" data-product="Other" data-quote-trigger="1" data-open-quote="1">Get Press Quote</button>
+              <button type="button" class="btn btn-brand js-quote" data-product="Other" data-quote-trigger="1" data-open-quote="1" onclick="openQuoteModal('Other');">Get Press Quote</button>
             </div>
           </div>
         </div>
@@ -3387,7 +3387,7 @@
             </div>
             <!-- 移动端按钮（显示在图片下方） -->
             <div class="d-flex flex-column gap-2 mt-3 mobile-cta-row d-lg-none">
-              <button class="btn btn-brand js-quote" data-product="Other" data-quote-trigger="1" data-open-quote="1">Get Press Quote</button>
+              <button type="button" class="btn btn-brand js-quote" data-product="Other" data-quote-trigger="1" data-open-quote="1" onclick="openQuoteModal('Other');">Get Press Quote</button>
             </div>
           </div>
           <div class="col-lg-7">
@@ -3409,7 +3409,7 @@
             </div>
 
             <div class="d-flex flex-wrap gap-2 mt-3 d-none d-lg-flex">
-              <button class="btn btn-brand js-quote" data-product="Other" data-quote-trigger="1" data-open-quote="1">Get Press Quote</button>
+              <button type="button" class="btn btn-brand js-quote" data-product="Other" data-quote-trigger="1" data-open-quote="1" onclick="openQuoteModal('Other');">Get Press Quote</button>
             </div>
           </div>
         </div>
@@ -3425,7 +3425,7 @@
             </div>
             <!-- 移动端按钮（显示在图片下方） -->
             <div class="d-flex flex-column gap-2 mt-3 mobile-cta-row d-lg-none">
-              <button class="btn btn-brand js-quote" data-product="Sink" data-quote-trigger="1" data-open-quote="1"><span class="cta-desktop">Get Sink Press Quote</span><span class="cta-mobile">Get Sink Press Quote</span></button>
+              <button type="button" class="btn btn-brand js-quote" data-product="Sink" data-quote-trigger="1" data-open-quote="1" onclick="openQuoteModal('Sink');"><span class="cta-desktop">Get Sink Press Quote</span><span class="cta-mobile">Get Sink Press Quote</span></button>
             </div>
           </div>
           <div class="col-lg-7">
@@ -3447,7 +3447,7 @@
             </div>
 
             <div class="d-flex flex-wrap gap-2 mt-3 d-none d-lg-flex">
-              <button class="btn btn-brand js-quote" data-product="Sink" data-quote-trigger="1" data-open-quote="1"><span class="cta-desktop">Get Sink Press Quote</span><span class="cta-mobile">Get Sink Press Quote</span></button>
+              <button type="button" class="btn btn-brand js-quote" data-product="Sink" data-quote-trigger="1" data-open-quote="1" onclick="openQuoteModal('Sink');"><span class="cta-desktop">Get Sink Press Quote</span><span class="cta-mobile">Get Sink Press Quote</span></button>
             </div>
           </div>
         </div>
@@ -3463,7 +3463,7 @@
             </div>
             <!-- 移动端按钮（显示在图片下方） -->
             <div class="d-flex flex-column gap-2 mt-3 mobile-cta-row d-lg-none">
-              <button class="btn btn-brand js-quote" data-product="Auto" data-quote-trigger="1" data-open-quote="1"><span class="cta-desktop">Get Auto Parts Press Quote</span><span class="cta-mobile">Get Auto Parts Press Quote</span></button>
+              <button type="button" class="btn btn-brand js-quote" data-product="Auto" data-quote-trigger="1" data-open-quote="1" onclick="openQuoteModal('Auto');"><span class="cta-desktop">Get Auto Parts Press Quote</span><span class="cta-mobile">Get Auto Parts Press Quote</span></button>
             </div>
           </div>
           <div class="col-lg-7">
@@ -3485,7 +3485,7 @@
             </div>
 
             <div class="d-flex flex-wrap gap-2 mt-3 d-none d-lg-flex">
-              <button class="btn btn-brand js-quote" data-product="Auto" data-quote-trigger="1" data-open-quote="1"><span class="cta-desktop">Get Auto Parts Press Quote</span><span class="cta-mobile">Get Auto Parts Press Quote</span></button>
+              <button type="button" class="btn btn-brand js-quote" data-product="Auto" data-quote-trigger="1" data-open-quote="1" onclick="openQuoteModal('Auto');"><span class="cta-desktop">Get Auto Parts Press Quote</span><span class="cta-mobile">Get Auto Parts Press Quote</span></button>
             </div>
           </div>
         </div>
@@ -3571,7 +3571,7 @@
             We can work with <b>drawings</b> or <b>2 samples</b>. Typical lead time: 25–45 days. CE/UL options available.
           </div>
           <div class="d-flex gap-2">
-            <a href="javascript:void(0)" class="btn btn-brand btn-sm" data-open-quote="1" data-quote-trigger="1">Request Configuration</a>
+            <a href="javascript:void(0)" class="btn btn-brand btn-sm" data-open-quote="1" data-quote-trigger="1" onclick="openQuoteModal(''); return false;">Request Configuration</a>
             <a href="https://wa.me/86189622292350" class="btn btn-outline-dark btn-sm" target="_blank" rel="noopener">WhatsApp</a>
           </div>
         </div>
@@ -3588,7 +3588,7 @@
           <h2 class="section-title mb-2">Project Cases</h2>
           <p class="text-muted-2 section-sub mb-0">Use real photos/videos here. Each card can auto-select the product and open the quote form.</p>
         </div>
-        <a href="javascript:void(0)" class="btn btn-brand" data-open-quote="1" data-quote-trigger="1">Ask for Similar Solution</a>
+        <a href="javascript:void(0)" class="btn btn-brand" data-open-quote="1" data-quote-trigger="1" onclick="openQuoteModal(''); return false;">Ask for Similar Solution</a>
       </div>
 
       <div class="row g-3">
@@ -3602,7 +3602,7 @@
                 <span>India</span><span>SUS304</span><span>0.5mm</span>
               </div>
               <div class="d-grid mt-3">
-                <button class="btn btn-outline-dark btn-sm js-quote" data-product="Lunch Box" data-quote-trigger="1" data-open-quote="1">Get Similar Quote</button>
+                <button type="button" class="btn btn-outline-dark btn-sm js-quote" data-product="Lunch Box" data-quote-trigger="1" data-open-quote="1" onclick="openQuoteModal('Lunch Box');">Get Similar Quote</button>
               </div>
             </div>
           </div>
@@ -3618,7 +3618,7 @@
                 <span>Columbia</span><span>Stainless Steel Frying Pan</span>
               </div>
               <div class="d-grid mt-3">
-                <button class="btn btn-outline-dark btn-sm js-quote" data-product="Kettle" data-quote-trigger="1" data-open-quote="1">Get Similar Quote</button>
+                <button type="button" class="btn btn-outline-dark btn-sm js-quote" data-product="Kettle" data-quote-trigger="1" data-open-quote="1" onclick="openQuoteModal('Kettle');">Get Similar Quote</button>
               </div>
             </div>
           </div>
@@ -3634,7 +3634,7 @@
                 <span>Vietnam</span><span>High surface finish</span><span>High rigidity</span>
               </div>
               <div class="d-grid mt-3">
-                <button class="btn btn-outline-dark btn-sm js-quote" data-product="Sink" data-quote-trigger="1" data-open-quote="1">Get Similar Quote</button>
+                <button type="button" class="btn btn-outline-dark btn-sm js-quote" data-product="Sink" data-quote-trigger="1" data-open-quote="1" onclick="openQuoteModal('Sink');">Get Similar Quote</button>
               </div>
             </div>
           </div>
@@ -3649,7 +3649,7 @@
                 <span>Middle East</span><span>Stainless / Copper</span><span>Tee / Elbow</span>
               </div>
               <div class="d-grid mt-3">
-                <button class="btn btn-outline-dark btn-sm js-quote" data-product="Pipe" data-quote-trigger="1" data-open-quote="1">Get Similar Quote</button>
+                <button type="button" class="btn btn-outline-dark btn-sm js-quote" data-product="Pipe" data-quote-trigger="1" data-open-quote="1" onclick="openQuoteModal('Pipe');">Get Similar Quote</button>
               </div>
             </div>
           </div>
@@ -3706,7 +3706,7 @@
           <div class="text-muted-2 small">
             Not ready to download? Click below and we’ll send the resources by email/WhatsApp.
           </div>
-          <button class="btn btn-brand btn-sm js-quote" data-product="Other" data-quote-trigger="1" data-open-quote="1">Send Resources</button>
+          <button type="button" class="btn btn-brand btn-sm js-quote" data-product="Other" data-quote-trigger="1" data-open-quote="1" onclick="openQuoteModal('Other');">Send Resources</button>
         </div>
       </div>
     </div>
@@ -3843,6 +3843,9 @@
 
   <!-- Defer Non-critical Scripts -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" defer></script>
+
+  <!-- Quote Modal Handler (Deferred) -->
+  <script defer src="assets/js/quote-modal.js"></script>
 
   <!-- intl-tel-input JS (Deferred) -->
   <script src="https://cdn.jsdelivr.net/npm/intl-tel-input@18.2.1/build/js/intlTelInput.min.js" defer></script>
