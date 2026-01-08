@@ -95,6 +95,7 @@
     }
     .hero-visual{
       min-height:400px;
+      aspect-ratio: 4/3;
       background-image:url('/images/lineng-hero-machine.webp');
       background-size:cover;
       background-position:right center;
@@ -104,6 +105,12 @@
       border:none;
       border-radius:0;
       box-shadow:none;
+    }
+    .hero-machine{
+      width:100%;
+      height:auto;
+      aspect-ratio: 4/3;
+      object-fit:contain;
     }
     .hero-visual::after{
       content:"";
@@ -2986,7 +2993,7 @@
 
         <div class="col-lg-6 hero-media">
           <div class="hero-visual text-center" aria-label="Lineng Hydraulic Press Machine">
-            <img class="hero-machine" src="/images/lineng-machine-hero-pc.webp" alt="Hydraulic Press">
+            <img class="hero-machine" src="/images/lineng-machine-hero-pc.webp" alt="Hydraulic Press" fetchpriority="high" width="800" height="600" style="aspect-ratio: 4/3; object-fit: contain;">
           </div>
         </div>
       </div>
@@ -3018,7 +3025,7 @@
         <!-- Directory item template: data-tags for filtering, data-target for jumping, data-product for form -->
         <div class="col-md-6 col-lg-3 dir-item" data-tags="deep-drawing" data-target="#lunchbox" data-product="Lunch Box" data-open-quote-card="1">
           <div class="dir-card" role="link" tabindex="0" aria-label="Lunch Box / Trays - View details">
-            <div class="dir-thumb"><img src="/images/products/stainless lunch box.webp" alt="Stainless steel lunch box" /></div>
+            <div class="dir-thumb"><img src="/images/products/stainless lunch box.webp" alt="Stainless steel lunch box" loading="lazy" /></div>
             <div class="dir-body">
               <div class="dir-kicker">Deep Drawing</div>
               <h5 class="mb-1">Lunch Box / Trays</h5>
@@ -3033,7 +3040,7 @@
 
         <div class="col-md-6 col-lg-3 dir-item" data-tags="hydroforming" data-target="#kettle" data-product="Kettle" data-open-quote-card="1">
           <div class="dir-card" role="link" tabindex="0" aria-label="Kettle / Cup - View details">
-            <div class="dir-thumb"><img src="/images/products/water bulging cup.webp" alt="Stainless steel kettle" /></div>
+            <div class="dir-thumb"><img src="/images/products/water bulging cup.webp" alt="Stainless steel kettle" loading="lazy" /></div>
             <div class="dir-body">
               <div class="dir-kicker">Hydroforming</div>
               <h5 class="mb-1">Kettle / Cup</h5>
@@ -3048,7 +3055,7 @@
 
         <div class="col-md-6 col-lg-3 dir-item" data-tags="pipe-forming" data-target="#pipe" data-product="Pipe" data-open-quote-card="1">
           <div class="dir-card" role="link" tabindex="0" aria-label="3-Way Fittings - View details">
-            <div class="dir-thumb"><img src="/images/products/3-Way Fittings.webp" alt="Pipe fitting" /></div>
+            <div class="dir-thumb"><img src="/images/products/3-Way Fittings.webp" alt="Pipe fitting" loading="lazy" /></div>
             <div class="dir-body">
               <div class="dir-kicker">Pipe Forming</div>
               <h5 class="mb-1">3-Way Fittings</h5>
@@ -3063,7 +3070,7 @@
 
         <div class="col-md-6 col-lg-3 dir-item" data-tags="press-fit" data-target="#cframe" data-product="Other" data-open-quote-card="1">
           <div class="dir-card" role="link" tabindex="0" aria-label="Hardware Assembly - View details">
-            <div class="dir-thumb"><img src="/images/products/Hardware Assembly.webp" alt="Stamping press fit" /></div>
+            <div class="dir-thumb"><img src="/images/products/Hardware Assembly.webp" alt="Stamping press fit" loading="lazy" /></div>
             <div class="dir-body">
               <div class="dir-kicker">Press-Fit</div>
               <h5 class="mb-1">Hardware Assembly</h5>
@@ -3078,7 +3085,7 @@
 
         <div class="col-md-6 col-lg-3 dir-item" data-tags="fine-blanking" data-target="#fineblank" data-product="Other" data-open-quote-card="1">
           <div class="dir-card" role="link" tabindex="0" aria-label="Gear Parts - View details">
-            <div class="dir-thumb"><img src="/images/products/Gear Parts.webp" alt="Fine blanking parts" /></div>
+            <div class="dir-thumb"><img src="/images/products/Gear Parts.webp" alt="Fine blanking parts" loading="lazy" /></div>
             <div class="dir-body">
               <div class="dir-kicker">Fine Blanking</div>
               <h5 class="mb-1">Gear Parts</h5>
@@ -3093,7 +3100,7 @@
 
         <div class="col-md-6 col-lg-3 dir-item" data-tags="press-fit" data-target="#bearing" data-product="Other" data-open-quote-card="1">
           <div class="dir-card" role="link" tabindex="0" aria-label="Bearing / Shaft - View details">
-            <div class="dir-thumb"><img src="/images/products/Bearing and shaft assembly.webp" alt="Bearing assembly" /></div>
+            <div class="dir-thumb"><img src="/images/products/Bearing and shaft assembly.webp" alt="Bearing assembly" loading="lazy" /></div>
             <div class="dir-body">
               <div class="dir-kicker">Press-Fit</div>
               <h5 class="mb-1">Bearing / Shaft</h5>
@@ -3108,7 +3115,7 @@
 
         <div class="col-md-6 col-lg-3 dir-item" data-tags="deep-drawing" data-target="#sink" data-product="Sink" data-open-quote-card="1">
           <div class="dir-card" role="link" tabindex="0" aria-label="Sink / Large Panel - View details">
-            <div class="dir-thumb"><img src="/images/products/Stainless steel sink & large panel.webp" alt="Sink deep drawing" /></div>
+            <div class="dir-thumb"><img src="/images/products/Stainless steel sink & large panel.webp" alt="Sink deep drawing" loading="lazy" /></div>
             <div class="dir-body">
               <div class="dir-kicker">Deep Drawing</div>
               <h5 class="mb-1">Sink / Large Panel</h5>
@@ -3123,7 +3130,7 @@
 
         <div class="col-md-6 col-lg-3 dir-item" data-tags="hydroforming" data-target="#auto" data-product="Auto" data-open-quote-card="1">
           <div class="dir-card" role="link" tabindex="0" aria-label="Auto Tube Parts - View details">
-            <div class="dir-thumb"><img src="/images/products/Auto Tube Parts.webp" alt="Automotive hydroformed tube" /></div>
+            <div class="dir-thumb"><img src="/images/products/Auto Tube Parts.webp" alt="Automotive hydroformed tube" loading="lazy" /></div>
             <div class="dir-body">
               <div class="dir-kicker">Hydroforming</div>
               <h5 class="mb-1">Auto Tube Parts</h5>
@@ -3170,8 +3177,8 @@
         <div class="row g-4 align-items-center">
           <div class="col-lg-5">
             <div class="media-compare">
-              <img src="/images/products/stainless lunch box.webp" alt="Stainless steel lunch box product" />
-              <img src="/images/machines/LN28-series-four-column-fast-hydraulic-stretching-machine.jpg" alt="LN28 Fast Deep Drawing Press" />
+              <img src="/images/products/stainless lunch box.webp" alt="Stainless steel lunch box product" loading="lazy" />
+              <img src="/images/machines/LN28-series-four-column-fast-hydraulic-stretching-machine.jpg" alt="LN28 Fast Deep Drawing Press" loading="lazy" />
             </div>
             <!-- 移动端按钮（显示在图片下方） -->
             <div class="d-flex flex-column gap-2 mt-3 mobile-cta-row d-lg-none">
@@ -3215,8 +3222,8 @@
         <div class="row g-4 align-items-center">
           <div class="col-lg-5">
             <div class="media-compare">
-              <img src="/images/products/water bulging cup.webp" alt="Stainless steel kettle product" />
-              <img src="/images/machines/LN98-series-four-column-water-bulging-hydraulic-press.jpg" alt="LN98 Water Bulging Press" />
+              <img src="/images/products/water bulging cup.webp" alt="Stainless steel kettle product" loading="lazy" />
+              <img src="/images/machines/LN98-series-four-column-water-bulging-hydraulic-press.jpg" alt="LN98 Water Bulging Press" loading="lazy" />
             </div>
             <!-- 移动端按钮（显示在图片下方） -->
             <div class="d-flex flex-column gap-2 mt-3 mobile-cta-row d-lg-none">
@@ -3257,8 +3264,8 @@
         <div class="row g-4 align-items-center">
           <div class="col-lg-5">
             <div class="media-compare">
-              <img src="/images/products/3-Way Fittings.webp" alt="Pipe fitting product" />
-              <img src="/images/machines/LN61-series-four-column-three-way-hydraulic-press.jpg" alt="LN61 3-way pipe fitting forming press" />
+              <img src="/images/products/3-Way Fittings.webp" alt="Pipe fitting product" loading="lazy" />
+              <img src="/images/machines/LN61-series-four-column-three-way-hydraulic-press.jpg" alt="LN61 3-way pipe fitting forming press" loading="lazy" />
             </div>
             <!-- 移动端按钮（显示在图片下方） -->
             <div class="d-flex flex-column gap-2 mt-3 mobile-cta-row d-lg-none">
@@ -3299,8 +3306,8 @@
         <div class="row g-4 align-items-center">
           <div class="col-lg-5">
             <div class="media-compare">
-              <img src="/images/products/Hardware Assembly.webp" alt="Stamping / assembly parts" />
-              <img src="/images/machines/LN41-series-single-column-hydraulic-press.jpg" alt="LN41 C-Frame press" />
+              <img src="/images/products/Hardware Assembly.webp" alt="Stamping / assembly parts" loading="lazy" />
+              <img src="/images/machines/LN41-series-single-column-hydraulic-press.jpg" alt="LN41 C-Frame press" loading="lazy" />
             </div>
             <!-- 移动端按钮（显示在图片下方） -->
             <div class="d-flex flex-column gap-2 mt-3 mobile-cta-row d-lg-none">
@@ -3337,8 +3344,8 @@
         <div class="row g-4 align-items-center">
           <div class="col-lg-5">
             <div class="media-compare">
-              <img src="/images/products/Gear Parts.webp" alt="Fine blanking gear parts" />
-              <img src="/images/machines/LN32-S-series-precision-punching-machine.jpg" alt="LN32-S Fine blanking press" />
+              <img src="/images/products/Gear Parts.webp" alt="Fine blanking gear parts" loading="lazy" />
+              <img src="/images/machines/LN32-S-series-precision-punching-machine.jpg" alt="LN32-S Fine blanking press" loading="lazy" />
             </div>
             <!-- 移动端按钮（显示在图片下方） -->
             <div class="d-flex flex-column gap-2 mt-3 mobile-cta-row d-lg-none">
@@ -3375,8 +3382,8 @@
         <div class="row g-4 align-items-center">
           <div class="col-lg-5">
             <div class="media-compare">
-              <img src="/images/products/Bearing and shaft assembly.webp" alt="Bearing and shaft assembly" />
-              <img src="/images/machines/LN32-series-four-column-universal-hydraulic-press.jpeg" alt="LN32 bearing/gear assembly press" />
+              <img src="/images/products/Bearing and shaft assembly.webp" alt="Bearing and shaft assembly" loading="lazy" />
+              <img src="/images/machines/LN32-series-four-column-universal-hydraulic-press.jpeg" alt="LN32 bearing/gear assembly press" loading="lazy" />
             </div>
             <!-- 移动端按钮（显示在图片下方） -->
             <div class="d-flex flex-column gap-2 mt-3 mobile-cta-row d-lg-none">
@@ -3413,8 +3420,8 @@
         <div class="row g-4 align-items-center">
           <div class="col-lg-5">
             <div class="media-compare">
-              <img src="/images/products/Stainless steel sink & large panel.webp" alt="Stainless steel sink / large panel" />
-              <img src="/images/machines/LN34-series-frame-up-moving-hydraulic-press.jpg" alt="LN34 heavy-duty deep drawing press" />
+              <img src="/images/products/Stainless steel sink & large panel.webp" alt="Stainless steel sink / large panel" loading="lazy" />
+              <img src="/images/machines/LN34-series-frame-up-moving-hydraulic-press.jpg" alt="LN34 heavy-duty deep drawing press" loading="lazy" />
             </div>
             <!-- 移动端按钮（显示在图片下方） -->
             <div class="d-flex flex-column gap-2 mt-3 mobile-cta-row d-lg-none">
@@ -3451,8 +3458,8 @@
         <div class="row g-4 align-items-center">
           <div class="col-lg-5">
             <div class="media-compare">
-              <img src="/images/products/Auto Tube Parts.webp" alt="Automotive hydroformed tubular parts" />
-              <img src="/images/machines/LN99-series-internal-high-pressure-forming-hydraulic-press.jpg" alt="LN99 Internal high-pressure hydroforming press" />
+              <img src="/images/products/Auto Tube Parts.webp" alt="Automotive hydroformed tubular parts" loading="lazy" />
+              <img src="/images/machines/LN99-series-internal-high-pressure-forming-hydraulic-press.jpg" alt="LN99 Internal high-pressure hydroforming press" loading="lazy" />
             </div>
             <!-- 移动端按钮（显示在图片下方） -->
             <div class="d-flex flex-column gap-2 mt-3 mobile-cta-row d-lg-none">
@@ -3587,7 +3594,7 @@
       <div class="row g-3">
         <div class="col-md-6 col-lg-3">
           <div class="case-card">
-            <div class="case-thumb"><img src="/images/cases/india customer.webp" alt="Lunch box line case" /></div>
+            <div class="case-thumb"><img src="/images/cases/india customer.webp" alt="Lunch box line case" loading="lazy" /></div>
             <div class="case-body">
               <h6 class="mb-1">Lunch Box Line</h6>
               <div class="text-muted-2 small">LN28-200T + trimming</div>
@@ -3603,7 +3610,7 @@
 
         <div class="col-md-6 col-lg-3">
           <div class="case-card">
-            <div class="case-thumb"><img src="/images/cases/customer from Columbia.webp" alt="Cookware hydroforming case" /></div>
+            <div class="case-thumb"><img src="/images/cases/customer from Columbia.webp" alt="Cookware hydroforming case" loading="lazy" /></div>
             <div class="case-body">
               <h6 class="mb-1">Cookware Hydroforming</h6>
               <div class="text-muted-2 small">LN98-250T</div>
@@ -3619,7 +3626,7 @@
 
         <div class="col-md-6 col-lg-3">
           <div class="case-card">
-            <div class="case-thumb"><img src="/images/cases/stainless pot forming.webp" alt="Sink press case" /></div>
+            <div class="case-thumb"><img src="/images/cases/stainless pot forming.webp" alt="Sink press case" loading="lazy" /></div>
             <div class="case-body">
               <h6 class="mb-1">Stainless Pot Forming</h6>
               <div class="text-muted-2 small">LN34 heavy duty</div>
@@ -3635,7 +3642,7 @@
 
         <div class="col-md-6 col-lg-3">
           <div class="case-card">
-            <div class="case-thumb"><img src="/images/cases/water bulging machine.webp" alt="Pipe fitting case" /></div>
+            <div class="case-thumb"><img src="/images/cases/water bulging machine.webp" alt="Pipe fitting case" loading="lazy" /></div>
             <div class="case-body">
               <h6 class="mb-1">Big Panel Press + Custom Tooling</h6>
               <div class="case-meta">
