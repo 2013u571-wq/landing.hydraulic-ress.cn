@@ -4188,49 +4188,18 @@ window.addEventListener("DOMContentLoaded", function(){
       return;
     }
 
-    // Quote trigger detection - comprehensive selector for all quote buttons
-    // Matches: .js-quote, [data-quote-trigger], [data-open-quote], a[href="#quote"]
-    let trigger = e.target.closest(
-      '.js-quote, [data-quote-trigger="1"], [data-open-quote="1"], a[href="#quote"]'
-    );
-    
-    // Fallback: check by text content for buttons/links containing quote text
-    if(!trigger){
-      const text = (e.target.textContent || "").trim();
-      const quoteTexts = [
-        "Get Quote", 
-        "Get Instant Quote", 
-        "View & Quote", 
-        "Get Instant Proposal", 
-        "Get Free Press Recommendation", 
-        "Get Similar Quote", 
-        "Send Resources"
-      ];
-      if(quoteTexts.some(qt => text.includes(qt))){
-        // Check if clicked element is a button or link
-        if(e.target.tagName === "BUTTON" || e.target.tagName === "A"){
-          trigger = e.target;
-        } else {
-          // Try to find parent button/link
-          trigger = e.target.closest("button, a");
-        }
-      }
-    }
+    // Quote trigger detection - only match [data-open-quote="1"] or .js-quote
+    const trigger = e.target.closest('[data-open-quote="1"], .js-quote');
     
     // Not a quote button - exit early
     if(!trigger) return;
 
-    // Ignore pure WhatsApp links (unless they have quote trigger attributes)
-    const href = trigger.getAttribute("href") || "";
-    if(href.includes("wa.me") && !trigger.classList.contains("js-quote") && !trigger.hasAttribute("data-quote-trigger") && !trigger.hasAttribute("data-open-quote")) {
-      return;
-    }
-    
-    // Prevent anchor navigation for quote links
-    if(trigger.tagName === "A" && (href === "#quote" || href.startsWith("#"))){
-      e.preventDefault();
-      e.stopPropagation();
-    }
+    // Debug log (temporary)
+    console.log('[QUOTE_TRIGGER]', trigger);
+
+    // Always prevent default for quote triggers
+    e.preventDefault();
+    e.stopPropagation();
 
     // Extract product from trigger element or parent card
     let product = trigger.getAttribute("data-product") || trigger.dataset.product || null;
@@ -4241,10 +4210,6 @@ window.addEventListener("DOMContentLoaded", function(){
         product = parentCard.getAttribute("data-product") || parentCard.dataset.product || null;
       }
     }
-
-    // Prevent default and stop propagation for all quote triggers
-    e.preventDefault();
-    e.stopPropagation();
 
     // Open modal (Bootstrap first, fallback to native)
     const ok = openBootstrap(product, modalEl, nativeModal);
