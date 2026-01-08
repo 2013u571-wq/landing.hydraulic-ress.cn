@@ -7,6 +7,57 @@
   'use strict';
 
   /**
+   * Initialize intl-tel-input for WhatsApp field
+   */
+  function initIntlTelInput() {
+    const input = document.getElementById('waInputModal');
+    const form = document.getElementById('quoteFormModal');
+    if (!input || !form) return;
+
+    // Check if already initialized
+    if (input._iti) return;
+
+    // Wait for intl-tel-input library to load
+    if (!window.intlTelInput) {
+      // Retry after a short delay
+      setTimeout(initIntlTelInput, 100);
+      return;
+    }
+
+    try {
+      const iti = window.intlTelInput(input, {
+        initialCountry: "auto",
+        nationalMode: false,
+        separateDialCode: true,
+        autoPlaceholder: "polite",
+        formatOnDisplay: true,
+        utilsScript: "https://cdn.jsdelivr.net/npm/intl-tel-input@18.2.1/build/js/utils.js",
+        geoIpLookup: function(callback) {
+          fetch("https://ipapi.co/json/")
+            .then(r => r.json())
+            .then(d => callback((d && d.country_code) ? d.country_code : "US"))
+            .catch(() => callback("US"));
+        }
+      });
+
+      // Store reference for later use
+      input._iti = iti;
+
+      // Update value on form submit
+      form.addEventListener('submit', function() {
+        try {
+          const e164 = iti.getNumber();
+          if (e164) input.value = e164;
+        } catch (e) {
+          console.warn('[quote-modal] Failed to get E.164 number:', e);
+        }
+      });
+    } catch (e) {
+      console.warn('[quote-modal] Failed to initialize intl-tel-input:', e);
+    }
+  }
+
+  /**
    * Open quote modal with optional product preset
    * @param {string} product - Product name to preset (empty string for generic)
    */
@@ -42,11 +93,19 @@
       }
     }
 
+    // Initialize intl-tel-input when modal opens
+    setTimeout(initIntlTelInput, 100);
+
     // Open modal using Bootstrap if available
     if (window.bootstrap && bootstrap.Modal) {
       try {
         const modal = bootstrap.Modal.getOrCreateInstance(modalEl);
         modal.show();
+        // Initialize intl-tel-input after modal is shown
+        modalEl.addEventListener('shown.bs.modal', function initOnShow() {
+          initIntlTelInput();
+          modalEl.removeEventListener('shown.bs.modal', initOnShow);
+        }, { once: true });
         return;
       } catch (e) {
         console.warn('[quote-modal] Bootstrap modal failed, using fallback:', e);
@@ -71,6 +130,9 @@
     document.body.classList.add('modal-open');
     document.body.style.overflow = 'hidden';
     document.body.style.paddingRight = '0px';
+
+    // Initialize intl-tel-input after modal is shown (fallback mode)
+    setTimeout(initIntlTelInput, 200);
 
     // ESC key handler (fallback mode only)
     function handleEsc(e) {
