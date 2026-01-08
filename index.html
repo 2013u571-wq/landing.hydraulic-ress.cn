@@ -1,0 +1,4304 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Hydraulic Press Solutions for Stainless Steel Cookware, Kettles, Pipe Fittings & More | Foshan Lineng</title>
+  <meta name="description" content="One landing page, all solutions. Choose by the product you make: lunch boxes, cookware, kettles, sinks, pipe fittings, cylinders, gear parts. Get the right hydraulic press and instant quotation." />
+
+  <!-- Bootstrap -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+
+  <style>
+    :root{
+      --brand:#e31e24;
+      --ink:#0f172a;
+      --muted:#6b7280;
+      --hero1:#0b1220;
+      --hero2:#111827;
+      --card:#ffffff;
+      --border:#e5e7eb;
+      --soft:#f8fafc;
+      --shadow:0 16px 36px rgba(2,6,23,.10);
+      --radius:18px;
+      --navH:72px;
+    }
+    html{scroll-behavior:smooth;}
+    body{
+      font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "PingFang SC", "Hiragino Sans GB", "Noto Sans CJK SC", sans-serif;
+      color:var(--ink);
+      background:#fff;
+    }
+    a{color:inherit;}
+    .text-muted-2{color:var(--muted)!important;}
+    .btn-brand{
+      background:var(--brand);
+      border:none;
+      color:#fff;
+      transition:all .25s ease;
+      box-shadow:0 2px 8px rgba(227,30,36,.2);
+    }
+    .btn-brand:hover{
+      background:var(--brand);
+      filter:brightness(1.08);
+      transform:translateY(-2px) scale(1.02);
+      box-shadow:0 6px 20px rgba(227,30,36,.4);
+      color:#fff;
+    }
+    .btn-brand:active{
+      transform:translateY(0) scale(0.98);
+      box-shadow:0 2px 8px rgba(227,30,36,.3);
+    }
+    .btn-outline-brand{border:1px solid rgba(227,30,36,.35); color:var(--brand);}
+    .btn-outline-brand:hover{background:rgba(227,30,36,.08); color:var(--brand);}
+
+    /* ===== Top Nav ===== */
+    .topnav{
+      position:sticky; top:0; z-index:1040;
+      background:rgba(255,255,255,.86);
+      backdrop-filter:saturate(150%) blur(10px);
+      border-bottom:1px solid rgba(229,231,235,.9);
+    }
+    .topnav .navbar{min-height:var(--navH);}
+    .brand-dot{
+      width:14px; height:14px; border-radius:50%;
+      background:var(--brand); display:inline-block; margin-right:10px;
+      box-shadow:0 10px 24px rgba(227,30,36,.25);
+    }
+    .nav-link{
+      color:#111827!important;
+      font-weight:600;
+      padding:.55rem .85rem!important;
+      border-radius:999px;
+    }
+    .nav-link:hover{background:rgba(17,24,39,.06);}
+    .nav-link.active{
+      background:rgba(227,30,36,.10)!important;
+      color:#111827!important;
+    }
+
+    /* ===== Sticky CTA Bar ===== */
+    .sticky-cta{
+      position:fixed; z-index:1040;
+      background:rgba(255,255,255,.90);
+      backdrop-filter:saturate(140%) blur(10px);
+    }
+    /* PC端：右侧侧边栏 */
+    @media (min-width: 993px){
+      .sticky-cta{
+        right:20px;
+        top:50%;
+        transform:translateY(-50%);
+        border-radius:12px;
+        border:1px solid rgba(229,231,235,.95);
+        box-shadow:0 8px 24px rgba(0,0,0,.12);
+      }
+      .sticky-cta .container{
+        padding:.75rem;
+      }
+      body{padding-bottom:0;}
+    }
+    /* 移动端：底部栏 */
+    @media (max-width: 992px){
+      .sticky-cta{
+        left:0; right:0; bottom:0;
+      border-top:1px solid rgba(229,231,235,.95);
+    }
+    .sticky-cta .container{padding:.6rem 0;}
+    body{padding-bottom:70px;} /* for sticky bottom bar */
+    }
+
+    /* ===== Hero ===== */
+    .hero{
+      background-image:
+        radial-gradient(ellipse 80% 70% at 100% 0%, rgba(251,146,60,.06) 0%, transparent 60%),
+        linear-gradient(180deg, var(--hero1) 0%, var(--hero2) 100%);
+      color:#fff;
+      position:relative;
+      overflow:hidden;
+    }
+    /* Subtle vignette for depth */
+    .hero:before{
+      content:"";
+      position:absolute;
+      inset:0;
+      background:radial-gradient(ellipse 80% 70% at 50% 50%, transparent 0%, rgba(0,0,0,.15) 100%);
+      pointer-events:none;
+    }
+    /* ===== Hero background cinematic blending (desktop only) ===== */
+    @media (min-width:992px){
+      /* Industrial dark corner fusion layer */
+      .hero::after{
+        content:"";
+        position:absolute;
+        inset:0;
+        background:
+          radial-gradient(
+            ellipse at 78% 50%,
+            rgba(0,0,0,0) 0%,
+            rgba(0,0,0,0.28) 65%,
+            rgba(0,0,0,0.55) 100%
+          );
+        pointer-events:none;
+        z-index:2;
+      }
+      /* ===== Hero machine grounding ===== */
+      /* Add drop shadow effect to hero-visual for machine grounding */
+      .hero-visual{
+        filter:drop-shadow(0 40px 60px rgba(0,0,0,0.35));
+      }
+    }
+    .hero .badge{
+      background:rgba(255,255,255,.10);
+      border:1px solid rgba(255,255,255,.18);
+    }
+    /* Hero visual area with background image */
+    .hero-visual{
+      min-height:400px;
+      background-image:url('/images/lineng-hero-machine.webp');
+      background-size:cover;
+      background-position:right center;
+      background-repeat:no-repeat;
+      position:relative;
+      /* Remove any card-like styling */
+      background-color:transparent;
+      border:none;
+      border-radius:0;
+      box-shadow:none;
+    }
+    /* Soft fade overlay to blend with hero background - reduced darkness by ~30% */
+    .hero-visual::after{
+      content:"";
+      position:absolute;
+      inset:0;
+      background:linear-gradient(to right, var(--hero1) 0%, rgba(11,18,32,.6) 20%, rgba(11,18,32,.35) 45%, rgba(11,18,32,.15) 70%, transparent 92%);
+      pointer-events:none;
+    }
+    /* Reduce min-height on tablets and below */
+    @media (max-width:991px){
+      .hero-visual{
+        min-height:300px;
+      }
+    }
+    /* Mobile hero optimization - screens smaller than 768px */
+    @media (max-width:767px){
+      /* Hide hero visual image completely on mobile */
+      .hero-visual{
+        display:none;
+      }
+      /* Increase padding for text breathing space */
+      .hero.section-tight{
+        padding-top:64px;
+        padding-bottom:64px;
+        min-height:auto;
+      }
+      /* Center hero content vertically on mobile */
+      .hero .row{
+        align-items:center;
+        min-height:auto;
+      }
+      /* Soft gradient overlay on mobile hero background */
+      .hero::before{
+        background:radial-gradient(ellipse 90% 80% at 50% 50%, transparent 0%, rgba(0,0,0,.12) 100%);
+      }
+    }
+    /* Keep existing rule for very small screens (backward compatibility) */
+    @media (max-width:576px){
+      .hero-visual{
+        display:none;
+      }
+    }
+
+    /* ===== Section rhythm ===== */
+    .section{padding:96px 0;}
+    .section-tight{padding:56px 0;}
+    .section-title{font-weight:800; letter-spacing:-.02em;}
+    .section-sub{max-width:720px;}
+    
+    /* ===== Section Background Rhythm ===== */
+    .section-soft{
+      background: #f7f8fa;
+    }
+
+    /* generic card floating effect inside soft sections (covers bootstrap .card and custom cards) */
+    .section-soft .card,
+    .section-soft .dir-card,
+    .section-soft .case-card,
+    .section-soft .card-soft,
+    .section-soft [class*="card"],
+    .section-soft .process-card,
+    .section-soft .process-item,
+    .section-soft .process-box,
+    .section-soft .cfg-card,
+    .section-soft .cfg-item{
+      background: #fff;
+      border: 1px solid rgba(15, 23, 42, .08);
+      box-shadow: 0 10px 30px rgba(0,0,0,.06);
+    }
+
+    /* keep rounded corners consistent if some cards miss it */
+    .section-soft .card,
+    .section-soft .dir-card,
+    .section-soft .case-card,
+    .section-soft .card-soft,
+    .section-soft .process-card,
+    .section-soft .process-item,
+    .section-soft .process-box,
+    .section-soft .cfg-card,
+    .section-soft .cfg-item{
+      border-radius: 22px;
+      overflow: hidden;
+    }
+
+    /* hover (desktop) */
+    @media (hover:hover){
+      .section-soft .card:hover,
+      .section-soft .dir-card:hover,
+      .section-soft .case-card:hover,
+      .section-soft .card-soft:hover,
+      .section-soft .process-card:hover,
+      .section-soft .process-item:hover,
+      .section-soft .process-box:hover,
+      .section-soft .cfg-card:hover,
+      .section-soft .cfg-item:hover{
+        transform: translateY(-2px);
+        box-shadow: 0 16px 42px rgba(0,0,0,.10);
+      }
+      .section-soft .card,
+      .section-soft .dir-card,
+      .section-soft .case-card,
+      .section-soft .card-soft,
+      .section-soft .process-card,
+      .section-soft .process-item,
+      .section-soft .process-box,
+      .section-soft .cfg-card,
+      .section-soft .cfg-item{
+        transition: transform .18s ease, box-shadow .18s ease, border-color .18s ease;
+      }
+    }
+
+    /* section padding (keep your current values, but ensure it's here) */
+    @media (max-width: 768px){
+      .section{ padding: 64px 0; }
+    }
+    
+    /* ===== Process Flow Cards Premium Design ===== */
+    #process .card-soft{
+      position: relative;
+      padding: 32px 28px !important;
+      border: 1px solid rgba(15, 23, 42, .08) !important;
+      box-shadow: 0 12px 40px rgba(0,0,0,.08) !important;
+    }
+    
+    /* Process flow steps with visual indicators */
+    #process .card-soft ol{
+      list-style: none;
+      padding: 0;
+      margin: 24px 0 0 0;
+      counter-reset: step-counter;
+    }
+    
+    #process .card-soft ol li{
+      position: relative;
+      padding-left: 48px;
+      padding-top: 4px;
+      padding-bottom: 20px;
+      margin-bottom: 0;
+      counter-increment: step-counter;
+      font-size: 15px;
+      line-height: 1.6;
+      color: #374151;
+    }
+    
+    /* Step number circle */
+    #process .card-soft ol li::before{
+      content: counter(step-counter);
+      position: absolute;
+      left: 0;
+      top: 2px;
+      width: 28px;
+      height: 28px;
+      background: #ffffff;
+      color: #374151;
+      border: 2px solid #dc2626;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 600;
+      font-size: 13px;
+      box-shadow: none;
+    }
+    
+    /* Connecting line between steps */
+    #process .card-soft ol li:not(:last-child)::after{
+      content: "";
+      position: absolute;
+      left: 13px;
+      top: 30px;
+      width: 2px;
+      height: calc(100% - 8px);
+      background: #e5e7eb;
+    }
+    
+    /* Process flow header enhancement */
+    #process .card-soft h4{
+      font-size: 22px;
+      font-weight: 800;
+      color: #111827;
+      margin-bottom: 12px;
+      letter-spacing: -0.01em;
+    }
+    
+    #process .card-soft h5{
+      font-size: 14px;
+      font-weight: 600;
+      color: #6b7280;
+      margin-bottom: 24px;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+    
+    /* Badge styling in process cards */
+    #process .card-soft .badge{
+      font-size: 12px;
+      font-weight: 600;
+      padding: 6px 12px;
+      border: 1px solid rgba(15, 23, 42, .12);
+    }
+    
+    /* Step text styling */
+    #process .card-soft ol li{
+      font-weight: 500;
+    }
+    
+    /* Last step - no connector */
+    #process .card-soft ol li:last-child{
+      padding-bottom: 0;
+    }
+    
+    /* Hover effect for process cards */
+    #process .card-soft:hover{
+      transform: translateY(-4px);
+      box-shadow: 0 20px 50px rgba(0,0,0,.12) !important;
+      border-color: rgba(227, 30, 36, .15) !important;
+    }
+    
+    #process .card-soft:hover ol li::before{
+      background: #ffffff;
+      border-color: #dc2626;
+      transform: scale(1.05);
+    }
+    
+    /* Process note styling */
+    .process-note{
+      margin-top: 14px;
+      font-size: 12.5px;
+      line-height: 1.45;
+      color: rgba(15, 23, 42, 0.55);
+      letter-spacing: .01em;
+    }
+    
+    /* Mobile optimization */
+    @media (max-width: 991.98px){
+      #process .card-soft{
+        padding: 24px 20px !important;
+      }
+      
+      #process .card-soft ol li{
+        padding-left: 44px;
+        font-size: 14px;
+        padding-bottom: 18px;
+      }
+      
+      #process .card-soft ol li::before{
+        width: 28px;
+        height: 28px;
+        font-size: 13px;
+      }
+      
+      #process .card-soft ol li:not(:last-child)::after{
+        left: 13px;
+        top: 30px;
+        background: #e5e7eb;
+      }
+    }
+
+    /* ================================
+       Process timeline – Engineering Neutral (no red)
+       Scope: #process only
+       ================================ */
+    #process .step-number,
+    #process .process-step-number,
+    #process .timeline-step,
+    #process .proc-step-num,
+    #process .process-num{
+      background: rgba(15, 23, 42, 0.08) !important; /* soft slate */
+      color: rgba(15, 23, 42, 0.78) !important;      /* readable slate */
+      border: 1px solid rgba(15, 23, 42, 0.10) !important;
+      box-shadow: none !important;
+    }
+
+    #process .step-number,
+    #process .process-step-number,
+    #process .timeline-step,
+    #process .proc-step-num,
+    #process .process-num{
+      width: 28px !important;
+      height: 28px !important;
+      font-size: 13px !important;
+      font-weight: 600 !important;
+    }
+
+    /* Vertical connector line (neutral) */
+    #process .timeline-line,
+    #process .process-line,
+    #process .step-line{
+      background: rgba(15, 23, 42, 0.12) !important;
+    }
+
+    /* Common pseudo-element connectors */
+    #process .step::before,
+    #process .step::after,
+    #process .process-step::before,
+    #process .process-step::after,
+    #process .timeline-step::before,
+    #process .timeline-step::after{
+      background: rgba(15, 23, 42, 0.12) !important;
+    }
+
+    /* Step list border override */
+    #process .step-list,
+    #process .process-steps,
+    #process .timeline-steps,
+    #process .proc-steps{
+      border-left-color: rgba(15, 23, 42, 0.12) !important;
+    }
+
+    /* Optional: hover = slightly darker, still no red */
+    @media (hover:hover){
+      #process .step:hover .step-number,
+      #process .process-step:hover .process-step-number,
+      #process .process-step:hover .timeline-step{
+        background: rgba(15, 23, 42, 0.12) !important;
+        border-color: rgba(15, 23, 42, 0.16) !important;
+      }
+    }
+
+    /* ===== Chips / Tags ===== */
+    .chip{
+      display:inline-block;
+      padding:.38rem .65rem;
+      border:1px solid var(--border);
+      border-radius:999px;
+      font-size:.82rem;
+      margin:.25rem .25rem 0 0;
+      color:#111827;
+      background:#fff;
+      white-space:nowrap;
+    }
+    .badge-cn{
+      background:#f3f4f6; color:#111827; border-radius:6px;
+      font-weight:700;
+    }
+
+    /* ===== Cards ===== */
+    .card-soft{
+      background:var(--card);
+      border:1px solid var(--border);
+      border-radius:var(--radius);
+      box-shadow:0 8px 22px rgba(2,6,23,.06);
+    }
+    .card-product{
+      border:1px solid var(--border);
+      border-radius:var(--radius);
+      overflow:hidden;
+      transition:transform .18s ease, box-shadow .18s ease;
+      background:#fff;
+    }
+    .card-product:hover{transform:translateY(-4px); box-shadow:var(--shadow);}
+    .media-compare{
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:10px;
+    }
+    .media-compare img{
+      width:100%;
+      height:220px;
+      object-fit:cover;
+      border-radius:14px;
+      border:1px solid rgba(229,231,235,.9);
+      background:#fff;
+    }
+
+    /* ===== Directory grid ===== */
+    .dir-card{
+      border:1px solid rgba(229,231,235,.8);
+      border-radius:22px;
+      background:#fff;
+      overflow:hidden;
+      transition:transform .3s cubic-bezier(0.4, 0, 0.2, 1), box-shadow .3s cubic-bezier(0.4, 0, 0.2, 1), border-color .3s ease;
+      height:100%;
+      box-shadow:0 2px 8px rgba(0,0,0,.04);
+      display:flex;
+      flex-direction:column;
+      cursor:pointer;
+      position:relative;
+    }
+    .dir-card:hover{
+      transform:translateY(-4px);
+      box-shadow:0 18px 60px rgba(15,23,42,.14);
+      border-color:rgba(229,231,235,1);
+    }
+    /* Ensure buttons are clickable and stop card click propagation */
+    .dir-card-actions,
+    .dir-card-actions *{
+      position:relative;
+      z-index:10;
+    }
+    .dir-card:hover .dir-thumb img{
+      filter:contrast(1.05) saturate(1.03);
+    }
+    .dir-thumb{
+      aspect-ratio:16/9;
+      background:#0b1220;
+      position:relative;
+      overflow:hidden;
+      border-radius:22px 22px 0 0;
+      /* Subtle top highlight */
+      border-top:1px solid rgba(255,255,255,.08);
+    }
+    .dir-thumb::before{
+      content:"";
+      position:absolute;
+      top:0;
+      left:0;
+      right:0;
+      height:40%;
+      background:linear-gradient(to bottom, rgba(255,255,255,.06) 0%, transparent 100%);
+      pointer-events:none;
+      z-index:1;
+    }
+    .dir-thumb img{
+      width:100%;
+      height:100%;
+      object-fit:cover;
+      object-position:var(--pos, 50% 50%);
+      opacity:.88;
+      transition:opacity .3s ease, filter .3s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    /* Press-Fit card: adjust cropping position */
+    .dir-item[data-tags="press-fit"] .dir-thumb{
+      background:#0b1220;
+    }
+    .dir-item[data-tags="press-fit"] .dir-thumb img{
+      object-fit:cover;
+      object-position:78% 18%;
+      --pos:78% 18%;
+    }
+    .dir-body{
+      padding:20px 20px 20px;
+      display:flex;
+      flex-direction:column;
+      flex:1;
+    }
+    .dir-kicker{
+      font-size:12px;
+      color:var(--muted);
+      font-weight:600;
+      text-transform:uppercase;
+      letter-spacing:.18em;
+      opacity:.6;
+      margin-bottom:8px;
+    }
+    .dir-body h5{
+      font-size:clamp(20px, 2.5vw, 28px);
+      line-height:1.1;
+      font-weight:700;
+      margin-bottom:8px;
+      color:#111827;
+    }
+    .dir-body .text-muted-2.small{
+      font-size:16px;
+      opacity:.7;
+      margin-bottom:16px;
+      line-height:1.5;
+    }
+    .dir-card-actions{
+      gap:12px;
+      margin-top:auto;
+      display:flex;
+      align-items:center;
+    }
+    /* Enhanced hover effect for Get Quote button in Solution Directory */
+    .dir-card-actions .btn-brand,
+    .dir-card-actions .dir-get-quote{
+      transition:all .25s cubic-bezier(0.4, 0, 0.2, 1);
+      box-shadow:0 2px 8px rgba(227,30,36,.2);
+      border-radius:10px;
+      padding:.5rem 1.25rem;
+      font-weight:600;
+    }
+    .dir-card-actions .btn-outline-secondary{
+      border-radius:10px;
+      padding:.5rem 1.25rem;
+      font-weight:600;
+      transition:all .25s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    .dir-card-actions .btn-brand:hover,
+    .dir-card-actions .dir-get-quote:hover{
+      background:var(--brand);
+      filter:brightness(1.08);
+      transform:translateY(-2px) scale(1.02);
+      box-shadow:0 6px 20px rgba(227,30,36,.4);
+      border-color:transparent;
+    }
+    .dir-card-actions .btn-outline-secondary:hover{
+      background:rgba(17,24,39,.04);
+      border-color:rgba(17,24,39,.3);
+      transform:translateY(-1px);
+    }
+    .dir-card-actions .btn-brand:active,
+    .dir-card-actions .dir-get-quote:active{
+      transform:translateY(0) scale(0.98);
+      box-shadow:0 2px 8px rgba(227,30,36,.3);
+    }
+    /* Desktop: both buttons visible side by side */
+    @media (min-width:577px){
+      .dir-card-actions{
+        flex-direction:row;
+      }
+    }
+    /* Mobile: hide View Details, show only Get Quote full width */
+    @media (max-width:576px){
+      .dir-card-actions .dir-view-details{
+        display:none !important;
+      }
+      .dir-card-actions .dir-get-quote{
+        width:100%;
+      }
+      .dir-body{
+        padding:16px 16px 16px;
+      }
+      .dir-body h5{
+        font-size:22px;
+      }
+    }
+
+    /* ===== Filter pills ===== */
+    .filter-wrap{
+      display:flex; flex-wrap:wrap; gap:10px;
+      align-items:center; justify-content:space-between;
+    }
+    .pill-group{
+      display:flex; flex-wrap:wrap; gap:8px;
+    }
+    .pill{
+      border:1px solid var(--border);
+      background:#fff;
+      color:#111827;
+      border-radius:999px;
+      padding:.5rem 1rem;
+      font-weight:600;
+      font-size:.875rem;
+      cursor:pointer;
+      user-select:none;
+      transition:all .2s cubic-bezier(0.4, 0, 0.2, 1);
+      letter-spacing:.02em;
+    }
+    .pill:hover{
+      background:rgba(17,24,39,.04);
+      border-color:rgba(17,24,39,.2);
+      transform:translateY(-1px);
+    }
+    .pill.active{
+      background:rgba(227,30,36,.08);
+      border-color:var(--brand);
+      color:var(--brand);
+      font-weight:700;
+    }
+    .pill.active{
+      border-color:rgba(227,30,36,.35);
+      background:rgba(227,30,36,.10);
+    }
+
+    /* ===== Mini spec list ===== */
+    .spec{
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:10px;
+      margin-top:10px;
+    }
+    .spec .kv{
+      border:1px solid var(--border);
+      border-radius:14px;
+      padding:10px 12px;
+      background:var(--soft);
+      font-size:.92rem;
+    }
+    .kv b{display:block; font-size:.78rem; color:var(--muted); margin-bottom:2px;}
+
+    /* ===== Anchors scroll offset ===== */
+    .anchor-spy{scroll-margin-top:calc(var(--navH) + 18px);}
+
+    /* ===== Case cards ===== */
+    .case-card{
+      border:1px solid var(--border);
+      border-radius:18px;
+      background:#fff;
+      overflow:hidden;
+      height:100%;
+      transition:transform .18s ease, box-shadow .18s ease;
+      display: flex;
+      flex-direction: column;
+    }
+    .case-card:hover{transform:translateY(-3px); box-shadow:var(--shadow);}
+    .case-thumb{height:170px; background:#111827;}
+    .case-thumb img{width:100%; height:100%; object-fit:cover;}
+    .case-body{
+      padding:14px 14px 16px;
+      display: flex;
+      flex-direction: column;
+      flex-grow: 1;
+    }
+    .case-body .d-grid.mt-3{
+      margin-top: auto;
+    }
+    /* Case card CTA button style */
+    .case-card .btn-outline-dark{
+      background: #ffffff;
+      color: #dc2626;
+      border: 2px solid #dc2626;
+    }
+    .case-card .btn-outline-dark:hover{
+      background: #dc2626;
+      color: #ffffff;
+      border-color: #dc2626;
+    }
+    .case-meta{display:flex; flex-wrap:wrap; gap:8px; margin-top:10px;}
+    .case-meta span{
+      font-size:.78rem;
+      padding:.24rem .5rem;
+      border-radius:999px;
+      border:1px solid var(--border);
+      background:var(--soft);
+      color:#111827;
+      font-weight:700;
+    }
+
+    /* ===== Downloads ===== */
+    .dl-item{
+      border:1px solid var(--border);
+      border-radius:16px;
+      padding:14px 14px;
+      background:#fff;
+      display:flex;
+      gap:12px;
+      align-items:flex-start;
+      height:100%;
+    }
+    .dl-ic{
+      width:42px; height:42px; border-radius:14px;
+      background:rgba(227,30,36,.10);
+      display:flex; align-items:center; justify-content:center;
+      font-weight:900; color:var(--brand);
+      flex:0 0 auto;
+    }
+
+    /* ===== Form ===== */
+    .form-quote{
+      border:1px solid var(--border);
+      border-radius:18px;
+      background:#fff;
+      box-shadow:0 10px 24px rgba(2,6,23,.06);
+    }
+    /* Quote section layout - equal height columns, right column bottom-aligned */
+    #quote .row.align-items-stretch{
+      align-items: stretch;
+    }
+    #quote .col-lg-6:last-child{
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      height: 100%;
+      gap: 0.75rem;
+    }
+    /* Quote flow cards styling */
+    #quote .quote-flow-card{
+      position: relative;
+    }
+    #quote .quote-flow-steps{
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      counter-reset: quote-step-counter;
+    }
+    #quote .quote-flow-steps li{
+      position: relative;
+      padding-left: 40px;
+      padding-bottom: 16px;
+      margin-bottom: 0;
+      counter-increment: quote-step-counter;
+      font-size: 14px;
+      line-height: 1.6;
+      color: #374151;
+    }
+    /* Step number circle */
+    #quote .quote-flow-steps li::before{
+      content: counter(quote-step-counter);
+      position: absolute;
+      left: 0;
+      top: 2px;
+      width: 24px;
+      height: 24px;
+      background: #ffffff;
+      color: #dc2626;
+      border: 2px solid #dc2626;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 600;
+      font-size: 12px;
+      box-shadow: none;
+    }
+    /* Connecting line between steps */
+    #quote .quote-flow-steps li:not(:last-child)::after{
+      content: "";
+      position: absolute;
+      left: 11px;
+      top: 26px;
+      width: 2px;
+      height: calc(100% - 4px);
+      background: #e5e7eb;
+    }
+    /* Vertical connector between cards */
+    #quote .quote-flow-connector{
+      width: 2px;
+      height: 20px;
+      background: #e5e7eb;
+      margin: 0 auto;
+      position: relative;
+      flex-shrink: 0;
+    }
+    /* Remove any top margin from right column children */
+    #quote .col-lg-6:last-child > *{
+      margin-top: 0;
+    }
+    #quote .quote-flow-connector::before{
+      content: "";
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 8px;
+      height: 8px;
+      background: #dc2626;
+      border-radius: 50%;
+      border: 2px solid #ffffff;
+    }
+    /* Form field grouping */
+    .form-field-group{
+      margin-bottom:1.5rem;
+    }
+    .form-field-group:last-child{
+      margin-bottom:0;
+    }
+    .form-field-group-title{
+      font-weight:700;
+      font-size:.875rem;
+      color:var(--muted);
+      text-transform:uppercase;
+      letter-spacing:.05em;
+      margin-bottom:.75rem;
+      padding-bottom:.5rem;
+      border-bottom:1px solid var(--border);
+    }
+    /* Mobile form simplification */
+    @media (max-width:768px){
+      .modal-body .row.g-3,
+      .native-modal-body .row.g-3{
+        --bs-gutter-y:0 !important;
+      }
+      .form-field-group{
+        margin-bottom:0.25rem !important;
+      }
+      /* Make form fields more compact on mobile - reduced by 10px total */
+      .form-field-group .form-label{
+        margin-bottom:0.15rem !important; /* ~2.4px, reduced by ~1.6px */
+      }
+      .form-field-group .form-control,
+      .form-field-group .form-select{
+        margin-bottom:0.3rem !important; /* ~4.8px, reduced by ~3.2px */
+      }
+      /* Additional spacing reduction between field containers - reduce by 10px */
+      .form-field-group .row.g-3 > [class*="col-"]{
+        margin-bottom:0.3rem !important; /* ~4.8px, reduced by ~3.2px */
+      }
+      /* Total reduction: ~8px from margins + ~2px from gutter = ~10px */
+      /* Hide Material, Thickness, Qty fields and their labels on mobile */
+      .form-field-group [name="material"],
+      .form-field-group [name="thickness"],
+      .form-field-group [name="qty"],
+      .form-field-group label:has(+ input[name="material"]),
+      .form-field-group label:has(+ input[name="thickness"]),
+      .form-field-group label:has(+ input[name="qty"]),
+      .form-field-group .col-md-4:has(input[name="material"]),
+      .form-field-group .col-md-4:has(input[name="thickness"]),
+      .form-field-group .col-md-4:has(input[name="qty"]){
+        display:none !important;
+      }
+      /* Fallback: hide all col-md-4 in Product Info section (Material, Thickness, Qty) */
+      .form-field-group:last-of-type .row.g-3 > .col-md-4{
+        display:none !important;
+      }
+      /* Hide introductory text on mobile */
+      .modal-body > p.text-muted-2.mb-3,
+      .native-modal-body > p.text-muted-2.mb-3{
+        display: none !important;
+      }
+      /* Hide section titles on mobile */
+      .form-field-group-title{
+        display: none !important;
+      }
+      /* Mobile: show Email as required (between Name and WhatsApp) */
+      .form-field-group .mobile-email-optional{
+        display:block !important;
+      }
+      .form-field-group .mobile-wa-required{
+        display:block !important;
+      }
+      .form-field-group .mobile-wa-required label::after{
+        content:" *";
+        color:var(--danger, #dc3545);
+      }
+      /* Target Product: disabled style on mobile */
+      .form-field-group select[disabled]{
+        background-color:#f8f9fa;
+        cursor:not-allowed;
+        opacity:0.8;
+      }
+      /* CTA text on mobile - use data attribute for text replacement */
+      .mobile-cta-text{
+        position: relative !important;
+      }
+      .mobile-cta-text span.mobile-text{
+        display: inline-flex !important;
+        align-items: center !important;
+        gap: 4px !important;
+        visibility: visible !important;
+        opacity: 1 !important;
+      }
+      .mobile-cta-text span.desktop-text{
+        display: none !important;
+        visibility: hidden !important;
+        opacity: 0 !important;
+        width: 0 !important;
+        height: 0 !important;
+        overflow: hidden !important;
+        position: absolute !important;
+        left: -9999px !important;
+      }
+    }
+    /* Desktop: show desktop text, hide mobile text */
+    @media (min-width:769px){
+      .mobile-cta-text span.mobile-text{
+        display: none !important;
+        visibility: hidden !important;
+        opacity: 0 !important;
+        width: 0 !important;
+        height: 0 !important;
+        overflow: hidden !important;
+        position: absolute !important;
+        left: -9999px !important;
+      }
+      .mobile-cta-text span.desktop-text{
+        display: inline !important;
+        visibility: visible !important;
+        opacity: 1 !important;
+        position: static !important;
+        width: auto !important;
+        height: auto !important;
+      }
+    }
+    .hint{
+      border:1px solid var(--border);
+      border-radius:18px;
+      background:var(--soft);
+      padding:14px 14px;
+    }
+
+    /* ===== Footer ===== */
+    footer{background:#0b1220; color:#cbd5e1;}
+    footer a{color:#e2e8f0; text-decoration:none;}
+    footer a:hover{text-decoration:underline;}
+
+    /* Mobile */
+    @media (max-width: 992px){
+      .media-compare{
+        grid-template-columns:1fr 1fr !important;
+        gap:8px !important;
+        display:grid !important;
+      }
+      .media-compare img{
+        height:140px !important;
+        width:100% !important;
+        object-fit:cover !important;
+        border-radius:12px !important;
+      }
+
+      /* 移动端产品详情：按钮显示在图片下方 */
+      /* 移动端显示图片下方的按钮容器 */
+      .card-product .col-lg-5 .mobile-cta-row{
+        display:flex !important;
+        flex-direction:column !important;
+        gap:10px !important;
+        margin-top:12px !important;
+      }
+
+      /* 移动端按钮样式 */
+      .card-product .col-lg-5 .mobile-cta-row .btn{
+        width:100% !important;
+        padding:12px 16px !important;
+        font-size:16px !important;
+        font-weight:600 !important;
+        text-align:center !important;
+      }
+
+      /* 移动端主按钮样式 */
+      .card-product .col-lg-5 .mobile-cta-row .btn-brand{
+        background:#e53935 !important;
+        color:#fff !important;
+        border:none !important;
+        border-radius:8px !important;
+      }
+
+      /* 移动端副按钮样式 */
+      .card-product .col-lg-5 .mobile-cta-row .btn-outline-secondary{
+        background:transparent !important;
+        color:#374151 !important;
+        border:1px solid #d1d5db !important;
+        border-radius:8px !important;
+      }
+      
+      /* 确保移动菜单按钮在右侧 */
+      .topnav .navbar > .container{
+        display:flex;
+        justify-content:space-between;
+        align-items:center;
+        flex-wrap:nowrap;
+      }
+      .navbar-brand{
+        flex:1 1 auto;
+        min-width:0;
+        overflow:hidden;
+      }
+      .navbar-brand .small{
+        display:none;
+      }
+      .navbar-toggler{
+        flex:0 0 auto;
+      }
+      /* sticky-cta 按钮在移动端居中 */
+      .sticky-cta .container{
+        justify-content:center;
+      }
+    }
+    @media (max-width: 576px){
+      .dir-thumb{aspect-ratio:16/9;}
+      .case-thumb{height:150px;}
+    }
+    
+    /* WhatsApp 图标样式 */
+    .btn-whatsapp{
+      display:inline-flex;
+      align-items:center;
+      gap:6px;
+    }
+    .btn-whatsapp::before{
+      content:"";
+      display:inline-block;
+      width:18px;
+      height:18px;
+      background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='%2325D366' d='M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z'/%3E%3C/svg%3E");
+      background-size:contain;
+      background-repeat:no-repeat;
+      background-position:center;
+    }
+    
+    /* ===== HERO density control (safe patch) ===== */
+    @media (max-width:576px){
+      /* Mobile: default hide all chips after 3 */
+      .hero .chip{display:none;}
+      .hero .chip:nth-of-type(-n+3){display:inline-flex;}
+      .hero .hero-chip-toggle{display:inline-flex;}
+      /* Optional: hide model chips row if you mark them with .model-chip */
+      .hero .model-chip{display:none!important;}
+      .hero .btn{padding:.75rem 1rem;border-radius:14px;}
+    }
+    /* Fallback: hide any machine model chips row in hero image area (if JS-generated) */
+    .hero .col-lg-6.text-center > .d-flex.mt-3{
+      display:none!important;
+    }
+    .hero-chip-toggle{display:none;margin-top:8px;padding:.45rem .75rem;border-radius:999px;border:1px solid rgba(255,255,255,.25);background:rgba(255,255,255,.12);color:#fff;font-weight:700;font-size:.82rem;line-height:1;}
+    img[data-hide-onerror="1"]{background:transparent;}
+    
+    /* ===== Mobile CTA Final ===== */
+    .hero-cta-row{display:flex; flex-wrap:wrap; gap:12px; align-items:center;}
+    .hero-cases-link{
+      display:none;
+      margin-top:10px;
+      font-weight:700;
+      font-size:14px;
+      color:rgba(255,255,255,.78);
+      text-decoration:none;
+    }
+    .hero-cases-link:hover{color:#fff; text-decoration:underline;}
+
+    /* Old mobile rules - overridden by new mobile hero CTA CSS below */
+    @media (max-width:576px){
+      .hero-cta-row > a.btn{
+        flex:1 1 calc(50% - 6px);
+        text-align:center;
+        border-radius:16px;
+        padding:.85rem 1.05rem;
+      }
+      .hero-cta-row > a.btn.btn-brand{box-shadow:0 10px 24px rgba(0,0,0,.25);}
+    }
+
+    /* ===== WhatsApp FAB + Mobile Menu Fix ===== */
+
+    /* WhatsApp floating icon-only FAB */
+    .wa-fab{
+      position:fixed;
+      right:18px;
+      bottom:22px;
+      width:54px;
+      height:54px;
+      border-radius:999px;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      background:#25D366;
+      box-shadow:0 12px 28px rgba(0,0,0,.22);
+      z-index:1200;
+      transition:transform .18s ease, box-shadow .18s ease, filter .18s ease;
+      text-decoration:none;
+    }
+    .wa-fab:hover{
+      transform:translateY(-2px);
+      box-shadow:0 18px 40px rgba(0,0,0,.26);
+      filter:brightness(.98);
+    }
+    .wa-fab svg{width:26px;height:26px;display:block}
+    @media (max-width:576px){
+      .wa-fab{width:52px;height:52px;right:14px;bottom:18px;}
+    }
+    /* Hide WhatsApp FAB when modal is open */
+    body.modal-open .wa-fab,
+    body.native-modal-open .wa-fab{
+      display:none !important;
+    }
+
+    /* Mobile menu misalignment fixes */
+    .navbar{
+      position:sticky;
+      top:0;
+      z-index:1100; /* below FAB, above page */
+    }
+    .navbar .container{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+    }
+    .navbar-brand{margin-right:0!important;}
+    /* prevent accidental flex auto margins causing offset */
+    .navbar-nav{margin-left:0!important;}
+    
+    /* Mobile menu styling fixes */
+    @media (max-width: 991.98px){
+      /* 确保整个导航栏容器始终固定在顶部 */
+      .topnav{
+        position: fixed !important;
+        top: 0 !important;
+        left: 0 !important;
+        right: 0 !important;
+        z-index: 1100 !important;
+        background: #fff !important;
+        width: 100% !important;
+      }
+
+      /* 确保导航栏在展开时固定在顶部 */
+      .navbar{
+        position: relative !important;
+        background: #fff !important;
+      }
+
+      /* 确保Logo在左侧，菜单按钮在右侧，展开后也保持固定 */
+      /* NOTE: display: flex !important and flex-wrap: nowrap removed to allow Bootstrap collapse to work */
+      .navbar .container{
+        justify-content: space-between !important;
+        align-items: center !important;
+        /* position: sticky removed - replaced by fixed panel approach */
+        background: #fff !important;
+        z-index: 5 !important;
+        padding-top: 0.5rem !important;
+        padding-bottom: 0.5rem !important;
+        min-height: 72px !important;
+      }
+      .navbar-brand{
+        flex: 0 0 auto !important;
+        margin-right: auto !important;
+        position: relative !important;
+        z-index: 6 !important;
+      }
+      .navbar-toggler{
+        flex: 0 0 auto !important;
+        margin-left: auto !important;
+        position: relative !important;
+        z-index: 6 !important;
+      }
+
+      /* 移动端隐藏 Get Instant Quote 和 WhatsApp 按钮 */
+      .navbar-nav .nav-item.d-none.d-lg-block,
+      .navbar-nav .nav-item[class*="d-lg-block"]{
+        display: none !important;
+      }
+
+      /* 为body添加padding-top，避免内容被固定导航栏遮挡 */
+      body{
+        padding-top: 72px !important;
+      }
+
+      /* 菜单折叠区域：可以滚动，但顶部栏固定 */
+      /* NOTE: Old navbar-collapse rules disabled - replaced by #navMain fixed panel approach at end of style block */
+      .navbar-nav{
+        flex-direction: column !important;
+        width: 100% !important;
+        gap: 12px !important; /* 增加间距，平均展开 */
+        align-items: center !important; /* 菜单项居中 */
+        padding-bottom: 1rem !important;
+      }
+      .navbar-nav .nav-item{
+        width: 100% !important;
+        max-width: 100% !important;
+        display: flex !important;
+        justify-content: center !important;
+      }
+      .navbar-nav .nav-link{
+        display: block !important;
+        width: 100% !important;
+        max-width: 100% !important;
+        padding: 0.75rem 1rem !important;
+        border-radius: 8px !important;
+        text-align: center !important; /* 文字居中 */
+        margin: 0 auto !important;
+        /* 添加红色边框 */
+        border: 1px solid #dc2626 !important;
+        background: transparent !important;
+      }
+      .navbar-nav .nav-link:hover{
+        background: rgba(220, 38, 38, 0.05) !important;
+        border-color: #dc2626 !important;
+      }
+      .navbar-nav .nav-link.active{
+        background: rgba(220, 38, 38, 0.10) !important;
+        color: #111827 !important;
+        border-color: #dc2626 !important;
+      }
+    }
+    /* Offcanvas alignment & z-index */
+    .offcanvas{
+      z-index:1150;
+    }
+    .offcanvas-backdrop{
+      z-index:1140;
+    }
+    /* prevent layout shift on menu open */
+    body.menu-open{
+      overflow:hidden;
+      padding-right:0!important;
+    }
+    
+    /* ===== Quote Modal Patch ===== */
+    .modal-content{
+      border-radius:18px;
+      border:1px solid rgba(0,0,0,.08);
+      box-shadow:0 28px 70px rgba(0,0,0,.22);
+    }
+    .modal-header{
+      border-bottom:1px solid rgba(0,0,0,.06);
+    }
+    .modal-title{font-weight:800;}
+    @media (max-width:576px){
+      .modal-dialog{
+        margin:0;
+        max-height:100vh;
+        display:flex;
+        align-items:stretch;
+      }
+      .modal-content{
+        max-height:100vh;
+        display:flex;
+        flex-direction:column;
+        border-radius:0;
+      }
+      .modal-header{
+        flex-shrink:0;
+        padding:14px 16px;
+      }
+      .modal-body{
+        padding:16px;
+        overflow-y:auto;
+        flex:1 1 auto;
+        -webkit-overflow-scrolling:touch;
+      }
+      /* Make CTA sticky at bottom - target the row containing buttons */
+      .modal-body form .row.g-3:last-of-type,
+      .modal-body form > .row:last-child{
+        position:sticky;
+        bottom:-1px;
+        background:#fff;
+        padding-top:12px;
+        margin-bottom:0 !important;
+        margin-top:16px !important;
+        z-index:10;
+        border-top:1px solid rgba(0,0,0,.08);
+        padding-bottom:16px;
+        box-shadow:0 -2px 8px rgba(0,0,0,.04);
+      }
+      /* Increase tap area for inputs on mobile */
+      .modal-body .form-control,
+      .modal-body .form-select{
+        min-height:48px;
+        padding:12px 16px;
+        font-size:16px; /* Prevents zoom on iOS */
+      }
+      .modal-body .form-label{
+        margin-bottom:8px;
+        font-size:14px;
+      }
+    }
+    
+    /* ===== Quote Modal Final Patch (native fallback) ===== */
+    .native-modal-backdrop{
+      position:fixed; inset:0;
+      background:rgba(0,0,0,.55);
+      opacity:0; pointer-events:none;
+      transition:opacity .18s ease;
+      z-index:2000;
+    }
+    .native-modal{
+      position:fixed;
+      left:50%; top:50%;
+      transform:translate(-50%,-46%) scale(.98);
+      width:min(760px, calc(100vw - 24px));
+      max-height:calc(100vh - 24px);
+      overflow:hidden;
+      background:#fff;
+      border-radius:18px;
+      box-shadow:0 28px 70px rgba(0,0,0,.22);
+      opacity:0; pointer-events:none;
+      transition:opacity .18s ease, transform .18s ease;
+      z-index:2010;
+      display:flex;
+      flex-direction:column;
+    }
+    .native-modal.is-open{
+      opacity:1; pointer-events:auto;
+      transform:translate(-50%,-50%) scale(1);
+    }
+    .native-modal-backdrop.is-open{opacity:1; pointer-events:auto;}
+    .native-modal-header{
+      position:sticky; top:0;
+      background:#fff;
+      padding:16px 18px;
+      border-bottom:1px solid rgba(0,0,0,.08);
+      display:flex; align-items:center; justify-content:space-between;
+      flex-shrink:0;
+      z-index:10;
+    }
+    .native-modal-title{font-weight:800; font-size:18px; margin:0;}
+    .native-modal-close{
+      border:1px solid rgba(0,0,0,.15);
+      background:#fff;
+      border-radius:12px;
+      padding:8px 10px;
+      font-weight:700;
+      min-width:44px;
+      min-height:44px;
+    }
+    .native-modal-body{
+      padding:18px;
+      overflow-y:auto;
+      flex:1 1 auto;
+      -webkit-overflow-scrolling:touch;
+    }
+    @media (max-width:576px){
+      .native-modal{
+        width:100vw;
+        max-height:100vh;
+        border-radius:0;
+        left:0;
+        top:0;
+        transform:translate(0,0) scale(1);
+      }
+      .native-modal.is-open{
+        transform:translate(0,0) scale(1);
+      }
+      .native-modal-header{
+        padding:14px 16px;
+      }
+      .native-modal-body{
+        padding:16px;
+      }
+      /* Make CTA sticky at bottom in native modal */
+      .native-modal-body form .row.g-3:last-of-type,
+      .native-modal-body form > .row:last-child{
+        position:sticky;
+        bottom:-1px;
+        background:#fff;
+        padding-top:12px;
+        margin-bottom:0 !important;
+        margin-top:16px !important;
+        z-index:10;
+        border-top:1px solid rgba(0,0,0,.08);
+        padding-bottom:16px;
+        box-shadow:0 -2px 8px rgba(0,0,0,.04);
+      }
+      /* Increase tap area for inputs on mobile */
+      .native-modal-body .form-control,
+      .native-modal-body .form-select{
+        min-height:48px;
+        padding:12px 16px;
+        font-size:16px; /* Prevents zoom on iOS */
+      }
+      .native-modal-body .form-label{
+        margin-bottom:8px;
+        font-size:14px;
+      }
+    }
+    .quote-debug-badge{
+      position:fixed;
+      left:12px; bottom:12px;
+      z-index:3000;
+      background:rgba(0,0,0,.65);
+      color:#fff;
+      font-size:12px;
+      padding:6px 10px;
+      border-radius:999px;
+      display:none;
+    }
+    .quote-debug-badge.is-on{display:inline-flex;}
+    
+    /* =========================
+       HERO – Height + Premium Rhythm
+       ========================= */
+    
+    /* desktop hero taller */
+    .hero{
+      padding-top: 96px;
+      padding-bottom: 88px;
+      min-height: clamp(640px, 78vh, 860px);
+      display: flex;
+      align-items: center;
+      position: relative;
+      overflow: hidden;
+    }
+    
+    /* keep content above overlays */
+    .hero .container,
+    .hero .row{
+      position: relative;
+      z-index: 3;
+    }
+    
+    /* mobile: tighter but still premium */
+    @media (max-width: 991.98px){
+      .hero{
+        padding-top: 72px;
+        padding-bottom: 56px;
+        min-height: 70vh;
+      }
+    }
+    
+    /* =========================
+       HERO – Subtle Motion (Premium, not cheesy)
+       ========================= */
+    
+    /* moving soft glow layer */
+    .hero::before{
+      content:"";
+      position:absolute;
+      inset:-20%;
+      background:
+        radial-gradient(600px 420px at 18% 45%, rgba(255,255,255,0.10), rgba(255,255,255,0) 65%),
+        radial-gradient(520px 360px at 82% 30%, rgba(255, 69, 69, 0.12), rgba(255,255,255,0) 70%),
+        radial-gradient(520px 420px at 78% 78%, rgba(255, 200, 0, 0.10), rgba(255,255,255,0) 70%);
+      filter: blur(18px);
+      opacity: .9;
+      transform: translate3d(0,0,0);
+      animation: heroGlowDrift 14s ease-in-out infinite alternate;
+      pointer-events:none;
+      z-index:1;
+    }
+    
+    @keyframes heroGlowDrift{
+      0%   { transform: translate3d(-18px, 8px, 0) scale(1.00); }
+      100% { transform: translate3d(18px, -10px, 0) scale(1.03); }
+    }
+    
+    /* image gentle float */
+    .hero-visual{
+      position: relative;
+      z-index: 2;
+      transform: translateZ(0);
+      animation: heroFloat 6.5s ease-in-out infinite;
+    }
+    
+    @keyframes heroFloat{
+      0%   { transform: translate3d(0, 0, 0); }
+      50%  { transform: translate3d(0, -8px, 0); }
+      100% { transform: translate3d(0, 0, 0); }
+    }
+    
+    /* stronger "grounding" */
+    .hero-visual img{
+      filter: drop-shadow(0 44px 70px rgba(0,0,0,0.38));
+    }
+    
+    /* text fade-in on load */
+    .hero .hero-kicker,
+    .hero h1,
+    .hero .hero-title,
+    .hero .hero-subtitle,
+    .hero .hero-cta,
+    .hero .btn,
+    .hero .hero-actions{
+      opacity: 0;
+      transform: translate3d(0, 10px, 0);
+      transition: opacity .7s ease, transform .7s ease;
+    }
+    
+    .hero.is-ready .hero-kicker{ transition-delay: .05s; opacity:1; transform:none; }
+    .hero.is-ready h1,
+    .hero.is-ready .hero-title{ transition-delay: .12s; opacity:1; transform:none; }
+    .hero.is-ready .hero-subtitle{ transition-delay: .18s; opacity:1; transform:none; }
+    .hero.is-ready .hero-cta,
+    .hero.is-ready .hero-actions,
+    .hero.is-ready .btn{ transition-delay: .24s; opacity:1; transform:none; }
+    
+    /* Hero subtitle styling for Google Ads landing page */
+    .hero .hero-subtitle{
+      font-size: 18px;
+      line-height: 1.6;
+      color: rgba(255, 255, 255, 0.85);
+      font-weight: 400;
+    }
+    @media (max-width: 991.98px){
+      .hero .hero-subtitle{
+        font-size: 16px;
+      }
+    }
+    
+    /* respect reduced motion */
+    @media (prefers-reduced-motion: reduce){
+      .hero::before,
+      .hero-visual{ animation: none !important; }
+      .hero .hero-kicker,
+      .hero h1,
+      .hero .hero-title,
+      .hero .hero-subtitle,
+      .hero .hero-cta,
+      .hero .btn,
+      .hero .hero-actions{
+        opacity: 1 !important;
+        transform: none !important;
+        transition: none !important;
+      }
+    }
+    
+    /* =========================
+       Mobile Hero Background Image
+       ========================= */
+    
+    @media (max-width: 768px) {
+      .hero {
+        position: relative;
+        min-height: 92vh;
+        padding-top: 84px;
+        padding-bottom: 48px;
+        background:
+          linear-gradient(
+            to bottom,
+            rgba(10,14,22,0.55) 0%,
+            rgba(10,14,22,0.75) 35%,
+            rgba(10,14,22,0.92) 65%,
+            rgba(10,14,22,1) 100%
+          ),
+          url("/images/lineng-hero-machine.webp");
+        background-repeat: no-repeat;
+        background-size: 165%; /* 110% × 1.5 = 165% - 放大1.5倍 */
+        background-position: center top;
+      }
+    
+      /* 文字在最上层 */
+      .hero .container {
+        position: relative;
+        z-index: 2;
+      }
+
+      /* 减少 hero 区域各元素间距 50px - 修复错位 */
+      .hero .badge.mb-3{
+        margin-bottom: 0 !important; /* 原 1rem(16px)，减少后为 0 */
+      }
+      .hero h1.mb-3,
+      .hero .display-5.mb-3{
+        margin-bottom: 0 !important; /* 原 1rem(16px)，减少后为 0 */
+        line-height: 1.2 !important; /* 减少行高，紧凑显示 */
+      }
+      .hero .hero-subtitle.mb-4{
+        margin-bottom: 0 !important; /* 原 1.5rem(24px)，减少后为 0 */
+        margin-top: 8px !important; /* 添加小间距避免重叠 */
+      }
+      .hero .hero-cta-row.mt-3,
+      .hero .hero-cta-wrap.mt-3{
+        margin-top: 8px !important; /* 原 1rem(16px)，减少后为 8px */
+        margin-bottom: 0 !important;
+      }
+      .hero .mt-4.small{
+        margin-top: 8px !important; /* 原 1.5rem(24px)，减少后为 8px */
+      }
+      /* 减少 hero 整体 padding 和高度 */
+      .hero{
+        padding-top: 34px !important; /* 84px - 50px = 34px */
+        padding-bottom: 0 !important; /* 48px - 50px = -2px，设为 0 */
+        min-height: calc(92vh - 50px) !important; /* 减少 50px */
+      }
+      /* 减少 hero-copy 容器的间距，确保对齐 */
+      .hero .hero-copy{
+        padding-top: 0 !important;
+        padding-bottom: 0 !important;
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: flex-start !important;
+        justify-content: flex-start !important;
+        width: 100% !important;
+      }
+      /* 确保 hero 内元素正确对齐 */
+      .hero .hero-copy > *{
+        width: 100% !important;
+        text-align: left !important;
+      }
+      .hero .hero-copy .hero-cta-row,
+      .hero .hero-copy .hero-cta-wrap{
+        width: 100% !important;
+        justify-content: flex-start !important;
+      }
+      
+      .hero::after{
+        content:"";
+        position:absolute;
+        left:0;
+        right:0;
+        top:120px;
+        height:260px;
+        background:
+          url("/images/lineng-hero-machine.webp") no-repeat center top / contain;
+        opacity:0.22;
+        pointer-events:none;
+        z-index:1;
+      }
+    }
+    
+    /* =========================================================
+       HERO UPGRADE (Desktop + Mobile + Subtle Motion)
+       Requires: /images/lineng-hero-machine.webp
+       ========================================================= */
+    
+    /* =========================================================
+       HERO LAYOUT FIX (High Priority Override)
+       ========================================================= */
+    
+    /* Remove background images from hero container - only keep gradient */
+    header#home.hero,
+    .hero{
+      background-image: linear-gradient(180deg, var(--hero1) 0%, var(--hero2) 100%) !important;
+      background-repeat: no-repeat !important;
+      background-size: auto !important;
+      background-position: center !important;
+    }
+    
+    /* PC端：Hero 左文右图布局 */
+    @media (min-width: 992px){
+      header#home.hero{
+        min-height: clamp(500px, 70vh, 750px) !important;
+        padding-top: clamp(30px, 4vh, 70px) !important;
+        padding-bottom: clamp(10px, 2vh, 40px) !important;
+        display: flex !important;
+        align-items: center !important;
+        position: relative !important;
+        overflow: hidden !important;
+      }
+      
+      header#home.hero > .container{
+        position: relative !important;
+        z-index: 3 !important;
+        width: 100% !important;
+      }
+      
+      header#home.hero .row{
+        align-items: center !important;
+      }
+      
+      /* 右侧图片区块：浅灰渐变底 + 机器图（将被下方 HERO PC FIX 覆盖） */
+    }
+    
+    /* 移动端：Hero 背景显示机器图 */
+    @media (max-width: 768px){
+      header#home.hero{
+        min-height: calc(70vh - 50px) !important; /* 减少 50px */
+        max-height: 550px !important; /* 600px - 50px = 550px */
+        padding-top: 10px !important; /* 60px - 50px = 10px */
+        padding-bottom: 0 !important; /* 40px - 50px = -10px，设为 0 */
+        background-image: 
+          linear-gradient(to bottom, rgba(10,14,22,.55) 0%, rgba(10,14,22,.72) 55%, rgba(10,14,22,.90) 100%),
+          url('/images/lineng-hero-machine.webp') !important;
+        background-repeat: no-repeat !important;
+        background-size: 180% !important; /* 120% × 1.5 = 180% - 放大1.5倍 */
+        background-position: center center !important;
+        position: relative !important;
+        overflow: hidden !important;
+      }
+      
+      /* 文字层在 overlay 上面 */
+      header#home.hero > .container{
+        position: relative !important;
+        z-index: 2 !important;
+        width: 100% !important;
+      }
+
+      /* 减少 header#home.hero 区域各元素间距 50px - 修复错位 */
+      header#home.hero .badge.mb-3{
+        margin-bottom: 0 !important; /* 减少 50px */
+      }
+      header#home.hero h1.mb-3,
+      header#home.hero .display-5.mb-3{
+        margin-bottom: 0 !important; /* 减少 50px */
+        line-height: 1.2 !important; /* 减少行高，紧凑显示 */
+      }
+      header#home.hero .hero-subtitle.mb-4{
+        margin-bottom: 0 !important; /* 减少 50px */
+        margin-top: 8px !important; /* 添加小间距避免重叠 */
+      }
+      header#home.hero .hero-cta-row.mt-3,
+      header#home.hero .hero-cta-wrap.mt-3{
+        margin-top: 8px !important; /* 减少 50px */
+        margin-bottom: 0 !important;
+      }
+      header#home.hero .mt-4.small{
+        margin-top: 8px !important; /* 减少 50px */
+      }
+      header#home.hero .hero-copy{
+        padding-top: 0 !important;
+        padding-bottom: 0 !important;
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: flex-start !important;
+        justify-content: flex-start !important;
+        width: 100% !important;
+      }
+      /* 确保 header#home.hero 内元素正确对齐 */
+      header#home.hero .hero-copy > *{
+        width: 100% !important;
+        text-align: left !important;
+      }
+      header#home.hero .hero-copy .hero-cta-row,
+      header#home.hero .hero-copy .hero-cta-wrap{
+        width: 100% !important;
+        justify-content: flex-start !important;
+      }
+      
+      /* 隐藏右侧图片区块 */
+      header#home.hero .hero-visual{
+        display: none !important;
+      }
+      
+      /* 移除移动端的 ::before 背景图片层（如果有） */
+      header#home.hero::before{
+        display: none !important;
+      }
+      
+      /* 保留 ::after 作为额外的暗角效果（可选） */
+      header#home.hero::after{
+        content: "" !important;
+        position: absolute !important;
+        inset: 0 !important;
+        z-index: 1 !important;
+        background: radial-gradient(ellipse 80% 60% at 50% 50%, transparent 0%, rgba(0,0,0,.15) 100%) !important;
+        pointer-events: none !important;
+      }
+    }
+    
+    /* 修复 section padding 可能导致的错位 */
+    header#home.hero.section-tight{
+      padding-top: clamp(30px, 4vh, 70px) !important;
+      padding-bottom: clamp(10px, 2vh, 40px) !important;
+    }
+    
+    @media (max-width: 768px){
+      header#home.hero.section-tight{
+        padding-top: 60px !important;
+        padding-bottom: 40px !important;
+      }
+    }
+    
+    /* 确保 solutions section 背景不影响 hero */
+    section#solutions{
+      background: linear-gradient(180deg, #ffffff 0%, #f8fafc 100%) !important;
+    }
+    
+    /* ===== HERO VISUAL REFACTORED: FLOATING MACHINE IN SPACE ===== */
+    
+    /* Base container - no box styling */
+    #home.hero .hero-visual{
+      position: relative !important;
+      background-color: transparent !important;
+      background-image: none !important;
+      border: none !important;
+      border-radius: 0 !important;
+      box-shadow: none !important;
+      backdrop-filter: none !important;
+      -webkit-backdrop-filter: none !important;
+      overflow: visible !important;
+      animation: none !important;
+      transform: none !important;
+      filter: none !important;
+    }
+    
+    /* Space light (ambient glow) - ::before */
+    #home.hero .hero-visual::before{
+      content: "" !important;
+      position: absolute !important;
+      inset: 0 !important;
+      background: radial-gradient(
+        ellipse 1200px 600px at 75% 25%,
+        rgba(255, 255, 255, 0.22) 0%,
+        rgba(255, 255, 255, 0.08) 40%,
+        transparent 70%
+      ) !important;
+      pointer-events: none !important;
+      z-index: 1 !important;
+    }
+    
+    /* Ground shadow - ::after (override old fade overlay) */
+    #home.hero .hero-visual::after{
+      content: "" !important;
+      position: absolute !important;
+      bottom: 0 !important;
+      left: 50% !important;
+      right: auto !important;
+      top: auto !important;
+      transform: translateX(-50%) !important;
+      width: 80% !important;
+      height: 30% !important;
+      background: radial-gradient(
+        ellipse 100% 100% at center bottom,
+        rgba(0, 0, 0, 0.25) 0%,
+        rgba(0, 0, 0, 0.15) 40%,
+        transparent 70%
+      ) !important;
+      pointer-events: none !important;
+      z-index: 0 !important;
+      filter: blur(20px) !important;
+    }
+    
+    /* Machine image (override old img styles) */
+    #home.hero .hero-visual .hero-machine,
+    #home.hero .hero-visual img.hero-machine{
+      position: relative !important;
+      z-index: 2 !important;
+      width: auto !important;
+      height: auto !important;
+      max-height: 560px !important;
+      display: block !important;
+      margin: 0 auto !important;
+      transform: translateY(-10px) !important;
+      pointer-events: none !important;
+      filter: none !important;
+    }
+    
+    /* Desktop: machine visually dominant on right side */
+    @media (min-width: 992px){
+      #home.hero .hero-visual{
+        min-height: 600px;
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+      }
+      
+      #home.hero .hero-visual .hero-machine{
+        max-height: 560px;
+        transform: translateY(-10px);
+      }
+    }
+    
+    /* Mobile: reduce machine size and center it */
+    @media (max-width: 991.98px){
+      #home.hero .hero-visual{
+        min-height: 360px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      
+      #home.hero .hero-visual .hero-machine{
+        max-height: 320px;
+        max-width: 90%;
+        transform: translateY(-8px);
+      }
+      
+      /* Reduce glow intensity on mobile */
+      #home.hero .hero-visual::before{
+        background: radial-gradient(
+          ellipse 800px 400px at 70% 30%,
+          rgba(255, 255, 255, 0.18) 0%,
+          rgba(255, 255, 255, 0.06) 35%,
+          transparent 60%
+        );
+      }
+      
+      /* Smaller shadow on mobile */
+      #home.hero .hero-visual::after{
+        width: 70%;
+        height: 25%;
+        filter: blur(15px);
+      }
+    }
+    
+    /* Respect prefers-reduced-motion */
+    @media (prefers-reduced-motion: reduce){
+      #home.hero .hero-visual .hero-machine{
+        transform: none !important;
+      }
+    }
+    
+    /* ===== HERO PC FIX: keep 2 columns side-by-side ===== */
+    @media (min-width: 992px){
+      #home.hero .hero-row{
+        display:flex !important;
+        flex-wrap:nowrap !important;
+        align-items:center !important;
+      }
+      #home.hero .hero-copy{
+        flex: 0 0 50% !important;
+        max-width: 50% !important;
+      }
+      #home.hero .hero-media{
+        flex: 0 0 50% !important;
+        max-width: 50% !important;
+        display:flex !important;
+        justify-content:flex-end !important;
+        align-items:center !important;
+        min-height: 600px !important;
+      }
+
+      /* right image as background - blend into hero (replaced by PREMIUM UPGRADE above) */
+      
+      /* Hide hero container ::before and ::after on PC to avoid conflicts */
+      #home.hero::before,
+      #home.hero::after{
+        display: none !important;
+      }
+    }
+
+    /* mobile keeps full width (avoid breaking current layout) */
+    @media (max-width: 991.98px){
+      #home.hero .hero-media{ justify-content:center !important; }
+    }
+    /* Press-Fit card: end-of-file override with !important */
+    .dir-item[data-tags="press-fit"] .dir-thumb img{
+      object-fit: cover !important;
+      object-position: 78% 18% !important;
+    }
+    /* ==============================
+       Quote: force equal height columns with bottom alignment
+       ============================== */
+    #quote .row.g-4.align-items-stretch{
+      display: flex !important;
+      align-items: stretch !important;
+    }
+
+    #quote .row.g-4.align-items-stretch > .col-lg-6{
+      display: flex !important;
+      flex-direction: column !important;
+      height: 100% !important;
+    }
+
+    /* left column: natural flow from top */
+    #quote .row.g-4.align-items-stretch > .col-lg-6:not(.quote-aside){
+      justify-content: flex-start !important;
+    }
+
+    /* connector should not break flex */
+    #quote .row.g-4.align-items-stretch > .col-lg-6.quote-aside .quote-flow-connector{
+      flex: 0 0 auto !important;
+      height: 18px !important;
+      margin: 0 !important;
+    }
+
+    /* remove any accidental top margins inside right column */
+    #quote .row.g-4.align-items-stretch > .col-lg-6.quote-aside > *{
+      margin-top: 0 !important;
+    }
+
+    /* ==============================
+       Quote: right column bottom aligned with gap
+       ============================== */
+    #quote .row.g-4.align-items-stretch > .col-lg-6.quote-aside{
+      display: flex !important;
+      flex-direction: column !important;
+      justify-content: flex-end !important; /* align to bottom */
+      gap: 18px !important;
+      margin-top: 110px !important;
+      height: 100% !important;
+    }
+
+    /* Hide connector line between cards */
+    #quote .row.g-4.align-items-stretch > .col-lg-6.quote-aside .quote-connector,
+    #quote .row.g-4.align-items-stretch > .col-lg-6.quote-aside .quote-flow-connector{
+      display: none !important;
+    }
+
+    /* =========================================================
+       MOBILE ONLY (Google Ads landing page)
+       Fix: keep rules INSIDE <style> so they apply
+       Scope: ≤ 768px only — desktop unchanged
+       ========================================================= */
+    @media (max-width: 768px){
+
+      /* 1) Hide duplicated sections on mobile */
+      section#solutions,
+      section#process{
+        display: none !important;
+      }
+
+      /* 2) Mobile Hero CTA polish (do NOT change desktop) */
+      /* Hide duplicated sections only - Hero CTA handled separately below */
+    }
+
+    /* =========================================================
+       MOBILE HERO CTA (≤768px) — keep only #quote + #cases links
+       No wrapper classes needed. Desktop unchanged.
+       ========================================================= */
+    @media (max-width: 768px){
+
+      /* A) locate hero area safely */
+      header.hero, #home.hero, .hero, header[id="home"]{
+        position: relative;
+      }
+
+      /* B) In HERO: hide extra CTA links/buttons EXCEPT those pointing to #quote or #cases */
+      /* We only target links/buttons inside HERO (not whole page). */
+      /* Hide links that are NOT #quote or #cases, and NOT buttons with data-open-quote */
+      header.hero a:not([href="#quote"]):not([href="#cases"]):not([data-open-quote]),
+      #home.hero a:not([href="#quote"]):not([href="#cases"]):not([data-open-quote]),
+      .hero a:not([href="#quote"]):not([href="#cases"]):not([data-open-quote]),
+      header#home a:not([href="#quote"]):not([href="#cases"]):not([data-open-quote]){
+        /* only hide if they look like CTA buttons/links */
+        /* keeps normal text links safe, but in hero usually these are CTAs */
+        display: none !important;
+      }
+
+      /* C) Make hero-cta-row a vertical stack */
+      header.hero .hero-cta-row,
+      #home.hero .hero-cta-row,
+      .hero .hero-cta-row,
+      header#home .hero-cta-row{
+        display: flex !important;
+        flex-direction: column !important;
+        gap: 12px !important;
+        width: 100% !important;
+      }
+
+      /* C) Force the two kept CTAs to display as a stacked button group */
+      /* Primary button: #quote links AND buttons with data-open-quote */
+      header.hero a[href="#quote"], #home.hero a[href="#quote"], .hero a[href="#quote"], header#home a[href="#quote"],
+      header.hero a[data-open-quote], #home.hero a[data-open-quote], .hero a[data-open-quote], header#home a[data-open-quote]{
+        display: inline-flex !important;
+        width: 100% !important;
+        align-items: center !important;
+        justify-content: center !important;
+        text-decoration: none !important;
+        margin-top: 0 !important;
+      }
+
+      /* Secondary link: #cases (text link style, not button) */
+      header.hero a[href="#cases"], #home.hero a[href="#cases"], .hero a[href="#cases"], header#home a[href="#cases"]{
+        display: inline-block !important;
+        width: auto !important;
+        margin-top: 8px !important;
+      }
+
+      /* Primary: #quote (and data-open-quote buttons) - 矩形按钮 */
+      header.hero a[href="#quote"], #home.hero a[href="#quote"], .hero a[href="#quote"], header#home a[href="#quote"],
+      header.hero a[data-open-quote], #home.hero a[data-open-quote], .hero a[data-open-quote], header#home a[data-open-quote]{
+        height: 56px !important;
+        border-radius: 8px !important;
+        background: #e53935 !important;
+        color: #fff !important;
+        border: 0 !important;
+        font-weight: 800 !important;
+        font-size: 18px !important;
+        box-shadow: 0 12px 26px rgba(229,57,53,.30) !important;
+      }
+
+      /* Secondary: #cases - 箭头指引文字链接样式（不是按钮） */
+      header.hero a[href="#cases"], #home.hero a[href="#cases"], .hero a[href="#cases"], header#home a[href="#cases"]{
+        height: auto !important;
+        border-radius: 0 !important;
+        background: transparent !important;
+        color: rgba(255,255,255,.85) !important;
+        border: 0 !important;
+        font-weight: 600 !important;
+        font-size: 16px !important;
+        padding: 0 !important;
+        margin-top: 8px !important;
+        text-decoration: underline !important;
+        text-underline-offset: 4px !important;
+        text-decoration-color: rgba(255,255,255,.4) !important;
+      }
+
+      /* D) Hide duplicate "See Cases →" text link */
+      header.hero .hero-cases-link,
+      #home.hero .hero-cases-link,
+      .hero .hero-cases-link,
+      header#home .hero-cases-link{
+        display: none !important;
+      }
+
+      /* E) Add arrow to #cases link */
+      header.hero a[href="#cases"]:not(.hero-cases-link)::after,
+      #home.hero a[href="#cases"]:not(.hero-cases-link)::after,
+      .hero a[href="#cases"]:not(.hero-cases-link)::after,
+      header#home a[href="#cases"]:not(.hero-cases-link)::after{
+        content: " →";
+        margin-left: 4px;
+        text-decoration: none !important;
+      }
+
+      /* F) Hover effect for #cases link */
+      header.hero a[href="#cases"]:not(.hero-cases-link):hover,
+      #home.hero a[href="#cases"]:not(.hero-cases-link):hover,
+      .hero a[href="#cases"]:not(.hero-cases-link):hover,
+      header#home a[href="#cases"]:not(.hero-cases-link):hover{
+        color: rgba(255,255,255,1) !important;
+        text-decoration-color: rgba(255,255,255,.7) !important;
+      }
+    }
+
+    /* =========================================================
+       Mobile-only CTA copy (keep desktop unchanged)
+       ========================================================= */
+    /* Mobile: show mobile text, hide desktop text */
+    @media (max-width: 768px){
+      .cta-desktop{ 
+        display:none !important; 
+      }
+      .cta-mobile{ 
+        display:inline !important; 
+      }
+    }
+
+    /* Desktop: show desktop text, hide mobile text */
+    @media (min-width: 769px){
+      .cta-mobile{ 
+        display:none !important; 
+      }
+      .cta-desktop{ 
+        display:inline !important; 
+      }
+    }
+
+    /* =========================================================
+       Mobile-only: Choose by Product section adjustments
+       ========================================================= */
+    /* Mobile: show mobile title, hide desktop title */
+    @media (max-width: 768px){
+      #catalog .catalog-title-desktop{ 
+        display:none !important; 
+      }
+      #catalog .catalog-title-mobile{ 
+        display:inline !important; 
+      }
+
+      /* Hide subtitle on mobile */
+      #catalog .catalog-subtitle{
+        display:none !important;
+      }
+
+      /* Hide CTA buttons on mobile */
+      #catalog .catalog-cta-buttons{
+        display:none !important;
+      }
+
+      /* Hide "View Process & Options" buttons on mobile */
+      #catalog .btn-outline-secondary:has(.cta-mobile),
+      #catalog a.btn-outline-secondary[href="#process"],
+      #catalog .mobile-cta-row .btn-outline-secondary{
+        display: none !important;
+      }
+    }
+
+    /* Desktop: show desktop title, hide mobile title */
+    @media (min-width: 769px){
+      #catalog .catalog-title-mobile{ 
+        display:none !important; 
+      }
+      #catalog .catalog-title-desktop{ 
+        display:inline !important; 
+      }
+
+      /* Show subtitle and buttons on desktop */
+      #catalog .catalog-subtitle{
+        display:block !important;
+      }
+
+      #catalog .catalog-cta-buttons{
+        display:flex !important;
+      }
+    }
+
+    /* =========================================================
+       Mobile Navbar (Bootstrap): fixed topbar + dropdown menu
+       Scope: <= 991.98px only
+       ========================================================= */
+    @media (max-width: 991.98px){
+      :root{ --nav-h: 72px; }
+
+      /* 固定顶栏 */
+      .topnav{
+        position: fixed !important;
+        top: 0 !important;
+        left: 0 !important;
+        right: 0 !important;
+        z-index: 1050 !important;
+        background: #fff !important;
+      }
+
+      /* 为固定顶栏预留空间 */
+      body{
+        padding-top: var(--nav-h) !important;
+      }
+
+      /* Logo 和菜单按钮 */
+      .topnav .navbar-brand,
+      .topnav .navbar-toggler{
+        position: relative !important;
+        z-index: 1052 !important;
+      }
+
+      /* ⚡ 关键修复：菜单面板使用相对定位 */
+      #navMain.navbar-collapse{
+        position: absolute !important;
+        top: 100% !important;
+        left: 0 !important;
+        right: 0 !important;
+        background: #fff !important;
+        z-index: 1051 !important;
+        max-height: calc(100vh - var(--nav-h)) !important;
+        overflow-y: auto !important;
+        box-shadow: 0 4px 12px rgba(0,0,0,0.15) !important;
+        padding: 1rem !important;
+      }
+
+      /* 菜单项样式 */
+      .navbar-nav .nav-item{
+        width: 100% !important;
+      }
+
+      .navbar-nav .nav-link{
+        display: block !important;
+        padding: 0.75rem 1rem !important;
+        border-radius: 8px !important;
+        text-align: center !important;
+        border: 1px solid #dc2626 !important;
+        margin-bottom: 0.5rem !important;
+      }
+
+      /* ===== Menu open: lock scroll + backdrop ===== */
+      body.menu-open{
+        overflow: hidden !important;
+        height: 100% !important;
+        touch-action: none !important;
+      }
+
+      /* 半透明遮罩层（点击关闭） */
+      .nav-backdrop{
+        position: fixed;
+        inset: var(--nav-h) 0 0 0; /* 从导航栏下方开始 */
+        background: rgba(0,0,0,.35);
+        backdrop-filter: blur(2px);
+        -webkit-backdrop-filter: blur(2px);
+        z-index: 1049; /* 低于菜单(1051) */
+        display: none;
+      }
+      body.menu-open .nav-backdrop{ display:block; }
+
+      /* 菜单面板更像 Apple：圆角 + 更克制的阴影 */
+      #navMain.navbar-collapse{
+        border-radius: 16px !important;
+        margin: 10px 12px 0 !important;
+        left: 12px !important;
+        right: 12px !important;
+        width: auto !important;
+        box-shadow: 0 14px 40px rgba(0,0,0,.18) !important;
+        border: 1px solid rgba(0,0,0,.08) !important;
+      }
+
+      /* 菜单项：去"红框按钮感"，改为高级列表 */
+      .navbar-nav{
+        padding: 10px !important;
+      }
+      .navbar-nav .nav-link{
+        text-align: left !important;
+        border: 0 !important;
+        margin-bottom: 8px !important;
+        border-radius: 12px !important;
+        background: rgba(0,0,0,.04) !important;
+        font-weight: 600 !important;
+        letter-spacing: .1px !important;
+      }
+      .navbar-nav .nav-link:active{
+        transform: scale(.99);
+      }
+
+      /* 汉堡按钮打开态反馈 */
+      .navbar-toggler[aria-expanded="true"]{
+        box-shadow: 0 0 0 4px rgba(220,38,38,.12) !important;
+        border-color: rgba(220,38,38,.35) !important;
+      }
+    }
+
+    /* =========================================================
+       Mobile Navbar: prevent background scroll while menu open
+       Scope: <= 991.98px only
+       ========================================================= */
+    @media (max-width: 991.98px){
+      body.menu-open{ overflow: hidden !important; }
+      /* optional: remove collapse height animation glitches */
+      #navMain.navbar-collapse{ transition: none !important; }
+    }
+
+    @media (max-width: 768px){
+      /* If sections are hidden on mobile, don't keep nav pointing to them */
+      #topNav a[href="#solutions"],
+      #topNav a[href="#process"]{
+        display:none !important;
+      }
+    }
+
+    @media (max-width: 991.98px){
+      /* Bootstrap collapse intermediate state fix */
+      #navMain.navbar-collapse.collapsing{
+        display:block !important;
+      }
+      #navMain.navbar-collapse{
+        overscroll-behavior: contain;
+      }
+      /* When menu is open, hide floating WhatsApp FAB if exists */
+      body.menu-open .wa-fab{
+        display:none !important;
+      }
+    }
+
+    /* ===== Bootstrap Navbar Mobile Stability Patch ===== */
+    /* Ensure navbar and header have proper positioning context */
+    .header, .navbar {
+      position: relative;
+      z-index: 2000;
+    }
+
+    @media (max-width: 991.98px){
+      /* Allow the collapse content to expand - ensure no fixed heights or overflow clipping */
+      .navbar,
+      .navbar > .container,
+      .navbar .container {
+        height: auto !important;
+        overflow: visible !important;
+      }
+
+      /* Let Bootstrap collapse work properly - allow wrapping */
+      /* Note: #navMain has its own fixed panel rules (position: fixed) which take precedence */
+      .navbar > .container,
+      .navbar .container {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+      }
+
+      /* Ensure collapse takes full width (complements #navMain fixed panel approach) */
+      .navbar-collapse {
+        flex-basis: 100%;
+        width: 100%;
+      }
+    }
+
+    /* =========================================================
+       Quote Modal – Mobile UX Patch (ONLY mobile)
+       ========================================================= */
+    @media (max-width: 991.98px){
+
+      /* 让弹窗在手机上全屏，不被外边距影响 */
+      .quote-modal.modal .modal-dialog{
+        margin: 0 !important;
+        width: 100% !important;
+        max-width: 100% !important;
+        height: 100dvh !important;
+      }
+
+      /* 用 flex 把 header/body/footer 分区，保证 footer 能 sticky */
+      .quote-modal.modal .modal-content{
+        height: 100dvh !important;
+        border-radius: 16px 16px 0 0 !important;
+        overflow: hidden !important;
+        display: flex !important;
+        flex-direction: column !important;
+      }
+
+      /* 头部固定，滚动时仍可关闭 */
+      .quote-modal.modal .modal-header{
+        position: sticky !important;
+        top: 0 !important;
+        z-index: 10 !important;
+        background: #fff !important;
+      }
+
+      /* body 可滚动 + 给底部按钮预留空间，避免遮挡最后输入框 */
+      .quote-modal.modal .modal-body{
+        flex: 1 1 auto !important;
+        overflow: auto !important;
+        -webkit-overflow-scrolling: touch !important;
+        padding-bottom: calc(140px + env(safe-area-inset-bottom)) !important;
+      }
+
+      /* 底部按钮区固定在弹窗底部（你现在两个按钮就放这里） */
+      .quote-modal.modal .modal-footer{
+        position: sticky !important;
+        bottom: 0 !important;
+        z-index: 20 !important;
+        background: #fff !important;
+        border-top: 1px solid rgba(0,0,0,.08) !important;
+        padding: 12px 16px calc(12px + env(safe-area-inset-bottom)) !important;
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: center !important;
+        justify-content: center !important;
+        gap: 10px !important;
+        width: 100% !important;
+      }
+
+      /* footer 里所有按钮全宽，更适合手机手指点击，并居中 */
+      .quote-modal.modal .modal-footer .btn,
+      .quote-modal.modal .modal-footer button,
+      .quote-modal.modal .modal-footer a{
+        width: 100% !important;
+        max-width: 100% !important;
+        text-align: center !important;
+        display: flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+        margin-left: 0 !important;
+        margin-right: 0 !important;
+        flex-wrap: nowrap !important;
+      }
+
+      /* 确保按钮内的文本和图标作为一个整体居中 */
+      .quote-modal.modal .modal-footer .btn > *,
+      .quote-modal.modal .modal-footer button > *,
+      .quote-modal.modal .modal-footer a > *{
+        display: inline-flex !important;
+        align-items: center !important;
+        white-space: nowrap !important;
+      }
+
+      /* WhatsApp 按钮中的图标与文本对齐 */
+      .quote-modal.modal .modal-footer a .whatsapp-icon-box{
+        margin-left: 6px !important;
+        flex-shrink: 0 !important;
+      }
+
+      /* ——关键：移动端表单统一单列——
+         你的 PC 截图里 Name/Email 是两列，移动端必须强制单列 */
+      .quote-modal.modal .row{
+        row-gap: 14px !important;
+      }
+      .quote-modal.modal .row > [class*="col-"]{
+        flex: 0 0 100% !important;
+        max-width: 100% !important;
+      }
+
+      /* 字体/间距更适配手机 */
+      .quote-modal.modal h1,
+      .quote-modal.modal h2,
+      .quote-modal.modal .modal-title{
+        font-size: 22px !important;
+        line-height: 1.15 !important;
+      }
+      .quote-modal.modal label{
+        font-size: 14px !important;
+      }
+      .quote-modal.modal input,
+      .quote-modal.modal select,
+      .quote-modal.modal textarea{
+        font-size: 16px !important; /* 防止 iOS 自动放大 */
+      }
+
+      /* 关闭按钮更好点（避免太小点不到） */
+      .quote-modal.modal .btn-close,
+      .quote-modal.modal .close{
+        transform: scale(1.15);
+      }
+    }
+
+    /* ===== Quote Modal Mobile Layout Patch ===== */
+    #quoteModal .modal-dialog{ margin: 0.75rem auto; }
+    #quoteModal .modal-body{ padding: 16px; }
+    #quoteModal .form-field-group{ margin-bottom: 16px; }
+    #quoteModal .form-field-group-title{ margin-bottom: 10px; }
+
+    @media (max-width: 575.98px){
+      /* 关键：把所有 col-md-* 在手机上强制 100% 宽度，避免两列挤在一屏 */
+      #quoteModal .row.g-3 > [class*="col-"]{
+        flex: 0 0 100% !important;
+        max-width: 100% !important;
+      }
+      #quoteModal .form-control,
+      #quoteModal .form-select{
+        min-height: 44px;
+      }
+      #quoteModal textarea.form-control{
+        min-height: 120px;
+      }
+    }
+
+    /* intl-tel-input 宽度修复：让国旗控件不挤压输入框 */
+    #quoteModal .iti{ width: 100%; }
+    #quoteModal .iti__country-list{ max-height: 320px; }
+
+    /* 可选：让关闭按钮更好点按 */
+    #quoteModal .btn-close{ transform: scale(1.05); }
+
+    /* ===== Quote Modal Mobile Select/Scroll Fix ===== */
+    @media (max-width: 575.98px){
+      /* 全屏展示，避免滚动容器/高度计算导致 select 异常 */
+      #quoteModal .modal-dialog{
+        max-width: 100% !important;
+        width: 100% !important;
+        height: 100dvh !important;
+        margin: 0 !important;
+      }
+      #quoteModal .modal-content{
+        height: 100dvh !important;
+        border-radius: 0 !important;
+      }
+
+      /* 让 header 固定，body 独立滚动 */
+      #quoteModal .modal-header{
+        position: sticky;
+        top: 0;
+        z-index: 3;
+        background: #fff;
+      }
+      #quoteModal .modal-body{
+        overflow-y: auto !important;
+        -webkit-overflow-scrolling: touch !important;
+        padding-bottom: 24px !important;
+        /* 允许 select 下拉菜单溢出（移动端原生下拉不受影响） */
+        overflow-x: visible !important;
+      }
+      /* 确保 select 下拉时不被裁剪 */
+      #quoteModal .modal-body .form-select,
+      #quoteModal .modal-body select{
+        position: relative !important;
+        z-index: 1000 !important;
+      }
+
+      /* 关键：很多移动端 select 问题来自 modal 的 transform 动画残留 */
+      #quoteModal.show .modal-dialog{
+        transform: none !important;
+      }
+    }
+
+    /* 强制 select 可点击，移除原生箭头避免双箭头 */
+    #quoteModal select,
+    #quoteModal .form-select{
+      pointer-events: auto !important;
+      touch-action: manipulation !important;
+      -webkit-appearance: none !important;
+      appearance: none !important;
+      cursor: pointer !important;
+      user-select: none !important;
+      -webkit-user-select: none !important;
+    }
+
+    /* 确保 select 在 modal 中的 z-index 正确 */
+    #quoteModal .modal-body{
+      position: relative !important;
+      z-index: 1 !important;
+    }
+    #quoteModal select,
+    #quoteModal .form-select{
+      position: relative !important;
+      z-index: 10 !important;
+    }
+
+    /* 移动端额外修复：确保 select 下拉菜单不被遮挡 */
+    @media (max-width: 575.98px){
+      #quoteModal .form-select,
+      #quoteModal select{
+        z-index: 1000 !important;
+      }
+    }
+
+    /* WhatsApp 图标样式 - 矩形方框中的图标 */
+    .whatsapp-icon-box{
+      display: inline-flex !important;
+      align-items: center !important;
+      justify-content: center !important;
+      width: 20px !important;
+      height: 20px !important;
+      margin-left: 6px !important;
+      background: #25D366 !important;
+      border-radius: 4px !important;
+      font-size: 14px !important;
+      line-height: 1 !important;
+      vertical-align: middle !important;
+    }
+
+    /* 使用 SVG WhatsApp 图标替代 emoji（更专业） */
+    .whatsapp-icon-box::before{
+      content: "" !important;
+      display: inline-block !important;
+      width: 14px !important;
+      height: 14px !important;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='white'%3E%3Cpath d='M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z'/%3E%3C/svg%3E") !important;
+      background-size: contain !important;
+      background-repeat: no-repeat !important;
+      background-position: center !important;
+    }
+
+    .whatsapp-icon-box{
+      font-size: 0 !important;
+    }
+
+    /* 邮件发送图标样式 - 矩形方框中的图标 */
+    .send-icon-box{
+      display: inline-flex !important;
+      align-items: center !important;
+      justify-content: center !important;
+      width: 20px !important;
+      height: 20px !important;
+      margin-left: 6px !important;
+      background: rgba(255, 255, 255, 0.2) !important;
+      border-radius: 4px !important;
+      font-size: 0 !important;
+      line-height: 1 !important;
+      vertical-align: middle !important;
+    }
+
+    /* 使用 SVG 邮件发送图标 */
+    .send-icon-box::before{
+      content: "" !important;
+      display: inline-block !important;
+      width: 14px !important;
+      height: 14px !important;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='white'%3E%3Cpath d='M2.01 21L23 12 2.01 3 2 10l15 2-15 2z'/%3E%3C/svg%3E") !important;
+      background-size: contain !important;
+      background-repeat: no-repeat !important;
+      background-position: center !important;
+    }
+
+  </style>
+
+  <!-- intl-tel-input CSS -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/intl-tel-input@18.2.1/build/css/intlTelInput.min.css">
+</head>
+
+<body data-bs-spy="scroll" data-bs-target="#topNav" data-bs-root-margin="0px 0px -60%" data-bs-smooth-scroll="true" tabindex="0">
+
+  <!-- ===== Top Nav ===== -->
+  <div class="topnav">
+    <!-- 移动端菜单遮罩层 -->
+    <div class="nav-backdrop"></div>
+    <nav class="navbar navbar-expand-lg">
+      <div class="container">
+        <a class="navbar-brand fw-bold d-flex align-items-center" href="#home" aria-label="Lineng Home">
+          <span class="brand-dot"></span>
+          LINENG <span class="ms-2 small text-muted-2 fw-semibold">Hydraulic Press Solutions</span>
+        </a>
+
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navMain" aria-controls="navMain" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navMain">
+          <ul class="navbar-nav ms-auto align-items-lg-center gap-lg-1" id="topNav">
+            <li class="nav-item"><a class="nav-link" href="#solutions">Solutions</a></li>
+            <li class="nav-item"><a class="nav-link" href="#catalog">Catalog</a></li>
+            <li class="nav-item"><a class="nav-link" href="#process">Process</a></li>
+            <li class="nav-item"><a class="nav-link" href="#cases">Cases</a></li>
+            <li class="nav-item"><a class="nav-link" href="#downloads">Downloads</a></li>
+            <li class="nav-item"><a class="nav-link" href="javascript:void(0)" data-open-quote="1" data-quote-trigger="1">Contact</a></li>
+            <li class="nav-item d-none d-lg-block ms-lg-2">
+              <a class="btn btn-brand btn-sm px-3" href="javascript:void(0)" data-open-quote="1" data-quote-trigger="1">Get Instant Quote</a>
+            </li>
+            <li class="nav-item d-none d-lg-block ms-lg-2">
+              <a class="btn btn-outline-dark btn-sm px-3" href="https://wa.me/86189622292350" target="_blank" rel="noopener">WhatsApp</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+  </div>
+
+  <!-- ===== Hero ===== -->
+  <header id="home" class="hero section-tight anchor-spy">
+    <div class="container">
+      <div class="row align-items-center g-4 hero-row">
+        <div class="col-lg-6 hero-copy">
+          <span class="badge rounded-pill mb-3">QUALITY FIRST · HONEST SERVICE</span>
+          <h1 class="display-5 fw-bold mb-3">Make <span class="text-danger">Your Product</span>, We Match the Right <span class="text-warning">Hydraulic Press</span></h1>
+          <p class="hero-subtitle mb-4">Upload your drawing · Get tonnage & mold suggestion in 24 hours</p>
+          <div class="d-flex flex-wrap gap-2 mt-3 hero-cta-row hero-cta-wrap">
+            <a href="#solutions" class="btn btn-brand btn-lg d-none d-md-inline-flex">Explore Solutions</a>
+            <a href="javascript:void(0)" class="btn btn-outline-light btn-lg hero-cta-primary" data-open-quote="1" data-quote-trigger="1">Get Quote</a>
+            <a href="#cases" class="btn btn-outline-brand btn-lg btn-cases hero-cta-secondary">See Cases</a>
+          </div>
+          <div class="mt-4 small text-white-50">EXW/CIF · CE/UL options · On-site commissioning · Lead time 25–45 days</div>
+        </div>
+
+        <div class="col-lg-6 hero-media">
+          <div class="hero-visual text-center" aria-label="Lineng Hydraulic Press Machine">
+            <img class="hero-machine" src="/images/lineng-machine-hero-pc.webp" alt="Hydraulic Press">
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- ===== Solution Directory + Filter ===== -->
+  <section id="solutions" class="section section-soft anchor-spy hide-on-mobile">
+    <div class="container">
+      <div class="d-flex flex-wrap align-items-end justify-content-between gap-3 mb-4">
+        <div>
+          <h2 class="section-title mb-2">Solution Directory</h2>
+          <p class="text-muted-2 section-sub mb-0">Filter by process, then click a card to open details and auto-select the quote form.</p>
+        </div>
+
+        <div class="filter-wrap">
+          <div class="pill-group" role="tablist" aria-label="Process Filter">
+            <button class="pill active" type="button" data-filter="all">All</button>
+            <button class="pill" type="button" data-filter="deep-drawing">Deep Drawing</button>
+            <button class="pill" type="button" data-filter="hydroforming">Hydroforming</button>
+            <button class="pill" type="button" data-filter="fine-blanking">Fine Blanking</button>
+            <button class="pill" type="button" data-filter="press-fit">Press-Fit</button>
+            <button class="pill" type="button" data-filter="pipe-forming">Pipe Forming</button>
+          </div>
+        </div>
+      </div>
+
+      <div id="dirGrid" class="row g-3">
+        <!-- Directory item template: data-tags for filtering, data-target for jumping, data-product for form -->
+        <div class="col-md-6 col-lg-3 dir-item" data-tags="deep-drawing" data-target="#lunchbox" data-product="Lunch Box" data-open-quote-card="1">
+          <div class="dir-card" role="link" tabindex="0" aria-label="Lunch Box / Trays - View details">
+            <div class="dir-thumb"><img src="/images/products/stainless lunch box.webp" alt="Stainless steel lunch box" /></div>
+            <div class="dir-body">
+              <div class="dir-kicker">Deep Drawing</div>
+              <h5 class="mb-1">Lunch Box / Trays</h5>
+              <div class="text-muted-2 small">LN28 fast drawing · 200–300T</div>
+              <div class="dir-card-actions d-flex flex-column flex-md-row gap-2 mt-3">
+                <a href="#lunchbox" class="btn btn-outline-secondary btn-sm dir-view-details">View Details</a>
+                <button class="btn btn-brand btn-sm js-quote dir-get-quote" data-product="Lunch Box" data-quote-trigger="1">Get Quote</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-6 col-lg-3 dir-item" data-tags="hydroforming" data-target="#kettle" data-product="Kettle" data-open-quote-card="1">
+          <div class="dir-card" role="link" tabindex="0" aria-label="Kettle / Cup - View details">
+            <div class="dir-thumb"><img src="/images/products/water bulging cup.webp" alt="Stainless steel kettle" /></div>
+            <div class="dir-body">
+              <div class="dir-kicker">Hydroforming</div>
+              <h5 class="mb-1">Kettle / Cup</h5>
+              <div class="text-muted-2 small">LN98 water bulging · 200–300T</div>
+              <div class="dir-card-actions d-flex flex-column flex-md-row gap-2 mt-3">
+                <a href="#kettle" class="btn btn-outline-secondary btn-sm dir-view-details">View Details</a>
+                <button class="btn btn-brand btn-sm js-quote dir-get-quote" data-product="Kettle" data-quote-trigger="1">Get Quote</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-6 col-lg-3 dir-item" data-tags="pipe-forming" data-target="#pipe" data-product="Pipe" data-open-quote-card="1">
+          <div class="dir-card" role="link" tabindex="0" aria-label="3-Way Fittings - View details">
+            <div class="dir-thumb"><img src="/images/products/3-Way Fittings.webp" alt="Pipe fitting" /></div>
+            <div class="dir-body">
+              <div class="dir-kicker">Pipe Forming</div>
+              <h5 class="mb-1">3-Way Fittings</h5>
+              <div class="text-muted-2 small">LN61 cold extrusion · HVAC</div>
+              <div class="dir-card-actions d-flex flex-column flex-md-row gap-2 mt-3">
+                <a href="#pipe" class="btn btn-outline-secondary btn-sm dir-view-details">View Details</a>
+                <button class="btn btn-brand btn-sm js-quote dir-get-quote" data-product="Pipe" data-quote-trigger="1">Get Quote</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-6 col-lg-3 dir-item" data-tags="press-fit" data-target="#cframe" data-product="Other" data-open-quote-card="1">
+          <div class="dir-card" role="link" tabindex="0" aria-label="Hardware Assembly - View details">
+            <div class="dir-thumb"><img src="/images/products/Hardware Assembly.webp" alt="Stamping press fit" /></div>
+            <div class="dir-body">
+              <div class="dir-kicker">Press-Fit</div>
+              <h5 class="mb-1">Hardware Assembly</h5>
+              <div class="text-muted-2 small">LN41 C-frame · compact</div>
+              <div class="dir-card-actions d-flex flex-column flex-md-row gap-2 mt-3">
+                <a href="#cframe" class="btn btn-outline-secondary btn-sm dir-view-details">View Details</a>
+                <button class="btn btn-brand btn-sm js-quote dir-get-quote" data-product="Other" data-quote-trigger="1">Get Quote</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-6 col-lg-3 dir-item" data-tags="fine-blanking" data-target="#fineblank" data-product="Other" data-open-quote-card="1">
+          <div class="dir-card" role="link" tabindex="0" aria-label="Gear Parts - View details">
+            <div class="dir-thumb"><img src="/images/products/Gear Parts.webp" alt="Fine blanking parts" /></div>
+            <div class="dir-body">
+              <div class="dir-kicker">Fine Blanking</div>
+              <h5 class="mb-1">Gear Parts</h5>
+              <div class="text-muted-2 small">LN32-S · precision</div>
+              <div class="dir-card-actions d-flex flex-column flex-md-row gap-2 mt-3">
+                <a href="#fineblank" class="btn btn-outline-secondary btn-sm dir-view-details">View Details</a>
+                <button class="btn btn-brand btn-sm js-quote dir-get-quote" data-product="Other" data-quote-trigger="1">Get Quote</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-6 col-lg-3 dir-item" data-tags="press-fit" data-target="#bearing" data-product="Other" data-open-quote-card="1">
+          <div class="dir-card" role="link" tabindex="0" aria-label="Bearing / Shaft - View details">
+            <div class="dir-thumb"><img src="/images/products/Bearing and shaft assembly.webp" alt="Bearing assembly" /></div>
+            <div class="dir-body">
+              <div class="dir-kicker">Press-Fit</div>
+              <h5 class="mb-1">Bearing / Shaft</h5>
+              <div class="text-muted-2 small">LN32/LN34-S · straightening</div>
+              <div class="dir-card-actions d-flex flex-column flex-md-row gap-2 mt-3">
+                <a href="#bearing" class="btn btn-outline-secondary btn-sm dir-view-details">View Details</a>
+                <button class="btn btn-brand btn-sm js-quote dir-get-quote" data-product="Other" data-quote-trigger="1">Get Quote</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-6 col-lg-3 dir-item" data-tags="deep-drawing" data-target="#sink" data-product="Sink" data-open-quote-card="1">
+          <div class="dir-card" role="link" tabindex="0" aria-label="Sink / Large Panel - View details">
+            <div class="dir-thumb"><img src="/images/products/Stainless steel sink & large panel.webp" alt="Sink deep drawing" /></div>
+            <div class="dir-body">
+              <div class="dir-kicker">Deep Drawing</div>
+              <h5 class="mb-1">Sink / Large Panel</h5>
+              <div class="text-muted-2 small">LN34 heavy duty · high rigidity</div>
+              <div class="dir-card-actions d-flex flex-column flex-md-row gap-2 mt-3">
+                <a href="#sink" class="btn btn-outline-secondary btn-sm dir-view-details">View Details</a>
+                <button class="btn btn-brand btn-sm js-quote dir-get-quote" data-product="Sink" data-quote-trigger="1">Get Quote</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-6 col-lg-3 dir-item" data-tags="hydroforming" data-target="#auto" data-product="Auto" data-open-quote-card="1">
+          <div class="dir-card" role="link" tabindex="0" aria-label="Auto Tube Parts - View details">
+            <div class="dir-thumb"><img src="/images/products/Auto Tube Parts.webp" alt="Automotive hydroformed tube" /></div>
+            <div class="dir-body">
+              <div class="dir-kicker">Hydroforming</div>
+              <h5 class="mb-1">Auto Tube Parts</h5>
+              <div class="text-muted-2 small">LN99 internal high pressure</div>
+              <div class="dir-card-actions d-flex flex-column flex-md-row gap-2 mt-3">
+                <a href="#auto" class="btn btn-outline-secondary btn-sm dir-view-details">View Details</a>
+                <button class="btn btn-brand btn-sm js-quote dir-get-quote" data-product="Auto" data-quote-trigger="1">Get Quote</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="mt-4 card-soft p-3">
+        <div class="d-flex flex-wrap align-items-center justify-content-between gap-2">
+          <div class="small text-muted-2">
+            Tip: Click <b>View Details</b> to learn more, or <b>Get Quote</b> to contact our engineers directly.
+          </div>
+          <div class="d-flex gap-2">
+            <a href="#catalog" class="btn btn-outline-dark btn-sm">Browse Full Catalog</a>
+            <a href="javascript:void(0)" class="btn btn-brand btn-sm" data-open-quote="1" data-quote-trigger="1">Get Instant Quote</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== Catalog (Detailed) ===== -->
+  <section id="catalog" class="section anchor-spy">
+    <div class="container">
+      <div class="d-flex flex-wrap align-items-end justify-content-between gap-3 mb-4">
+        <div>
+          <h2 class="section-title mb-2"><span class="catalog-title-desktop">Choose by Product (Detailed)</span><span class="catalog-title-mobile">Choose Your Press by Product</span></h2>
+          <p class="text-muted-2 section-sub mb-0 catalog-subtitle">Each block is structured like a mini product page: product → process → recommended models → options → quick specs.</p>
+        </div>
+        <div class="d-flex gap-2 catalog-cta-buttons">
+          <a href="javascript:void(0)" class="btn btn-brand" data-open-quote="1" data-quote-trigger="1">Get Quote</a>
+          <a href="https://wa.me/86189622292350" class="btn btn-outline-dark" target="_blank" rel="noopener">WhatsApp</a>
+        </div>
+      </div>
+
+      <!-- 1 Lunchbox -->
+      <article id="lunchbox" class="anchor-spy card-product p-3 mb-4" data-process="deep-drawing">
+        <div class="row g-4 align-items-center">
+          <div class="col-lg-5">
+            <div class="media-compare">
+              <img src="/images/products/stainless lunch box.webp" alt="Stainless steel lunch box product" />
+              <img src="/images/machines/LN28-series-four-column-fast-hydraulic-stretching-machine.jpg" alt="LN28 Fast Deep Drawing Press" />
+            </div>
+            <!-- 移动端按钮（显示在图片下方） -->
+            <div class="d-flex flex-column gap-2 mt-3 mobile-cta-row d-lg-none">
+              <button class="btn btn-brand js-quote" data-product="Lunch Box" data-quote-trigger="1"><span class="cta-desktop">Get Lunch Box Press Quote</span><span class="cta-mobile">Get Lunch Box Press Quote</span></button>
+              <a class="btn btn-outline-secondary" href="#process"><span class="cta-desktop">See Process</span><span class="cta-mobile">View Process & Options</span></a>
+            </div>
+          </div>
+          <div class="col-lg-7">
+            <div class="d-flex flex-wrap align-items-center gap-2 mb-2">
+              <span class="badge rounded-pill text-bg-light border">Deep Drawing</span>
+              <span class="badge rounded-pill text-bg-light border">LN28 V1</span>
+              <span class="badge badge-cn">Lunch Box Deep Drawing</span>
+            </div>
+            <h3 class="h3 mb-1">Stainless Steel Lunch Box Press Machine</h3>
+            <div class="text-muted-2 mb-2">High-speed deep drawing for lunch boxes, trays, lids</div>
+
+            <p class="mb-2">Best for SUS304 ≤0.8 mm. One-stroke deep drawing with fast cylinder; optional 6-axis robot + trimming line.</p>
+
+            <div class="mb-2">
+              <span class="chip">0.5–1.0 mm SUS304</span><span class="chip">200–300T</span><span class="chip">Robot Trimming</span><span class="chip">Fast Cylinder</span>
+            </div>
+
+            <div class="spec">
+              <div class="kv"><b>Recommended</b>LN28-200T / 250T / 300T</div>
+              <div class="kv"><b>Typical Output</b>1,000–1,500 pcs/day*</div>
+              <div class="kv"><b>Options</b>Servo · Auto Lubrication · Robot</div>
+              <div class="kv"><b>Support</b>Mold guidance · sample trial</div>
+            </div>
+
+            <div class="d-flex flex-wrap gap-2 mt-3 d-none d-lg-flex">
+              <button class="btn btn-brand js-quote" data-product="Lunch Box" data-quote-trigger="1"><span class="cta-desktop">Get Lunch Box Press Quote</span><span class="cta-mobile">Get Lunch Box Press Quote</span></button>
+              <a class="btn btn-outline-secondary" href="#process"><span class="cta-desktop">See Process</span><span class="cta-mobile">View Process & Options</span></a>
+            </div>
+            <div class="small text-muted-2 mt-2">*Output depends on mold/cycle/material. Share your drawing for exact calculation.</div>
+          </div>
+        </div>
+      </article>
+
+      <!-- 2 Kettle -->
+      <article id="kettle" class="anchor-spy card-product p-3 mb-4" data-process="hydroforming">
+        <div class="row g-4 align-items-center">
+          <div class="col-lg-5">
+            <div class="media-compare">
+              <img src="/images/products/water bulging cup.webp" alt="Stainless steel kettle product" />
+              <img src="/images/machines/LN98-series-four-column-water-bulging-hydraulic-press.jpg" alt="LN98 Water Bulging Press" />
+            </div>
+            <!-- 移动端按钮（显示在图片下方） -->
+            <div class="d-flex flex-column gap-2 mt-3 mobile-cta-row d-lg-none">
+              <button class="btn btn-brand js-quote" data-product="Kettle" data-quote-trigger="1"><span class="cta-desktop">Get Kettle/Cup Press Quote</span><span class="cta-mobile">Get Kettle/Cup Press Quote</span></button>
+              <a class="btn btn-outline-secondary" href="#process"><span class="cta-desktop">See Process</span><span class="cta-mobile">View Process & Options</span></a>
+            </div>
+          </div>
+          <div class="col-lg-7">
+            <div class="d-flex flex-wrap align-items-center gap-2 mb-2">
+              <span class="badge rounded-pill text-bg-light border">Hydroforming</span>
+              <span class="badge rounded-pill text-bg-light border">LN98</span>
+              <span class="badge badge-cn">Hydroforming (Vessels)</span>
+            </div>
+            <h3 class="h3 mb-1">Stainless Steel Kettle/Cup Hydroforming Press</h3>
+            <div class="text-muted-2 mb-2">Uniform thickness · smooth surface · stable forming</div>
+
+            <p class="mb-2">For metal vessel forming with uniform wall thickness and smooth surface. Suitable for kettles, cups, cookware bodies and GN pans.</p>
+
+            <div class="mb-2"><span class="chip">200–300T</span><span class="chip">Uniform Thickness</span><span class="chip">Smooth Surface</span></div>
+
+            <div class="spec">
+              <div class="kv"><b>Recommended</b>LN98-200T / 250T / 300T</div>
+              <div class="kv"><b>Process</b>Preform → water bulging → trimming</div>
+              <div class="kv"><b>Options</b>Fast oil circuit · servo</div>
+              <div class="kv"><b>Support</b>Trial video before shipment</div>
+            </div>
+
+            <div class="d-flex flex-wrap gap-2 mt-3 d-none d-lg-flex">
+              <button class="btn btn-brand js-quote" data-product="Kettle" data-quote-trigger="1"><span class="cta-desktop">Get Kettle/Cup Press Quote</span><span class="cta-mobile">Get Kettle/Cup Press Quote</span></button>
+              <a class="btn btn-outline-secondary" href="#process"><span class="cta-desktop">See Process</span><span class="cta-mobile">View Process & Options</span></a>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <!-- 3 Pipe -->
+      <article id="pipe" class="anchor-spy card-product p-3 mb-4" data-process="pipe-forming">
+        <div class="row g-4 align-items-center">
+          <div class="col-lg-5">
+            <div class="media-compare">
+              <img src="/images/products/3-Way Fittings.webp" alt="Pipe fitting product" />
+              <img src="/images/machines/LN61-series-four-column-three-way-hydraulic-press.jpg" alt="LN61 3-way pipe fitting forming press" />
+            </div>
+            <!-- 移动端按钮（显示在图片下方） -->
+            <div class="d-flex flex-column gap-2 mt-3 mobile-cta-row d-lg-none">
+              <button class="btn btn-brand js-quote" data-product="Pipe" data-quote-trigger="1"><span class="cta-desktop">Get Pipe Fitting Press Quote</span><span class="cta-mobile">Get Pipe Fitting Press Quote</span></button>
+              <a class="btn btn-outline-secondary" href="#process"><span class="cta-desktop">See Process</span><span class="cta-mobile">View Process & Options</span></a>
+            </div>
+          </div>
+          <div class="col-lg-7">
+            <div class="d-flex flex-wrap align-items-center gap-2 mb-2">
+              <span class="badge rounded-pill text-bg-light border">Pipe Forming</span>
+              <span class="badge rounded-pill text-bg-light border">LN61</span>
+              <span class="badge badge-cn">Pipe Branching (T-Joint)</span>
+            </div>
+            <h3 class="h3 mb-1">3-Way Pipe Fitting Forming Hydraulic Press</h3>
+            <div class="text-muted-2 mb-2">HVAC refrigeration · copper tube branching · repeatable</div>
+
+            <p class="mb-2">Precision forming for T-joints and copper tube branches; stable cycle and high repeatability for mass production.</p>
+
+            <div class="mb-2"><span class="chip">Cold Extrusion</span><span class="chip">Pipe Branching</span><span class="chip">High Repeatability</span></div>
+
+            <div class="spec">
+              <div class="kv"><b>Recommended</b>LN61 (custom tonnage)</div>
+              <div class="kv"><b>Materials</b>Copper / steel</div>
+              <div class="kv"><b>Key Input</b>Pipe OD, thickness, length</div>
+              <div class="kv"><b>Support</b>Mold scheme & tooling</div>
+            </div>
+
+            <div class="d-flex flex-wrap gap-2 mt-3 d-none d-lg-flex">
+              <button class="btn btn-brand js-quote" data-product="Pipe" data-quote-trigger="1"><span class="cta-desktop">Get Pipe Fitting Press Quote</span><span class="cta-mobile">Get Pipe Fitting Press Quote</span></button>
+              <a class="btn btn-outline-secondary" href="#process"><span class="cta-desktop">See Process</span><span class="cta-mobile">View Process & Options</span></a>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <!-- 4 C-frame -->
+      <article id="cframe" class="anchor-spy card-product p-3 mb-4" data-process="press-fit">
+        <div class="row g-4 align-items-center">
+          <div class="col-lg-5">
+            <div class="media-compare">
+              <img src="/images/products/Hardware Assembly.webp" alt="Stamping / assembly parts" />
+              <img src="/images/machines/LN41-series-single-column-hydraulic-press.jpg" alt="LN41 C-Frame press" />
+            </div>
+            <!-- 移动端按钮（显示在图片下方） -->
+            <div class="d-flex flex-column gap-2 mt-3 mobile-cta-row d-lg-none">
+              <button class="btn btn-brand js-quote" data-product="Other" data-quote-trigger="1">Get Press Quote</button>
+            </div>
+          </div>
+          <div class="col-lg-7">
+            <div class="d-flex flex-wrap align-items-center gap-2 mb-2">
+              <span class="badge rounded-pill text-bg-light border">Press-Fit</span>
+              <span class="badge rounded-pill text-bg-light border">LN41</span>
+              <span class="badge badge-cn">General Press-Fit Assembly</span>
+            </div>
+            <h3 class="h3 mb-1">Open-Side C-Frame Stamping & Assembly Press</h3>
+            <div class="text-muted-2 mb-2">Compact footprint · fast loading · versatile</div>
+
+            <div class="mb-2"><span class="chip">Punching</span><span class="chip">Press-Fit</span><span class="chip">Assembly</span></div>
+
+            <div class="spec">
+              <div class="kv"><b>Use</b>Locks · connectors · small hardware</div>
+              <div class="kv"><b>Frame</b>Open side (easy access)</div>
+              <div class="kv"><b>Options</b>Safety light curtain</div>
+              <div class="kv"><b>Support</b>Custom tooling</div>
+            </div>
+
+            <div class="d-flex flex-wrap gap-2 mt-3 d-none d-lg-flex">
+              <button class="btn btn-brand js-quote" data-product="Other" data-quote-trigger="1">Get Press Quote</button>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <!-- 5 Fine blanking -->
+      <article id="fineblank" class="anchor-spy card-product p-3 mb-4" data-process="fine-blanking">
+        <div class="row g-4 align-items-center">
+          <div class="col-lg-5">
+            <div class="media-compare">
+              <img src="/images/products/Gear Parts.webp" alt="Fine blanking gear parts" />
+              <img src="/images/machines/LN32-S-series-precision-punching-machine.jpg" alt="LN32-S Fine blanking press" />
+            </div>
+            <!-- 移动端按钮（显示在图片下方） -->
+            <div class="d-flex flex-column gap-2 mt-3 mobile-cta-row d-lg-none">
+              <button class="btn btn-brand js-quote" data-product="Other" data-quote-trigger="1">Get Press Quote</button>
+            </div>
+          </div>
+          <div class="col-lg-7">
+            <div class="d-flex flex-wrap align-items-center gap-2 mb-2">
+              <span class="badge rounded-pill text-bg-light border">Fine Blanking</span>
+              <span class="badge rounded-pill text-bg-light border">LN32-S</span>
+              <span class="badge badge-cn">Fine Blanking Parts</span>
+            </div>
+            <h3 class="h3 mb-1">High-Precision Fine Blanking Press</h3>
+            <div class="text-muted-2 mb-2">High rigidity · clean edge · tight tolerance</div>
+
+            <div class="mb-2"><span class="chip">Precision Punching</span><span class="chip">High Rigidity</span><span class="chip">Automotive Parts</span></div>
+
+            <div class="spec">
+              <div class="kv"><b>Process</b>Fine blanking (triple action)</div>
+              <div class="kv"><b>Typical</b>Gears · brackets · high precision</div>
+              <div class="kv"><b>Options</b>Feeder · automation</div>
+              <div class="kv"><b>Support</b>Die guidance</div>
+            </div>
+
+            <div class="d-flex flex-wrap gap-2 mt-3 d-none d-lg-flex">
+              <button class="btn btn-brand js-quote" data-product="Other" data-quote-trigger="1">Get Press Quote</button>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <!-- 6 Bearing -->
+      <article id="bearing" class="anchor-spy card-product p-3 mb-4" data-process="press-fit">
+        <div class="row g-4 align-items-center">
+          <div class="col-lg-5">
+            <div class="media-compare">
+              <img src="/images/products/Bearing and shaft assembly.webp" alt="Bearing and shaft assembly" />
+              <img src="/images/machines/LN32-series-four-column-universal-hydraulic-press.jpeg" alt="LN32 bearing/gear assembly press" />
+            </div>
+            <!-- 移动端按钮（显示在图片下方） -->
+            <div class="d-flex flex-column gap-2 mt-3 mobile-cta-row d-lg-none">
+              <button class="btn btn-brand js-quote" data-product="Other" data-quote-trigger="1">Get Press Quote</button>
+            </div>
+          </div>
+          <div class="col-lg-7">
+            <div class="d-flex flex-wrap align-items-center gap-2 mb-2">
+              <span class="badge rounded-pill text-bg-light border">Press-Fit</span>
+              <span class="badge rounded-pill text-bg-light border">LN32 / LN34-S</span>
+              <span class="badge badge-cn">Bearing & Gear Press-Fit</span>
+            </div>
+            <h3 class="h3 mb-1">Precision Bearing/Gear Assembly Press</h3>
+            <div class="text-muted-2 mb-2">Press-fit · straightening · powder compacting</div>
+
+            <div class="mb-2"><span class="chip">Press-Fit</span><span class="chip">Straightening</span><span class="chip">Powder Compacting</span></div>
+
+            <div class="spec">
+              <div class="kv"><b>Recommended</b>LN32 / LN34-S</div>
+              <div class="kv"><b>Use</b>Bearing · shaft · gear</div>
+              <div class="kv"><b>Options</b>Force sensor</div>
+              <div class="kv"><b>Support</b>Fixture guidance</div>
+            </div>
+
+            <div class="d-flex flex-wrap gap-2 mt-3 d-none d-lg-flex">
+              <button class="btn btn-brand js-quote" data-product="Other" data-quote-trigger="1">Get Press Quote</button>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <!-- 7 Sink -->
+      <article id="sink" class="anchor-spy card-product p-3 mb-4" data-process="deep-drawing">
+        <div class="row g-4 align-items-center">
+          <div class="col-lg-5">
+            <div class="media-compare">
+              <img src="/images/products/Stainless steel sink & large panel.webp" alt="Stainless steel sink / large panel" />
+              <img src="/images/machines/LN34-series-frame-up-moving-hydraulic-press.jpg" alt="LN34 heavy-duty deep drawing press" />
+            </div>
+            <!-- 移动端按钮（显示在图片下方） -->
+            <div class="d-flex flex-column gap-2 mt-3 mobile-cta-row d-lg-none">
+              <button class="btn btn-brand js-quote" data-product="Sink" data-quote-trigger="1"><span class="cta-desktop">Get Sink Press Quote</span><span class="cta-mobile">Get Sink Press Quote</span></button>
+            </div>
+          </div>
+          <div class="col-lg-7">
+            <div class="d-flex flex-wrap align-items-center gap-2 mb-2">
+              <span class="badge rounded-pill text-bg-light border">Deep Drawing</span>
+              <span class="badge rounded-pill text-bg-light border">LN34</span>
+              <span class="badge badge-cn">Large Panel Deep Drawing</span>
+            </div>
+            <h3 class="h3 mb-1">Heavy-Duty Deep Drawing Press</h3>
+            <div class="text-muted-2 mb-2">Large panels · sink · high-rigidity frame</div>
+
+            <div class="mb-2"><span class="chip">High Rigidity</span><span class="chip">Large Size</span><span class="chip">Custom Stroke</span></div>
+
+            <div class="spec">
+              <div class="kv"><b>Best For</b>Sinks · big trays · panels</div>
+              <div class="kv"><b>Frame</b>Heavy duty / reinforced</div>
+              <div class="kv"><b>Options</b>Blank feeder · robot</div>
+              <div class="kv"><b>Support</b>Layout & tooling plan</div>
+            </div>
+
+            <div class="d-flex flex-wrap gap-2 mt-3 d-none d-lg-flex">
+              <button class="btn btn-brand js-quote" data-product="Sink" data-quote-trigger="1"><span class="cta-desktop">Get Sink Press Quote</span><span class="cta-mobile">Get Sink Press Quote</span></button>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <!-- 8 Auto -->
+      <article id="auto" class="anchor-spy card-product p-3 mb-2" data-process="hydroforming">
+        <div class="row g-4 align-items-center">
+          <div class="col-lg-5">
+            <div class="media-compare">
+              <img src="/images/products/Auto Tube Parts.webp" alt="Automotive hydroformed tubular parts" />
+              <img src="/images/machines/LN99-series-internal-high-pressure-forming-hydraulic-press.jpg" alt="LN99 Internal high-pressure hydroforming press" />
+            </div>
+            <!-- 移动端按钮（显示在图片下方） -->
+            <div class="d-flex flex-column gap-2 mt-3 mobile-cta-row d-lg-none">
+              <button class="btn btn-brand js-quote" data-product="Auto" data-quote-trigger="1"><span class="cta-desktop">Get Auto Parts Press Quote</span><span class="cta-mobile">Get Auto Parts Press Quote</span></button>
+            </div>
+          </div>
+          <div class="col-lg-7">
+            <div class="d-flex flex-wrap align-items-center gap-2 mb-2">
+              <span class="badge rounded-pill text-bg-light border">Hydroforming</span>
+              <span class="badge rounded-pill text-bg-light border">LN99</span>
+              <span class="badge badge-cn">High-Pressure Hydroforming</span>
+            </div>
+            <h3 class="h3 mb-1">Automotive Hydroformed Components Press</h3>
+            <div class="text-muted-2 mb-2">Internal high pressure · tubular components · high strength</div>
+
+            <div class="mb-2"><span class="chip">Tubular Parts</span><span class="chip">High Pressure</span><span class="chip">Automation</span></div>
+
+            <div class="spec">
+              <div class="kv"><b>Process</b>Internal high-pressure hydroforming</div>
+              <div class="kv"><b>Use</b>Auto tubes · structural parts</div>
+              <div class="kv"><b>Options</b>Feeding · sealing · control</div>
+              <div class="kv"><b>Support</b>Turnkey solution</div>
+            </div>
+
+            <div class="d-flex flex-wrap gap-2 mt-3 d-none d-lg-flex">
+              <button class="btn btn-brand js-quote" data-product="Auto" data-quote-trigger="1"><span class="cta-desktop">Get Auto Parts Press Quote</span><span class="cta-mobile">Get Auto Parts Press Quote</span></button>
+            </div>
+          </div>
+        </div>
+      </article>
+
+    </div>
+  </section>
+
+  <!-- ===== Process ===== -->
+  <section id="process" class="section section-soft anchor-spy hide-on-mobile">
+    <div class="container">
+      <h2 class="section-title mb-2">Process & Configuration</h2>
+      <p class="text-muted-2 section-sub">Standardized process flow and configuration logic based on different forming technologies.</p>
+
+      <div class="row g-3 mt-3">
+        <div class="col-lg-4">
+          <div class="card-soft p-4 h-100">
+            <div class="d-flex align-items-center gap-2 mb-2">
+              <span class="badge rounded-pill text-bg-light border">Deep Drawing</span>
+              <span class="badge rounded-pill text-bg-light border">LN28 / LN34</span>
+            </div>
+            <h4 class="h5 mb-3 fw-bold">Deep Drawing – Standard Process Flow</h4>
+            <h5 class="mb-2 text-muted-2" style="font-size:0.9rem; font-weight:600;">Blank → Drawing → Trimming</h5>
+            <ol class="text-muted-2 mb-0">
+              <li>Engineering review: drawing analysis & material specification</li>
+              <li>Press configuration: tonnage calibration & stroke optimization</li>
+              <li>Drive system selection: fast cylinder or servo control</li>
+              <li>Automation integration: robotic transfer & trimming station</li>
+              <li>Process validation: trial forming with video documentation</li>
+            </ol>
+            <p class="process-note">
+              * Final configuration depends on material, thickness and product geometry.
+            </p>
+          </div>
+        </div>
+
+        <div class="col-lg-4">
+          <div class="card-soft p-4 h-100">
+            <div class="d-flex align-items-center gap-2 mb-2">
+              <span class="badge rounded-pill text-bg-light border">Hydroforming</span>
+              <span class="badge rounded-pill text-bg-light border">LN98 / LN99</span>
+            </div>
+            <h4 class="h5 mb-3 fw-bold">Hydroforming – Production Process Overview</h4>
+            <h5 class="mb-2 text-muted-2" style="font-size:0.9rem; font-weight:600;">Preform → Water Bulging → Finish</h5>
+            <ol class="text-muted-2 mb-0">
+              <li>Preform engineering: blank geometry & material flow analysis</li>
+              <li>Pressure system configuration: sealing integrity & pressure profiling</li>
+              <li>Wall thickness control: uniform distribution optimization</li>
+              <li>Secondary operations: precision trimming & edge beading</li>
+              <li>Quality assurance: surface finish specification & validation</li>
+            </ol>
+            <p class="process-note">
+              * Final configuration depends on material, thickness and product geometry.
+            </p>
+          </div>
+        </div>
+
+        <div class="col-lg-4">
+          <div class="card-soft p-4 h-100">
+            <div class="d-flex align-items-center gap-2 mb-2">
+              <span class="badge rounded-pill text-bg-light border">Fine Blanking</span>
+              <span class="badge rounded-pill text-bg-light border">LN32-S</span>
+            </div>
+            <h4 class="h5 mb-3 fw-bold">Fine Blanking – Precision Control Workflow</h4>
+            <h5 class="mb-2 text-muted-2" style="font-size:0.9rem; font-weight:600;">High Precision Parts Manufacturing</h5>
+            <ol class="text-muted-2 mb-0">
+              <li>Tooling design: die configuration & clearance optimization</li>
+              <li>Press setup: triple-action synchronization & force distribution</li>
+              <li>Material handling: precision feeding system & automation integration</li>
+              <li>Quality control: edge finish monitoring & dimensional verification</li>
+              <li>Production stability: process repeatability & cycle optimization</li>
+            </ol>
+            <p class="process-note">
+              * Final configuration depends on material, thickness and product geometry.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div class="mt-4 hint">
+        <div class="d-flex flex-wrap align-items-center justify-content-between gap-2">
+          <div class="text-muted-2 small">
+            We can work with <b>drawings</b> or <b>2 samples</b>. Typical lead time: 25–45 days. CE/UL options available.
+          </div>
+          <div class="d-flex gap-2">
+            <a href="javascript:void(0)" class="btn btn-brand btn-sm" data-open-quote="1" data-quote-trigger="1">Request Configuration</a>
+            <a href="https://wa.me/86189622292350" class="btn btn-outline-dark btn-sm" target="_blank" rel="noopener">WhatsApp</a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ===== Cases ===== -->
+  <section id="cases" class="section anchor-spy">
+    <div class="container">
+      <div class="d-flex flex-wrap align-items-end justify-content-between gap-3 mb-4">
+        <div>
+          <h2 class="section-title mb-2">Project Cases</h2>
+          <p class="text-muted-2 section-sub mb-0">Use real photos/videos here. Each card can auto-select the product and open the quote form.</p>
+        </div>
+        <a href="javascript:void(0)" class="btn btn-brand" data-open-quote="1" data-quote-trigger="1">Ask for Similar Solution</a>
+      </div>
+
+      <div class="row g-3">
+        <div class="col-md-6 col-lg-3">
+          <div class="case-card">
+            <div class="case-thumb"><img src="/images/cases/india customer.webp" alt="Lunch box line case" /></div>
+            <div class="case-body">
+              <h6 class="mb-1">Lunch Box Line</h6>
+              <div class="text-muted-2 small">LN28-200T + trimming</div>
+              <div class="case-meta">
+                <span>India</span><span>SUS304</span><span>0.5mm</span>
+              </div>
+              <div class="d-grid mt-3">
+                <button class="btn btn-outline-dark btn-sm js-quote" data-product="Lunch Box" data-quote-trigger="1">Get Similar Quote</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-6 col-lg-3">
+          <div class="case-card">
+            <div class="case-thumb"><img src="/images/cases/customer from Columbia.webp" alt="Cookware hydroforming case" /></div>
+            <div class="case-body">
+              <h6 class="mb-1">Cookware Hydroforming</h6>
+              <div class="text-muted-2 small">LN98-250T</div>
+              <div class="case-meta">
+                <span>Columbia</span><span>Stainless Steel Frying Pan</span>
+              </div>
+              <div class="d-grid mt-3">
+                <button class="btn btn-outline-dark btn-sm js-quote" data-product="Kettle" data-quote-trigger="1">Get Similar Quote</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-6 col-lg-3">
+          <div class="case-card">
+            <div class="case-thumb"><img src="/images/cases/stainless pot forming.png" alt="Sink press case" /></div>
+            <div class="case-body">
+              <h6 class="mb-1">Stainless Pot Forming</h6>
+              <div class="text-muted-2 small">LN34 heavy duty</div>
+              <div class="case-meta">
+                <span>Vietnam</span><span>High surface finish</span><span>High rigidity</span>
+              </div>
+              <div class="d-grid mt-3">
+                <button class="btn btn-outline-dark btn-sm js-quote" data-product="Sink" data-quote-trigger="1">Get Similar Quote</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-6 col-lg-3">
+          <div class="case-card">
+            <div class="case-thumb"><img src="/images/cases/water bulging machine.webp" alt="Pipe fitting case" /></div>
+            <div class="case-body">
+              <h6 class="mb-1">Big Panel Press + Custom Tooling</h6>
+              <div class="case-meta">
+                <span>Middle East</span><span>Stainless / Copper</span><span>Tee / Elbow</span>
+              </div>
+              <div class="d-grid mt-3">
+                <button class="btn btn-outline-dark btn-sm js-quote" data-product="Pipe" data-quote-trigger="1">Get Similar Quote</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="small text-muted-2 mt-3">Replace case images with your real customer photos / workshop screenshots for best conversion.</div>
+    </div>
+  </section>
+
+  <!-- ===== Downloads ===== -->
+  <section id="downloads" class="section anchor-spy" style="background:#f8fafc;">
+    <div class="container">
+      <h2 class="section-title mb-2">Downloads & Resources</h2>
+      <p class="text-muted-2 section-sub">Even if you keep everything in one page, resources make it feel like a micro-site.</p>
+
+      <div class="row g-3 mt-3">
+        <div class="col-md-6 col-lg-4">
+          <div class="dl-item">
+            <div class="dl-ic">PDF</div>
+            <div>
+              <h6 class="mb-1">Product Catalog</h6>
+              <div class="text-muted-2 small mb-2">LN28 / LN34 / LN98 / LN99 overview</div>
+              <a class="btn btn-outline-dark btn-sm" href="/pdfs/Lineng Hydraulic Press Brochure 2025-compressed.pdf" target="_blank" rel="noopener">Download</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-6 col-lg-4">
+          <div class="dl-item">
+            <div class="dl-ic">DXF</div>
+            <div>
+              <h6 class="mb-1">Drawing Template</h6>
+              <div class="text-muted-2 small mb-2">Send size / thickness / radius / tolerance</div>
+              <a class="btn btn-outline-dark btn-sm" href="/pdfs/Quotation Questionnaire.pdf" target="_blank" rel="noopener">Download</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-6 col-lg-4">
+          <div class="dl-item">
+            <div class="dl-ic">VID</div>
+            <div>
+              <h6 class="mb-1">Process Video</h6>
+              <div class="text-muted-2 small mb-2">Deep drawing / hydroforming demo</div>
+              <a class="btn btn-outline-dark btn-sm" href="https://www.youtube.com/shorts/W7UTfvLqWeg" target="_blank" rel="noopener">Watch</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="hint mt-4">
+        <div class="d-flex flex-wrap align-items-center justify-content-between gap-2">
+          <div class="text-muted-2 small">
+            Not ready to download? Click below and we’ll send the resources by email/WhatsApp.
+          </div>
+          <button class="btn btn-brand btn-sm js-quote" data-product="Other" data-quote-trigger="1">Send Resources</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== Quote ===== -->
+  <section id="quote" class="section anchor-spy">
+    <div class="container">
+      <div class="row g-4 align-items-stretch">
+        <div class="col-lg-6">
+          <h2 class="section-title mb-2">Get Instant Quote</h2>
+          <p class="text-muted-2">Tell us your target product. We’ll send tonnage & mold suggestions within 24 hours.</p>
+
+          <form id="quoteForm" class="p-4 form-quote" action="#" method="post" novalidate>
+            <div class="row g-3">
+              <div class="col-md-6">
+                <label class="form-label">Name*</label>
+                <input type="text" name="name" class="form-control" required>
+              </div>
+              <div class="col-md-6">
+                <label class="form-label">Email*</label>
+                <input type="email" name="email" class="form-control" required>
+              </div>
+              <div class="col-md-6">
+                <label class="form-label">WhatsApp</label>
+                <input type="text" name="wa" class="form-control" placeholder="+86 189 6229 2350">
+              </div>
+              <div class="col-md-6">
+                <label class="form-label">Target Product*</label>
+                <select id="productSelect" name="product" class="form-select" required>
+                  <option value="Lunch Box">Stainless Steel Lunch Box</option>
+                  <option value="Cookware">Cookware (Pot/Pan/Lid)</option>
+                  <option value="Kettle">Kettle / Cup</option>
+                  <option value="Pipe">Pipe Fitting</option>
+                  <option value="Sink">Sink / Large Panel</option>
+                  <option value="Cylinder">Cylindrical Can / Filter</option>
+                  <option value="Auto">Automotive Hydroformed Tube</option>
+                  <option value="Other">Other / Not Sure</option>
+                </select>
+              </div>
+              <div class="col-md-4">
+                <label class="form-label">Material</label>
+                <input type="text" name="material" class="form-control" placeholder="SUS304 / Copper / ...">
+              </div>
+              <div class="col-md-4">
+                <label class="form-label">Thickness</label>
+                <input type="text" name="thickness" class="form-control" placeholder="0.5–1.0 mm">
+              </div>
+              <div class="col-md-4">
+                <label class="form-label">Qty / day</label>
+                <input type="text" name="qty" class="form-control" placeholder="1000 pcs">
+              </div>
+              <div class="col-12">
+                <label class="form-label">Message</label>
+                <textarea id="msgBox" name="msg" rows="4" class="form-control" placeholder="Size (Ø/Length), drawing/spec, preferred process if any"></textarea>
+              </div>
+
+              <div class="col-12 d-grid d-md-inline-flex gap-2">
+                <button class="btn btn-brand btn-lg" type="submit">Send Inquiry</button>
+                <a class="btn btn-outline-dark btn-lg" href="https://wa.me/86189622292350" target="_blank" rel="noopener">Chat on WhatsApp</a>
+              </div>
+
+              <div class="small text-muted-2 mt-2">
+                Tip: clicking any card above auto-selects the target product here.
+              </div>
+            </div>
+          </form>
+        </div>
+
+        <div class="col-lg-6 quote-aside">
+          <div class="p-4 card-soft quote-flow-card">
+            <h5 class="mb-3">How we quote faster & more accurately</h5>
+            <ol class="quote-flow-steps mb-0">
+              <li>Product-led sections help you match the right process quickly (Deep Drawing / Hydroforming / Fine Blanking).</li>
+              <li>Share a drawing (STEP/DXF) or 2 samples → we confirm tonnage, stroke, and tooling concept.</li>
+              <li>Case photos show real acceptance results and typical configurations.</li>
+              <li>One path to quote: submit the form or hand off to WhatsApp for quick clarification.</li>
+            </ol>
+          </div>
+
+          <div class="quote-flow-connector quote-connector"></div>
+
+          <div class="p-4 card-soft quote-flow-card">
+            <h6 class="mb-3">Required info for accurate quotation</h6>
+            <ol class="quote-flow-steps mb-0">
+              <li>Product drawing (STEP/DXF) or 2 samples</li>
+              <li>Material & thickness</li>
+              <li>Target daily output</li>
+              <li>Preferred process (if any)</li>
+            </ol>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== Footer ===== -->
+  <footer class="py-4">
+    <div class="container d-flex flex-wrap align-items-center justify-content-between gap-3">
+      <div class="small">© <span id="year"></span> Foshan Lineng Hydraulic Machinery Co., Ltd.</div>
+      <div class="small">
+        No.3 Yinhai Avenue, Danzhao, Nanhai, Foshan · Tel: +86-18962292350 ·
+        <a href="mailto:sales@hydraulic-press.cn">sales@hydraulic-press.cn</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ===== WhatsApp Floating Action Button ===== -->
+  <a class="wa-fab" href="https://wa.me/008618962292350" target="_blank" rel="noopener" aria-label="Chat on WhatsApp">
+    <svg viewBox="0 0 32 32" aria-hidden="true" focusable="false" fill="none">
+      <path fill="#fff" d="M19.11 17.42c-.27-.13-1.6-.79-1.85-.88-.25-.09-.43-.13-.61.13-.18.27-.7.88-.86 1.06-.16.18-.32.2-.59.07-.27-.13-1.14-.42-2.17-1.34-.8-.71-1.34-1.59-1.5-1.86-.16-.27-.02-.42.12-.55.12-.12.27-.32.41-.48.14-.16.18-.27.27-.45.09-.18.04-.34-.02-.48-.07-.13-.61-1.47-.84-2.02-.22-.53-.45-.46-.61-.47h-.52c-.18 0-.48.07-.73.34-.25.27-.95.93-.95 2.27 0 1.34.97 2.64 1.1 2.82.13.18 1.9 2.9 4.6 4.07.64.28 1.14.45 1.53.58.64.2 1.22.17 1.68.1.51-.08 1.6-.65 1.83-1.28.23-.63.23-1.17.16-1.28-.07-.11-.25-.18-.52-.31Z"/>
+      <path fill="#fff" d="M16.02 3C8.85 3 3 8.67 3 15.64c0 2.22.6 4.39 1.74 6.29L3 29l7.26-1.88a13.2 13.2 0 0 0 5.76 1.31c7.17 0 13.02-5.67 13.02-12.64C29.04 8.67 23.19 3 16.02 3Zm0 23.18c-1.86 0-3.69-.48-5.31-1.39l-.38-.21-4.31 1.12 1.15-4.14-.25-.39a10.48 10.48 0 0 1-1.64-5.67c0-5.79 4.88-10.5 10.74-10.5 5.86 0 10.74 4.71 10.74 10.5 0 5.79-4.88 10.5-10.74 10.5Z"/>
+    </svg>
+  </a>
+
+  <!-- ===== JSON-LD (Micro-site friendly: ItemList) ===== -->
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"ItemList",
+    "name":"LINENG Hydraulic Press Solutions",
+    "itemListElement":[
+      {"@type":"ListItem","position":1,"name":"Lunch Box Press (LN28)","url":"#lunchbox"},
+      {"@type":"ListItem","position":2,"name":"Kettle/Cup Hydroforming (LN98)","url":"#kettle"},
+      {"@type":"ListItem","position":3,"name":"Pipe Fitting Forming (LN61)","url":"#pipe"},
+      {"@type":"ListItem","position":4,"name":"C-Frame Assembly Press (LN41)","url":"#cframe"},
+      {"@type":"ListItem","position":5,"name":"Fine Blanking Press (LN32-S)","url":"#fineblank"},
+      {"@type":"ListItem","position":6,"name":"Bearing/Gear Assembly (LN32/LN34-S)","url":"#bearing"},
+      {"@type":"ListItem","position":7,"name":"Heavy Duty Deep Drawing (LN34)","url":"#sink"},
+      {"@type":"ListItem","position":8,"name":"Automotive Hydroforming (LN99)","url":"#auto"}
+    ]
+  }
+  </script>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+  <!-- intl-tel-input JS -->
+  <script src="https://cdn.jsdelivr.net/npm/intl-tel-input@18.2.1/build/js/intlTelInput.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/intl-tel-input@18.2.1/build/js/utils.js"></script>
+
+  <script>
+    // ===== Helpers =====
+    const $ = (sel, el=document) => el.querySelector(sel);
+    const $$ = (sel, el=document) => Array.from(el.querySelectorAll(sel));
+
+    // ===== Set year =====
+    $("#year").textContent = new Date().getFullYear();
+
+    // ===== ScrollSpy refresh after load =====
+    window.addEventListener("load", () => {
+      bootstrap.ScrollSpy.getOrCreateInstance(document.body, { target: "#topNav" });
+      
+      // Hero entrance animation trigger
+      const hero = document.querySelector('.hero');
+      if (hero) hero.classList.add('is-ready');
+    });
+
+
+    // ===== Filter (directory) =====
+    const pills = $$(".pill");
+    const dirItems = $$("#dirGrid .dir-item");
+
+    function setActivePill(btn){
+      pills.forEach(p => p.classList.remove("active"));
+      btn.classList.add("active");
+    }
+
+    function applyFilter(filter){
+      dirItems.forEach(item => {
+        const tags = (item.getAttribute("data-tags") || "").split(" ").map(s=>s.trim());
+        const show = (filter === "all") ? true : tags.includes(filter);
+        item.style.display = show ? "" : "none";
+      });
+    }
+
+    pills.forEach(btn => {
+      btn.addEventListener("click", () => {
+        const filter = btn.getAttribute("data-filter");
+        setActivePill(btn);
+        applyFilter(filter);
+      });
+    });
+
+    // ===== Quote form linkage =====
+    const productSelect = $("#productSelect");
+    const msgBox = $("#msgBox");
+
+    function presetQuote(product, sourceText){
+      if(productSelect){
+        // if product not in options, fallback to Other
+        const values = $$("#productSelect option").map(o => o.value);
+        productSelect.value = values.includes(product) ? product : "Other";
+      }
+      if(msgBox && sourceText){
+        const prefix = `Target: ${sourceText}\n`;
+        if(!msgBox.value.startsWith(prefix)){
+          msgBox.value = prefix + msgBox.value;
+        }
+      }
+    }
+
+    function goTo(selector){
+      const el = document.querySelector(selector);
+      if(!el) return;
+      el.scrollIntoView({behavior:"smooth", block:"start"});
+    }
+
+    // Directory "View Details" links - handled by native anchor behavior with smooth scroll
+
+    // Make entire Solution Directory cards clickable
+    dirItems.forEach(item => {
+      const card = item.querySelector('.dir-card');
+      if(!card) return;
+      
+      const target = item.getAttribute('data-target');
+      if(!target) return;
+      
+      // Handle click
+      card.addEventListener('click', (e) => {
+        // Don't navigate if clicking on buttons or links
+        const clickedEl = e.target;
+        const isButton = clickedEl.closest('button, a, .dir-card-actions');
+        if(isButton) return;
+        
+        // Navigate to target section
+        const targetEl = document.querySelector(target);
+        if(targetEl){
+          targetEl.scrollIntoView({behavior: 'smooth', block: 'start'});
+        }
+      });
+      
+      // Handle keyboard (Enter/Space)
+      card.addEventListener('keydown', (e) => {
+        if(e.key === 'Enter' || e.key === ' '){
+          e.preventDefault();
+          const targetEl = document.querySelector(target);
+          if(targetEl){
+            targetEl.scrollIntoView({behavior: 'smooth', block: 'start'});
+          }
+        }
+      });
+    });
+
+    // Any "Get Quote" buttons inside detail/cases/downloads
+    // Note: Modal handler (added later) handles all quote buttons via event delegation
+
+    // ===== Optional: basic form validation (no backend) =====
+    $("#quoteForm").addEventListener("submit", (e) => {
+      e.preventDefault();
+      const form = e.currentTarget;
+      if(!form.checkValidity()){
+        form.classList.add("was-validated");
+        const isMobile = window.matchMedia("(max-width: 768px)").matches;
+        const msg = "Please fill in required fields (Name, Email, WhatsApp, Target Product).";
+        alert(msg);
+        return;
+      }
+      // Placeholder behavior. Replace with your real form action (Netlify / WPForms / Zapier endpoint).
+      alert("Inquiry captured (demo). Connect this form to your backend (Netlify Forms / webhook) for real submissions.");
+      form.reset();
+    });
+  </script>
+
+<script>
+(function(){
+  const hero = document.querySelector(".hero");
+  if(!hero) return;
+
+  // Avoid duplicating
+  if(hero.querySelector(".hero-chip-toggle")) return;
+
+  const chips = hero.querySelectorAll(".chip");
+  if(!chips || chips.length <= 3) return;
+
+  const btn = document.createElement("button");
+  btn.type = "button";
+  btn.className = "hero-chip-toggle";
+  btn.textContent = "+ More";
+
+  chips[chips.length-1].after(btn);
+
+  let expanded = false;
+
+  function sync(){
+    const mobile = window.matchMedia("(max-width:576px)").matches;
+    if(!mobile){
+      chips.forEach(c=>c.style.display="inline-flex");
+      btn.style.display="none";
+      return;
+    }
+    btn.style.display="inline-flex";
+    chips.forEach((c,i)=>{
+      if(i>=3) c.style.display = expanded ? "inline-flex" : "none";
+    });
+  }
+
+  btn.addEventListener("click", ()=>{
+    expanded = !expanded;
+    btn.textContent = expanded ? "− Less" : "+ More";
+    sync();
+  });
+
+  window.addEventListener("resize", sync);
+  sync();
+})();
+</script>
+
+<script>
+/* Mobile menu layout lock */
+(function(){
+  const body = document.body;
+  // Bootstrap offcanvas events if available
+  document.addEventListener('shown.bs.offcanvas', ()=> body.classList.add('menu-open'));
+  document.addEventListener('hidden.bs.offcanvas', ()=> body.classList.remove('menu-open'));
+
+  // Fallback: if using collapse instead of offcanvas
+  document.addEventListener('shown.bs.collapse', ()=> body.classList.add('menu-open'));
+  document.addEventListener('hidden.bs.collapse', ()=> body.classList.remove('menu-open'));
+})();
+</script>
+
+<script>
+/* Quote Modal Final Patch (DOMContentLoaded-safe) */
+window.addEventListener("DOMContentLoaded", function(){
+  console.log("Quote patch loaded");
+
+  function getEls(){
+    return {
+      modalEl: document.getElementById("quoteModal"),
+      nativeBackdrop: document.getElementById("nativeQuoteBackdrop"),
+      nativeModal: document.getElementById("nativeQuoteModal"),
+      debug: document.getElementById("quoteDebugBadge")
+    };
+  }
+
+  function setProduct(val, modalEl, nativeModal){
+    if(!val) return;
+    const sel =
+      (modalEl && modalEl.querySelector('select[name="product"]')) ||
+      (nativeModal && nativeModal.querySelector('select[name="product"]'));
+    if(!sel) return;
+    for(const opt of sel.options){
+      if(opt.value === val){ sel.value = val; return; }
+    }
+  }
+
+  function adjustFormForMobile(modal){
+    if(!modal) return;
+    const isMobile = window.matchMedia("(max-width: 768px)").matches;
+    const emailInput = modal.querySelector('input[name="email"]');
+    const waInput = modal.querySelector('input[name="wa"]');
+    const productSelect = modal.querySelector('select[name="product"]');
+    
+    if(isMobile){
+      // Mobile: Email required, WhatsApp required
+      if(emailInput) emailInput.setAttribute("required", "required");
+      if(waInput) waInput.setAttribute("required", "required");
+      // 移动端允许用户选择产品，不移除 disabled（如果之前被禁用）
+      if(productSelect) productSelect.removeAttribute("disabled");
+    }else{
+      // Desktop: Email required, WhatsApp optional
+      if(emailInput) emailInput.setAttribute("required", "required");
+      if(waInput) waInput.removeAttribute("required");
+      if(productSelect) productSelect.removeAttribute("disabled");
+    }
+  }
+
+  // Re-enable disabled fields before form submission
+  function enableDisabledFields(form){
+    const disabledFields = form.querySelectorAll('[disabled]');
+    disabledFields.forEach(field => {
+      field.removeAttribute("disabled");
+    });
+  }
+
+  function openBootstrap(product, modalEl, nativeModal){
+    try{
+      if(!window.bootstrap || !bootstrap.Modal || !modalEl) return false;
+      setProduct(product, modalEl, nativeModal);
+      adjustFormForMobile(modalEl);
+      const m = bootstrap.Modal.getOrCreateInstance(modalEl);
+      // Prevent page scroll when modal opens
+      document.body.style.overflow = "hidden";
+      m.show();
+      // 移动端：移除 transform，确保 select 可点击
+      if(window.innerWidth <= 576){
+        setTimeout(() => {
+          const dialog = modalEl.querySelector('.modal-dialog');
+          if(dialog) dialog.style.transform = 'none';
+        }, 100);
+      }
+      setTimeout(()=>{
+        const first = modalEl.querySelector('input[name="name"], input, textarea');
+        if(first) first.focus();
+      }, 250);
+      return true;
+    }catch(e){
+      return false;
+    }
+  }
+
+  function openNative(product, nativeBackdrop, nativeModal, modalEl){
+    if(!nativeModal || !nativeBackdrop) return;
+    setProduct(product, modalEl, nativeModal);
+    adjustFormForMobile(nativeModal);
+    nativeBackdrop.classList.add("is-open");
+    nativeModal.classList.add("is-open");
+    document.body.style.overflow = "hidden";
+    document.body.classList.add("native-modal-open"); // For hiding WhatsApp FAB
+    nativeBackdrop.setAttribute("aria-hidden", "false");
+    nativeModal.setAttribute("aria-hidden", "false");
+    setTimeout(()=>{
+      const first = nativeModal.querySelector('input[name="name"], input, textarea');
+      if(first) first.focus();
+    }, 50);
+  }
+
+  function closeNative(nativeBackdrop, nativeModal){
+    if(!nativeModal || !nativeBackdrop) return;
+    nativeBackdrop.classList.remove("is-open");
+    nativeModal.classList.remove("is-open");
+    document.body.style.overflow = "";
+    document.body.classList.remove("native-modal-open"); // Show WhatsApp FAB again
+    nativeBackdrop.setAttribute("aria-hidden", "true");
+    nativeModal.setAttribute("aria-hidden", "true");
+  }
+
+  // show debug badge if bootstrap missing
+  const { debug } = getEls();
+  if(debug && (!window.bootstrap || !bootstrap.Modal)){
+    debug.classList.add("is-on");
+    debug.textContent = "Bootstrap modal missing — using native modal";
+  }
+
+  // ESC key close handler
+  document.addEventListener("keydown", function(e){
+    if(e.key === "Escape" || e.keyCode === 27){
+      const { modalEl, nativeBackdrop, nativeModal } = getEls();
+      // Close Bootstrap modal if open
+      if(window.bootstrap && bootstrap.Modal && modalEl){
+        const modalInstance = bootstrap.Modal.getInstance(modalEl);
+        if(modalInstance && modalEl.classList.contains("show")){
+          modalInstance.hide();
+          e.preventDefault();
+          return;
+        }
+      }
+      // Close native modal if open
+      if(nativeModal && nativeModal.classList.contains("is-open")){
+        closeNative(nativeBackdrop, nativeModal);
+        e.preventDefault();
+      }
+    }
+  });
+
+  document.addEventListener("click", function(e){
+    const { modalEl, nativeBackdrop, nativeModal } = getEls();
+
+    // Close native
+    if(e.target.closest('[data-close-native="1"]') || (nativeBackdrop && e.target === nativeBackdrop)){
+      e.preventDefault();
+      closeNative(nativeBackdrop, nativeModal);
+      return;
+    }
+
+    // Quote trigger detect - comprehensive selector
+    let trigger = e.target.closest(
+      'a[href="#quote"], [data-open-quote="1"], [data-quote-trigger="1"], .js-quote'
+    );
+    
+    // Also check if clicked element itself matches by text content
+    if(!trigger){
+      const text = (e.target.textContent || "").trim();
+      const quoteTexts = ["Get Quote", "Get Instant Quote", "View & Quote", "Get Instant Proposal", "Get Free Press Recommendation", "Get Similar Quote", "Send Resources"];
+      if(quoteTexts.some(qt => text.includes(qt))){
+        // Check if it's a button or link
+        if(e.target.tagName === "BUTTON" || e.target.tagName === "A"){
+          trigger = e.target;
+        } else {
+          // Try to find parent button/link
+          trigger = e.target.closest("button, a");
+        }
+      }
+    }
+    
+    if(!trigger) return;
+
+    // ignore pure WhatsApp links (but allow js-quote buttons)
+    const href = trigger.getAttribute("href") || "";
+    if(href.includes("wa.me") && !trigger.classList.contains("js-quote") && !trigger.hasAttribute("data-quote-trigger")) return;
+    
+    // Prevent any anchor navigation or scrolling
+    if(trigger.tagName === "A" && (href === "#quote" || href.startsWith("#"))){
+      e.preventDefault();
+      e.stopPropagation();
+    }
+
+    // Get product from trigger or parent card
+    let product = trigger.getAttribute("data-product") || trigger.dataset.product || null;
+    if(!product){
+      // Try to get from parent card with data-product
+      const parentCard = trigger.closest('[data-product]');
+      if(parentCard){
+        product = parentCard.getAttribute("data-product") || parentCard.dataset.product || null;
+      }
+    }
+
+    // Prevent default and stop propagation for all quote triggers
+    e.preventDefault();
+    e.stopPropagation();
+
+    const ok = openBootstrap(product, modalEl, nativeModal);
+    if(!ok) openNative(product, nativeBackdrop, nativeModal, modalEl);
+  });
+
+  // Handle Bootstrap modal events to prevent page scroll
+  const { modalEl } = getEls();
+  if(modalEl && window.bootstrap){
+    modalEl.addEventListener('shown.bs.modal', function(){
+      // Ensure body doesn't scroll when modal is open
+      document.body.style.overflow = "hidden";
+      document.body.classList.add("modal-open"); // For hiding WhatsApp FAB
+    });
+    modalEl.addEventListener('hidden.bs.modal', function(){
+      // Restore body scroll when modal closes
+      document.body.style.overflow = "";
+      document.body.classList.remove("modal-open"); // Show WhatsApp FAB again
+    });
+  }
+
+  // Handle Bootstrap modal form submission
+  const bootstrapForm = modalEl && modalEl.querySelector("#quoteFormModal");
+  if(bootstrapForm){
+    bootstrapForm.addEventListener("submit", function(e){
+      e.preventDefault();
+      const form = e.currentTarget;
+      enableDisabledFields(form); // Re-enable disabled fields for submission
+      if(!form.checkValidity()){
+        form.classList.add("was-validated");
+        const isMobile = window.matchMedia("(max-width: 768px)").matches;
+        const msg = "Please fill in required fields (Name, Email, WhatsApp, Target Product).";
+        alert(msg);
+        adjustFormForMobile(modalEl); // Restore mobile state
+        return;
+      }
+      alert("Inquiry captured (demo). Connect this form to your backend for real submissions.");
+      form.reset();
+      adjustFormForMobile(modalEl); // Restore mobile state after reset
+      if(window.bootstrap && bootstrap.Modal && modalEl){
+        const m = bootstrap.Modal.getInstance(modalEl);
+        if(m) m.hide();
+      }
+    });
+  }
+
+  // Handle native form submission
+  const { nativeModal } = getEls();
+  const nativeForm = nativeModal && nativeModal.querySelector("form");
+  if(nativeForm){
+    nativeForm.addEventListener("submit", function(e){
+      e.preventDefault();
+      const form = e.currentTarget;
+      enableDisabledFields(form); // Re-enable disabled fields for submission
+      if(!form.checkValidity()){
+        form.classList.add("was-validated");
+        const isMobile = window.matchMedia("(max-width: 768px)").matches;
+        const msg = "Please fill in required fields (Name, Email, WhatsApp, Target Product).";
+        alert(msg);
+        adjustFormForMobile(nativeModal); // Restore mobile state
+        return;
+      }
+      alert("Inquiry captured (demo). Connect this form to your backend for real submissions.");
+      form.reset();
+      adjustFormForMobile(nativeModal); // Restore mobile state after reset
+      const { nativeBackdrop, nativeModal } = getEls();
+      closeNative(nativeBackdrop, nativeModal);
+    });
+  }
+    });
+  </script>
+
+  <!-- ===== Quote Modal ===== -->
+  <div class="modal fade quote-modal" id="quoteModal" tabindex="-1" aria-labelledby="quoteModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg modal-dialog-scrollable">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="quoteModalLabel">Get Instant Quote</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" data-close-native="1" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <p class="text-muted-2 mb-3">Tell us your target product. We'll send tonnage & mold suggestions within 24 hours.</p>
+          <form id="quoteFormModal" action="#" method="post" novalidate>
+            <div class="form-field-group">
+              <div class="form-field-group-title">Basic Info</div>
+              <div class="row g-3">
+                <div class="col-md-6">
+                  <label class="form-label">Name*</label>
+                  <input type="text" name="name" class="form-control" required>
+                </div>
+                <div class="col-md-6 mobile-email-optional">
+                  <label class="form-label">Email*</label>
+                  <input type="email" name="email" class="form-control" required>
+                </div>
+                <div class="col-md-6 mobile-wa-required">
+                  <label class="form-label">WhatsApp*</label>
+                  <input
+                    type="tel"
+                    id="waInputModal"
+                    name="wa"
+                    class="form-control js-wa-iti"
+                    inputmode="tel"
+                    autocomplete="tel"
+                    placeholder="Your WhatsApp number"
+                    required
+                  >
+                </div>
+              </div>
+            </div>
+            <div class="form-field-group">
+              <div class="form-field-group-title">Product Info</div>
+              <div class="row g-3">
+                <div class="col-md-6">
+                  <label class="form-label">Target Product*</label>
+                  <select id="modalProductSelect" name="product" class="form-select" required>
+                    <option value="Lunch Box">Stainless Steel Lunch Box</option>
+                    <option value="Cookware">Cookware (Pot/Pan/Lid)</option>
+                    <option value="Kettle">Kettle / Cup</option>
+                    <option value="Pipe">Pipe Fitting</option>
+                    <option value="Sink">Sink / Large Panel</option>
+                    <option value="Cylinder">Cylindrical Can / Filter</option>
+                    <option value="Auto">Automotive Hydroformed Tube</option>
+                    <option value="Other">Other / Not Sure</option>
+                  </select>
+                </div>
+                <div class="col-md-4">
+                  <label class="form-label">Material</label>
+                  <input type="text" name="material" class="form-control" placeholder="SUS304 / Copper / ...">
+                </div>
+                <div class="col-md-4">
+                  <label class="form-label">Thickness</label>
+                  <input type="text" name="thickness" class="form-control" placeholder="0.5–1.0 mm">
+                </div>
+                <div class="col-md-4">
+                  <label class="form-label">Qty / day</label>
+                  <input type="text" name="qty" class="form-control" placeholder="1000 pcs">
+                </div>
+                <div class="col-12">
+                  <label class="form-label">Message</label>
+                  <textarea name="msg" rows="4" class="form-control" placeholder="Size (Ø/Length), drawing/spec, preferred process if any"></textarea>
+                </div>
+              </div>
+            </div>
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button class="btn btn-brand btn-lg w-100 mobile-cta-text" type="submit" form="quoteFormModal"><span class="desktop-text">Get Instant Proposal</span><span class="mobile-text">Send Inquiry Now <span class="send-icon-box"></span></span></button>
+          <a class="btn btn-outline-secondary btn-sm w-100 text-center" href="https://wa.me/86189622292350" target="_blank" rel="noopener">Prefer instant chat? WhatsApp us <span class="whatsapp-icon-box">📱</span></a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== Native Quote Modal Fallback ===== -->
+  <div id="quoteDebugBadge" class="quote-debug-badge"></div>
+  <div id="nativeQuoteBackdrop" class="native-modal-backdrop" aria-hidden="true"></div>
+  <div id="nativeQuoteModal" class="native-modal" role="dialog" aria-modal="true" aria-label="Get Instant Quote">
+    <div class="native-modal-header">
+      <div class="native-modal-title">Get Instant Quote</div>
+      <button type="button" class="native-modal-close" data-close-native="1">Close</button>
+    </div>
+    <div class="native-modal-body">
+      <p class="text-muted-2 mb-3">Tell us your target product. We'll send tonnage & mold suggestions within 24 hours.</p>
+      <form id="nativeQuoteForm" action="#" method="post" novalidate>
+        <div class="form-field-group">
+          <div class="form-field-group-title">Basic Info</div>
+          <div class="row g-3">
+            <div class="col-md-6">
+              <label class="form-label">Name*</label>
+              <input type="text" name="name" class="form-control" required>
+            </div>
+            <div class="col-md-6 mobile-email-optional">
+              <label class="form-label">Email*</label>
+              <input type="email" name="email" class="form-control" required>
+            </div>
+            <div class="col-md-6 mobile-wa-required">
+              <label class="form-label">WhatsApp</label>
+              <input type="text" name="wa" class="form-control mobile-wa-input" placeholder="+86 189 6229 2350">
+            </div>
+          </div>
+        </div>
+        <div class="form-field-group">
+          <div class="form-field-group-title">Product Info</div>
+          <div class="row g-3">
+            <div class="col-md-6">
+              <label class="form-label">Target Product*</label>
+                  <select name="product" class="form-select" required>
+                <option value="Lunch Box">Stainless Steel Lunch Box</option>
+                <option value="Cookware">Cookware (Pot/Pan/Lid)</option>
+                <option value="Kettle">Kettle / Cup</option>
+                <option value="Pipe">Pipe Fitting</option>
+                <option value="Sink">Sink / Large Panel</option>
+                <option value="Cylinder">Cylindrical Can / Filter</option>
+                <option value="Auto">Automotive Hydroformed Tube</option>
+                <option value="Other">Other / Not Sure</option>
+              </select>
+            </div>
+            <div class="col-md-4">
+              <label class="form-label">Material</label>
+              <input type="text" name="material" class="form-control" placeholder="SUS304 / Copper / ...">
+            </div>
+            <div class="col-md-4">
+              <label class="form-label">Thickness</label>
+              <input type="text" name="thickness" class="form-control" placeholder="0.5–1.0 mm">
+            </div>
+            <div class="col-md-4">
+              <label class="form-label">Qty / day</label>
+              <input type="text" name="qty" class="form-control" placeholder="1000 pcs">
+            </div>
+            <div class="col-12">
+              <label class="form-label">Message</label>
+              <textarea name="msg" rows="4" class="form-control" placeholder="Size (Ø/Length), drawing/spec, preferred process if any"></textarea>
+            </div>
+          </div>
+        </div>
+
+          <div class="col-12">
+            <button class="btn btn-brand btn-lg w-100 mobile-cta-text" type="submit"><span class="desktop-text">Get Instant Proposal</span><span class="mobile-text">Send Inquiry Now <span class="send-icon-box"></span></span></button>
+          </div>
+          <div class="col-12">
+            <a class="btn btn-outline-secondary btn-sm w-100 text-center" href="https://wa.me/86189622292350" target="_blank" rel="noopener">Prefer instant chat? WhatsApp us <span class="whatsapp-icon-box">📱</span></a>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- ===== 移动端菜单修复（简化版）===== -->
+  <script>
+  (function(){
+    const navMain = document.getElementById('navMain');
+    const backdrop = document.querySelector('.nav-backdrop');
+    if(!navMain) return;
+    
+    // 点击菜单链接后关闭菜单
+    navMain.querySelectorAll('.nav-link').forEach(link => {
+      link.addEventListener('click', () => {
+        if(window.bootstrap && bootstrap.Collapse){
+          const collapse = bootstrap.Collapse.getInstance(navMain);
+          if(collapse) collapse.hide();
+        }
+      });
+    });
+    
+    // 点击遮罩层关闭菜单
+    if(backdrop){
+      backdrop.addEventListener('click', () => {
+        if(window.bootstrap && bootstrap.Collapse){
+          const collapse = bootstrap.Collapse.getInstance(navMain);
+          if(collapse) collapse.hide();
+        }
+      });
+    }
+    
+    // 背景滚动锁定
+    navMain.addEventListener('shown.bs.collapse', () => {
+      document.body.classList.add('menu-open');
+    });
+    navMain.addEventListener('hidden.bs.collapse', () => {
+      document.body.classList.remove('menu-open');
+    });
+  })();
+  </script>
+
+  <!-- ===== WhatsApp intl-tel-input 初始化 ===== -->
+  <script>
+  (function(){
+    const input = document.getElementById('waInputModal');
+    const form  = document.getElementById('quoteFormModal');
+    if(!input || !form || !window.intlTelInput) return;
+
+    const iti = window.intlTelInput(input, {
+      initialCountry: "auto",
+      // 优先让用户选择国家，也允许直接输入国家码
+      nationalMode: false,
+      separateDialCode: true,
+      autoPlaceholder: "polite",
+      formatOnDisplay: true,
+      utilsScript: "https://cdn.jsdelivr.net/npm/intl-tel-input@18.2.1/build/js/utils.js",
+      geoIpLookup: function(callback){
+        fetch("https://ipapi.co/json/")
+          .then(r => r.json())
+          .then(d => callback((d && d.country_code) ? d.country_code : "US"))
+          .catch(() => callback("US"));
+      }
+    });
+
+    // 提交时写回 E.164（例如 +9715xxxxxx），保证 Sheet/CRM 统一格式
+    form.addEventListener('submit', function(){
+      try{
+        const e164 = iti.getNumber(); // 默认 E.164
+        if(e164) input.value = e164;
+      }catch(e){}
+    });
+  })();
+  </script>
+
+</body>
+</html>
