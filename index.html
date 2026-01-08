@@ -3962,8 +3962,9 @@
       });
     });
 
-    // Any "Get Quote" buttons inside detail/cases/downloads
-    // Note: Modal handler (added later) handles all quote buttons via event delegation
+    // All "Get Quote" / "Get Instant Quote" buttons are handled via document-level event delegation
+    // See: document.addEventListener("click") handler below (around line 4177)
+    // No element-level addEventListener needed - all quote buttons use event delegation
 
     // ===== Optional: basic form validation (no backend) =====
     $("#quoteForm").addEventListener("submit", (e) => {
@@ -4174,27 +4175,39 @@ window.addEventListener("DOMContentLoaded", function(){
     }
   });
 
+  // ===== Quote Button Click Handler (Document-level Event Delegation) =====
+  // All Quote / Get Quote / Get Instant Quote buttons use event delegation
+  // No element-level addEventListener needed - all handled here
   document.addEventListener("click", function(e){
     const { modalEl, nativeBackdrop, nativeModal } = getEls();
 
-    // Close native
+    // Close native modal
     if(e.target.closest('[data-close-native="1"]') || (nativeBackdrop && e.target === nativeBackdrop)){
       e.preventDefault();
       closeNative(nativeBackdrop, nativeModal);
       return;
     }
 
-    // Quote trigger detect - comprehensive selector
+    // Quote trigger detection - comprehensive selector for all quote buttons
+    // Matches: .js-quote, [data-quote-trigger], [data-open-quote], a[href="#quote"]
     let trigger = e.target.closest(
-      'a[href="#quote"], [data-open-quote="1"], [data-quote-trigger="1"], .js-quote'
+      '.js-quote, [data-quote-trigger="1"], [data-open-quote="1"], a[href="#quote"]'
     );
     
-    // Also check if clicked element itself matches by text content
+    // Fallback: check by text content for buttons/links containing quote text
     if(!trigger){
       const text = (e.target.textContent || "").trim();
-      const quoteTexts = ["Get Quote", "Get Instant Quote", "View & Quote", "Get Instant Proposal", "Get Free Press Recommendation", "Get Similar Quote", "Send Resources"];
+      const quoteTexts = [
+        "Get Quote", 
+        "Get Instant Quote", 
+        "View & Quote", 
+        "Get Instant Proposal", 
+        "Get Free Press Recommendation", 
+        "Get Similar Quote", 
+        "Send Resources"
+      ];
       if(quoteTexts.some(qt => text.includes(qt))){
-        // Check if it's a button or link
+        // Check if clicked element is a button or link
         if(e.target.tagName === "BUTTON" || e.target.tagName === "A"){
           trigger = e.target;
         } else {
@@ -4204,22 +4217,25 @@ window.addEventListener("DOMContentLoaded", function(){
       }
     }
     
+    // Not a quote button - exit early
     if(!trigger) return;
 
-    // ignore pure WhatsApp links (but allow js-quote buttons)
+    // Ignore pure WhatsApp links (unless they have quote trigger attributes)
     const href = trigger.getAttribute("href") || "";
-    if(href.includes("wa.me") && !trigger.classList.contains("js-quote") && !trigger.hasAttribute("data-quote-trigger")) return;
+    if(href.includes("wa.me") && !trigger.classList.contains("js-quote") && !trigger.hasAttribute("data-quote-trigger") && !trigger.hasAttribute("data-open-quote")) {
+      return;
+    }
     
-    // Prevent any anchor navigation or scrolling
+    // Prevent anchor navigation for quote links
     if(trigger.tagName === "A" && (href === "#quote" || href.startsWith("#"))){
       e.preventDefault();
       e.stopPropagation();
     }
 
-    // Get product from trigger or parent card
+    // Extract product from trigger element or parent card
     let product = trigger.getAttribute("data-product") || trigger.dataset.product || null;
     if(!product){
-      // Try to get from parent card with data-product
+      // Try to get from parent card with data-product attribute
       const parentCard = trigger.closest('[data-product]');
       if(parentCard){
         product = parentCard.getAttribute("data-product") || parentCard.dataset.product || null;
@@ -4230,6 +4246,7 @@ window.addEventListener("DOMContentLoaded", function(){
     e.preventDefault();
     e.stopPropagation();
 
+    // Open modal (Bootstrap first, fallback to native)
     const ok = openBootstrap(product, modalEl, nativeModal);
     if(!ok) openNative(product, nativeBackdrop, nativeModal, modalEl);
   });
