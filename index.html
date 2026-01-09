@@ -3856,7 +3856,7 @@
   <script src="https://cdn.jsdelivr.net/npm/intl-tel-input@18.2.1/build/js/utils.js" defer></script>
 
   <!-- Quote Form Submission Handler (Deferred) -->
-  <script src="/assets/js/quote-submit-gsheet.js" defer></script>
+  <script defer src="/assets/js/quote-submit-gsheet.js?v=20260109"></script>
 
   <!-- Critical: Minimal inline script for year (non-blocking) -->
   <script>
@@ -3976,21 +3976,6 @@
     // See: document.addEventListener("click") handler below (around line 4177)
     // No element-level addEventListener needed - all quote buttons use event delegation
 
-    // ===== Optional: basic form validation (no backend) =====
-    $("#quoteForm").addEventListener("submit", (e) => {
-      e.preventDefault();
-      const form = e.currentTarget;
-      if(!form.checkValidity()){
-        form.classList.add("was-validated");
-        const isMobile = window.matchMedia("(max-width: 768px)").matches;
-        const msg = "Please fill in required fields (Name, Email, WhatsApp, Target Product).";
-        alert(msg);
-        return;
-      }
-      // Placeholder behavior. Replace with your real form action (Netlify / WPForms / Zapier endpoint).
-      alert("Inquiry captured (demo). Connect this form to your backend (Netlify Forms / webhook) for real submissions.");
-      form.reset();
-    });
   </script>
 
 <script defer>
@@ -4241,54 +4226,6 @@ window.addEventListener("DOMContentLoaded", function(){
     });
   }
 
-  // Handle Bootstrap modal form submission
-  const bootstrapForm = modalEl && modalEl.querySelector("#quoteFormModal");
-  if(bootstrapForm){
-    bootstrapForm.addEventListener("submit", function(e){
-      e.preventDefault();
-      const form = e.currentTarget;
-      enableDisabledFields(form); // Re-enable disabled fields for submission
-      if(!form.checkValidity()){
-        form.classList.add("was-validated");
-        const isMobile = window.matchMedia("(max-width: 768px)").matches;
-        const msg = "Please fill in required fields (Name, Email, WhatsApp, Target Product).";
-        alert(msg);
-        adjustFormForMobile(modalEl); // Restore mobile state
-        return;
-      }
-      alert("Inquiry captured (demo). Connect this form to your backend for real submissions.");
-      form.reset();
-      adjustFormForMobile(modalEl); // Restore mobile state after reset
-      if(window.bootstrap && bootstrap.Modal && modalEl){
-        const m = bootstrap.Modal.getInstance(modalEl);
-        if(m) m.hide();
-      }
-    });
-  }
-
-  // Handle native form submission
-  const { nativeModal } = getEls();
-  const nativeForm = nativeModal && nativeModal.querySelector("form");
-  if(nativeForm){
-    nativeForm.addEventListener("submit", function(e){
-      e.preventDefault();
-      const form = e.currentTarget;
-      enableDisabledFields(form); // Re-enable disabled fields for submission
-      if(!form.checkValidity()){
-        form.classList.add("was-validated");
-        const isMobile = window.matchMedia("(max-width: 768px)").matches;
-        const msg = "Please fill in required fields (Name, Email, WhatsApp, Target Product).";
-        alert(msg);
-        adjustFormForMobile(nativeModal); // Restore mobile state
-        return;
-      }
-      alert("Inquiry captured (demo). Connect this form to your backend for real submissions.");
-      form.reset();
-      adjustFormForMobile(nativeModal); // Restore mobile state after reset
-      const { nativeBackdrop, nativeModal } = getEls();
-      closeNative(nativeBackdrop, nativeModal);
-    });
-  }
     });
   </script>
 
