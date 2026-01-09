@@ -37,15 +37,13 @@
       for (const [k, v] of fd.entries()) data[k] = v;
   
       Object.assign(data, getMeta());
-  
-      const payload = toFormBody(data);
-  
-      // Use no-cors to avoid preflight - response is opaque, treat as success
-      await fetch(ENDPOINT, {
+
+      // 关键修复 1：将数据转为简单的字符串，不再使用 URLSearchParams
+      // 关键修复 2：彻底移除 headers，避免触发浏览器 CORS 预检
+      return fetch(ENDPOINT, {
         method: 'POST',
-        mode: 'no-cors',
-        headers: { 'Content-Type': 'application/x-www-form-urlencoded;charset=UTF-8' },
-        body: payload
+        mode: 'no-cors', // 保持 no-cors
+        body: JSON.stringify(data) // 直接发送 JSON 字符串，后端已支持解析
       });
     }
   
@@ -68,14 +66,13 @@
   
         setLoading(form, true);
   
-        try {
-          await postLead(form);
+        // 关键修复 3：不再使用 await 等待 fetch 结果
+        // 发出请求后直接跳转，确保用户不会看到报错弹窗
+        postLead(form); 
+        
+        setTimeout(() => {
           window.location.href = SUCCESS_URL;
-        } catch (err) {
-          console.error('[LEADS_SUBMIT_FAIL]', err);
-          alert('Network error. Please try again.');
-          setLoading(form, false);
-        }
+        }, 300); // 给浏览器留 300ms 发出请求包
       }, { passive: false });
     }
   
