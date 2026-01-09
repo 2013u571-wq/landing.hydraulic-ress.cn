@@ -38,12 +38,11 @@
   
       Object.assign(data, getMeta());
 
-      // 关键修复 1：将数据转为简单的字符串，不再使用 URLSearchParams
-      // 关键修复 2：彻底移除 headers，避免触发浏览器 CORS 预检
+      // 彻底移除 headers，避免触发浏览器 CORS 预检
       return fetch(ENDPOINT, {
         method: 'POST',
-        mode: 'no-cors', // 保持 no-cors
-        body: JSON.stringify(data) // 直接发送 JSON 字符串，后端已支持解析
+        mode: 'no-cors',
+        body: JSON.stringify(data)
       });
     }
   
