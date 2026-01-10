@@ -30,12 +30,13 @@
       
       const iti = window.intlTelInput(input, {
         initialCountry: "auto",
-        // 移动端：使用 nationalMode: true 避免在输入框中显示国家代码
+        // 移动端：使用 nationalMode: true 确保输入框内不显示国家代码
         // PC端：使用 separateDialCode: true 在输入框外显示国家代码
         nationalMode: isMobile ? true : false,
-        separateDialCode: isMobile ? false : true,
+        separateDialCode: true, // PC和移动端都使用，确保自动填充可以正确解析
         autoPlaceholder: "polite",
-        formatOnDisplay: true,
+        // 移动端禁用 formatOnDisplay，避免自动填充时号码被格式化导致显示不全
+        formatOnDisplay: isMobile ? false : true,
         utilsScript: "https://cdn.jsdelivr.net/npm/intl-tel-input@18.2.1/build/js/utils.js",
         geoIpLookup: function(callback) {
           fetch("https://ipapi.co/json/")
@@ -44,6 +45,139 @@
             .catch(() => callback("US"));
         }
       });
+      
+      // 修复移动端自动填充：当检测到自动填充的完整号码时，正确解析并分离国家代码
+      if (isMobile) {
+        let autofillHandled = false;
+        let inputTimeout = null;
+        
+        // 监听 input 事件，检测自动填充
+        input.addEventListener('input', function(e) {
+          const currentValue = e.target.value;
+          
+          // 清除之前的定时器
+          if (inputTimeout) {
+            clearTimeout(inputTimeout);
+          }
+          
+          // 延迟处理，确保浏览器完成自动填充
+          inputTimeout = setTimeout(function() {
+            const fullValue = input.value.trim();
+            const digitsOnly = fullValue.replace(/\D/g, '');
+            
+            // 检测是否是自动填充的完整号码（包含+号或长度超过10位）
+            if (fullValue && !autofillHandled && digitsOnly.length > 10) {
+              
+              try {
+                // 如果包含+号，直接使用 setNumber 解析
+                if (fullValue.includes('+')) {
+                  iti.setNumber(fullValue);
+                  autofillHandled = true;
+                } else {
+                  // 如果不包含+号，可能是自动填充的国内号码格式
+                  // 先尝试用当前国家代码解析
+                  const currentCountry = iti.getSelectedCountryData();
+                  if (currentCountry && currentCountry.dialCode) {
+                    const testNumber = '+' + currentCountry.dialCode + digitsOnly;
+                    try {
+                      iti.setNumber(testNumber);
+                      // 验证号码是否有效（通过检查分离后的号码长度）
+                      const separatedNumber = input.value;
+                      if (separatedNumber && separatedNumber.length > 0) {
+                        autofillHandled = true;
+                      }
+                    } catch (e) {
+                      // 如果当前国家代码不匹配，继续尝试其他方法
+                    }
+                  }
+                  
+                  // 如果当前国家代码不匹配，尝试匹配常见国家代码
+                  if (!autofillHandled) {
+                    // 优先匹配中国的11位手机号（以1开头，11位数字）
+                    if (digitsOnly.length === 11 && digitsOnly.startsWith('1')) {
+                      iti.setCountry('cn');
+                      input.value = digitsOnly;
+                      autofillHandled = true;
+                    } else {
+                      // 尝试匹配包含国家代码的完整号码
+                      const commonCodes = [
+                        { code: '86', iso2: 'cn', priority: 10 },   // 中国（优先）
+                        { code: '1', iso2: 'us', priority: 9 },     // 美国/加拿大
+                        { code: '44', iso2: 'gb', priority: 8 },    // 英国
+                        { code: '33', iso2: 'fr', priority: 7 },    // 法国
+                        { code: '49', iso2: 'de', priority: 7 },    // 德国
+                        { code: '81', iso2: 'jp', priority: 7 },    // 日本
+                        { code: '82', iso2: 'kr', priority: 7 },    // 韩国
+                        { code: '91', iso2: 'in', priority: 7 },    // 印度
+                      ];
+                      
+                      // 按优先级和长度排序
+                      commonCodes.sort((a, b) => {
+                        if (b.priority !== a.priority) return b.priority - a.priority;
+                        return (b.code.length - a.code.length);
+                      });
+                      
+                      let matched = false;
+                      for (let i = 0; i < commonCodes.length; i++) {
+                        const { code, iso2 } = commonCodes[i];
+                        if (digitsOnly.startsWith(code) && digitsOnly.length > code.length) {
+                          const number = digitsOnly.substring(code.length);
+                          iti.setCountry(iso2);
+                          input.value = number;
+                          autofillHandled = true;
+                          matched = true;
+                          break;
+                        }
+                      }
+                      
+                      // 如果常见代码都不匹配，尝试所有国家代码（按长度降序）
+                      if (!matched) {
+                        const countries = iti.getCountryData();
+                        countries.sort((a, b) => (b.dialCode || '').length - (a.dialCode || '').length);
+                        
+                        for (let i = 0; i < countries.length; i++) {
+                          const code = countries[i].dialCode;
+                          if (code && digitsOnly.startsWith(code) && digitsOnly.length > code.length) {
+                            const number = digitsOnly.substring(code.length);
+                            iti.setCountry(countries[i].iso2);
+                            input.value = number;
+                            autofillHandled = true;
+                            break;
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              } catch (err) {
+                console.warn('[quote-modal] Failed to parse autofilled number:', err);
+              }
+            }
+          }, 300); // 300ms 延迟，确保自动填充完成
+        }, { passive: true });
+        
+        // 监听 change 事件（当用户点击自动填充建议时触发）
+        input.addEventListener('change', function() {
+          if (!autofillHandled) {
+            const fullValue = input.value.trim();
+            if (fullValue && (fullValue.startsWith('+') || fullValue.replace(/\D/g, '').length > 10)) {
+              try {
+                iti.setNumber(fullValue);
+                autofillHandled = true;
+              } catch (err) {
+                console.warn('[quote-modal] Failed to parse number on change:', err);
+              }
+            }
+          }
+        });
+        
+        // 当输入框失去焦点时，重置 autofillHandled 标志，以便下次自动填充
+        input.addEventListener('blur', function() {
+          setTimeout(function() {
+            autofillHandled = false;
+          }, 300);
+        });
+      }
       
       // 阻止国家选择下拉框的点击事件冒泡，避免触发产品下拉框
       // 使用事件委托在文档级别处理，确保下拉框打开时阻止冒泡
