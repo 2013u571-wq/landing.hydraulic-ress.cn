@@ -335,13 +335,19 @@
                   input.click();
                   // 尝试触发 touchstart 事件（某些移动浏览器需要）
                   try {
-                    const touchEvent = document.createEvent('TouchEvent');
-                    touchEvent.initTouchEvent('touchstart', true, true, window, 0, 0, 0, 0, 0, false, false, false, false, 0, null, false, false);
-                    input.dispatchEvent(touchEvent);
+                    if (typeof TouchEvent !== 'undefined' && typeof TouchEvent.prototype !== 'undefined') {
+                      // 现代浏览器支持
+                      const evt = new Event('touchstart', { bubbles: true, cancelable: true });
+                      input.dispatchEvent(evt);
+                    } else if (document.createEvent) {
+                      // 旧版浏览器
+                      const evt = document.createEvent('Event');
+                      evt.initEvent('touchstart', true, true);
+                      input.dispatchEvent(evt);
+                    }
                   } catch (e) {
-                    // 如果不支持 TouchEvent，尝试使用普通事件
-                    const evt = new Event('touchstart', { bubbles: true, cancelable: true });
-                    input.dispatchEvent(evt);
+                    // 如果都不支持，忽略（focus 和 click 应该足够）
+                    console.debug('[quote-modal] TouchEvent not supported, using focus/click only');
                   }
                 }, 50);
               }
