@@ -224,6 +224,9 @@
   <!-- Defer intl-tel-input CSS (Non-critical) -->
   <link rel="preload" href="https://cdn.jsdelivr.net/npm/intl-tel-input@18.2.1/build/css/intlTelInput.min.css" as="style" onload="this.rel='stylesheet'" />
   <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/intl-tel-input@18.2.1/build/css/intlTelInput.min.css" /></noscript>
+  
+  <!-- WhatsApp FAB Enhanced Styles -->
+  <link rel="stylesheet" href="/assets/css/components/whatsapp-fab.css">
 
   <!-- Non-critical CSS (Below-the-fold) -->
   <style>
@@ -1389,91 +1392,7 @@
 
     /* ===== WhatsApp FAB + Mobile Menu Fix ===== */
 
-    /* WhatsApp Floating Action Button - Optimized for Desktop & Mobile */
-    .wa-fab{
-      position:fixed;
-      right:max(16px, env(safe-area-inset-right));
-      bottom:max(18px, env(safe-area-inset-bottom));
-      width:56px;
-      height:56px;
-      border-radius:999px;
-      background-image:url('/images/wa-avatar-128.png');
-      background-size:cover;
-      background-position:center;
-      background-repeat:no-repeat;
-      box-shadow:0 10px 30px rgba(0,0,0,.18);
-      border:2px solid rgba(255,255,255,.8);
-      z-index:1200;
-      transform:translateZ(0);
-      transition:transform .2s ease, box-shadow .2s ease, filter .2s ease;
-      text-decoration:none;
-      overflow:hidden;
-      display:block;
-    }
-    
-    .wa-fab:hover{
-      transform:translateY(-2px);
-      box-shadow:0 14px 40px rgba(0,0,0,.22);
-    }
-    
-    .wa-fab:active{
-      transform:translateY(0);
-    }
-    
-    .wa-fab:focus-visible{
-      outline:none;
-      box-shadow:0 0 0 4px rgba(34,197,94,.25), 0 14px 40px rgba(0,0,0,.22);
-    }
-    
-    @media (max-width:576px){
-      .wa-fab{
-        width:54px;
-        height:54px;
-        right:14px;
-        bottom:max(16px, env(safe-area-inset-bottom));
-      }
-    }
-    
-    /* Subtle pulse ring animation */
-    .wa-fab::after{
-      content:"";
-      position:absolute;
-      inset:-8px;
-      border-radius:999px;
-      border:2px solid rgba(34,197,94,.25);
-      opacity:0;
-      animation:waPulse 2.6s ease-in-out infinite;
-      pointer-events:none;
-    }
-    
-    @keyframes waPulse{
-      0%{
-        transform:scale(.92);
-        opacity:0;
-      }
-      35%{
-        opacity:.65;
-      }
-      70%{
-        transform:scale(1.15);
-        opacity:0;
-      }
-      100%{
-        opacity:0;
-      }
-    }
-    
-    @media (prefers-reduced-motion: reduce){
-      .wa-fab::after{
-        animation:none;
-      }
-    }
-    
-    /* Hide WhatsApp FAB when modal is open */
-    body.modal-open .wa-fab,
-    body.native-modal-open .wa-fab{
-      display:none !important;
-    }
+    /* WhatsApp FAB styles moved to /assets/css/components/whatsapp-fab.css */
 
     /* Mobile menu misalignment fixes */
     .navbar{
@@ -3897,7 +3816,17 @@
   </footer>
 
   <!-- ===== WhatsApp Floating Action Button ===== -->
-  <a id="waFab" class="wa-fab" href="https://wa.me/86189622292350" target="_blank" rel="noopener nofollow" aria-label="Chat on WhatsApp" data-gtm="whatsapp_fab"></a>
+  <a id="waFab" class="wa-fab" href="https://wa.me/86189622292350" target="_blank" rel="noopener nofollow" aria-label="Chat on WhatsApp" data-gtm="whatsapp_fab">
+    <span class="wa-fab-tooltip" id="waFabTooltip">
+      <span class="wa-fab-tooltip-content">
+        <span class="wa-fab-tooltip-icon" aria-hidden="true"></span>
+        <span class="wa-fab-tooltip-text">
+          <span class="wa-fab-tooltip-line1">Chat with an Engineer</span>
+          <span class="wa-fab-tooltip-line2">Reply in minutes</span>
+        </span>
+      </span>
+    </span>
+  </a>
 
   <!-- ===== JSON-LD (Micro-site friendly: ItemList) ===== -->
   <script type="application/ld+json">
@@ -4721,18 +4650,46 @@ window.addEventListener("DOMContentLoaded", function(){
   })();
   </script>
 
-  <!-- WhatsApp FAB Click Tracking (Future-proof dataLayer event) -->
+  <!-- WhatsApp FAB Click Tracking + Tooltip Behavior -->
   <script>
   (function(){
     var el = document.getElementById('waFab');
+    var tooltip = document.getElementById('waFabTooltip');
     if(!el) return;
+    
+    // Tooltip: show 3s after page load, hide on first click
+    var tooltipShown = false;
+    var tooltipTimer = setTimeout(function(){
+      if(!tooltipShown && tooltip){
+        tooltip.classList.add('show');
+        tooltipShown = true;
+      }
+    }, 3000);
+    
+    // Hide tooltip on first click (and on any subsequent clicks)
     el.addEventListener('click', function(){
+      if(tooltip){
+        tooltip.classList.remove('show');
+        tooltipShown = true; // Mark as shown to prevent re-showing
+        clearTimeout(tooltipTimer);
+      }
+      
+      // Existing tracking (non-blocking)
       window.dataLayer = window.dataLayer || [];
       window.dataLayer.push({
         event: 'whatsapp_click',
         wa_placement: 'floating_button',
         wa_href: el.getAttribute('href') || ''
       });
+    }, {passive:true});
+    
+    // Hide tooltip when user scrolls (optional UX improvement)
+    var scrollTimeout;
+    window.addEventListener('scroll', function(){
+      if(tooltip && tooltip.classList.contains('show')){
+        tooltip.classList.remove('show');
+        clearTimeout(tooltipTimer);
+      }
     }, {passive:true});
   })();
   </script>
