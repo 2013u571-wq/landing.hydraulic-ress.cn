@@ -30,19 +30,26 @@
   
       Object.assign(data, getMeta());
 
-      // --- 关键改进：在发送前抓取访客 IP 和 国家 ---
+      // --- 关键改进：抓取访客 IP 和 国家 (带超时保护) ---
       try {
-        const ipRes = await fetch('https://ipapi.co/json/').catch(() => null);
+        // 设置 2 秒超时，防止 IP 接口响应慢导致页面卡死
+        const controller = new AbortController();
+        const timeoutId = setTimeout(() => controller.abort(), 2000);
+
+        const ipRes = await fetch('https://ipapi.co/json/', { signal: controller.signal });
+        
         if (ipRes && ipRes.ok) {
           const ipData = await ipRes.json();
-          data.ip = ipData.ip;              // 对应后端 data.ip
-          data.country = ipData.country_name; // 对应后端 data.country
+          data.ip = ipData.ip;              
+          data.country = ipData.country_name; 
         }
+        clearTimeout(timeoutId);
       } catch (e) {
-        console.warn('IP lookup failed, skipping...');
+        console.warn('IP lookup skipped or timed out');
       }
 
       // 提交给 Google Apps Script
+      // 使用 return 确保 fetch 动作被标记为 async 任务
       return fetch(ENDPOINT, {
         method: 'POST',
         mode: 'no-cors',
@@ -55,6 +62,12 @@
       if (!btn) return;
       btn.disabled = !!on;
       btn.style.opacity = on ? '0.7' : '';
+      if (on) {
+          btn.dataset.originalText = btn.innerText;
+          btn.innerText = 'Sending...';
+      } else {
+          btn.innerText = btn.dataset.originalText || 'Submit';
+      }
     }
   
     function bind(form) {
@@ -63,19 +76,23 @@
   
         if (!form.checkValidity()) {
           form.classList.add('was-validated');
-          alert('Please fill in required fields.');
           return;
         }
   
         setLoading(form, true);
   
-        // 执行发送逻辑（现在包含等待 IP 抓取的过程）
-        await postLead(form); 
+        try {
+          // 使用 await 强制等待数据发送动作完成
+          await postLead(form);
+          console.log('Submission sent to background.');
+        } catch (err) {
+          console.error('Submission error:', err);
+        }
         
-        // 稍微延长跳转等待时间至 500ms，确保数据发出
+        // 留出 300ms 缓冲区确保浏览器网络包已发出
         setTimeout(() => {
           window.location.href = SUCCESS_URL;
-        }, 500); 
+        }, 300); 
       }, { passive: false });
     }
   
@@ -87,7 +104,7 @@
       ].filter(Boolean);
   
       forms.forEach(bind);
-      console.log('[leads-submit] IP-Enabled version bound.');
+      console.log('[Lineng-Lead] System initialized with IP tracking.');
     }
   
     if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', init);
