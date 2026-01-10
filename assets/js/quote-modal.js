@@ -302,106 +302,121 @@
       // Store reference for later use
       input._iti = iti;
 
-      // 移动端：修复选择国家后无法回到输入框的问题
-      if (isMobile) {
-        // 监听国家选择变化事件
-        input.addEventListener('countrychange', function() {
+      // PC端和移动端：修复选择国家后无法回到输入框的问题
+      // 监听国家选择变化事件（PC和移动端都适用）
+      input.addEventListener('countrychange', function() {
+        setTimeout(function() {
+          // 强制关闭国家选择下拉框
+          const countryList = document.querySelector('.iti__country-list');
+          if (countryList) {
+            countryList.classList.remove('iti__country-list--open');
+            countryList.style.display = 'none';
+            countryList.setAttribute('aria-hidden', 'true');
+          }
+          
+          // 移除打开状态的类和相关属性
+          const itiContainer = input.closest('.iti');
+          if (itiContainer) {
+            itiContainer.classList.remove('iti--show-flags');
+            const selectedFlag = itiContainer.querySelector('.iti__selected-flag');
+            if (selectedFlag) {
+              selectedFlag.setAttribute('aria-expanded', 'false');
+              selectedFlag.classList.remove('iti__flag-container--open');
+            }
+          }
+          
+          // 重新聚焦到输入框
           setTimeout(function() {
-            // 强制关闭国家选择下拉框
-            const countryList = document.querySelector('.iti__country-list');
-            if (countryList) {
-              countryList.classList.remove('iti__country-list--open');
-              countryList.style.display = 'none';
-              countryList.setAttribute('aria-hidden', 'true');
-            }
-            
-            // 移除打开状态的类和相关属性
-            const itiContainer = input.closest('.iti');
-            if (itiContainer) {
-              itiContainer.classList.remove('iti--show-flags');
-              const selectedFlag = itiContainer.querySelector('.iti__selected-flag');
-              if (selectedFlag) {
-                selectedFlag.setAttribute('aria-expanded', 'false');
-                selectedFlag.classList.remove('iti__flag-container--open');
-              }
-            }
-            
-            // 重新聚焦到输入框
-            setTimeout(function() {
-              if (document.activeElement !== input) {
-                input.focus();
-                // 在移动端触发点击来重新显示键盘
+            if (document.activeElement !== input) {
+              input.focus();
+              
+              // 移动端额外处理：触发点击来重新显示键盘
+              if (isMobile) {
                 setTimeout(function() {
                   input.click();
                   // 尝试触发 touchstart 事件（某些移动浏览器需要）
                   try {
                     if (typeof TouchEvent !== 'undefined' && typeof TouchEvent.prototype !== 'undefined') {
-                      // 现代浏览器支持
                       const evt = new Event('touchstart', { bubbles: true, cancelable: true });
                       input.dispatchEvent(evt);
                     } else if (document.createEvent) {
-                      // 旧版浏览器
                       const evt = document.createEvent('Event');
                       evt.initEvent('touchstart', true, true);
                       input.dispatchEvent(evt);
                     }
                   } catch (e) {
-                    // 如果都不支持，忽略（focus 和 click 应该足够）
                     console.debug('[quote-modal] TouchEvent not supported, using focus/click only');
                   }
                 }, 50);
               }
-            }, 100);
-          }, 150);
-        });
-        
-        // 监听国家列表的点击事件，确保点击国家后正确处理
-        setTimeout(function() {
-          const countryList = document.querySelector('.iti__country-list');
-          if (countryList) {
-            // 使用事件委托处理国家项的点击
-            countryList.addEventListener('click', function(e) {
-              const countryItem = e.target.closest('.iti__country');
-              if (countryItem) {
-                // 当点击国家项时，延迟聚焦输入框
-                setTimeout(function() {
-                  // 确保下拉框已关闭
-                  countryList.classList.remove('iti__country-list--open');
-                  countryList.style.display = 'none';
-                  
-                  // 聚焦输入框
-                  input.focus();
+            }
+          }, isMobile ? 100 : 50); // 移动端延迟稍长
+        }, isMobile ? 150 : 100); // 移动端延迟稍长
+      });
+      
+      // 监听国家列表的点击事件，确保点击国家后正确处理（PC和移动端都适用）
+      setTimeout(function() {
+        const countryList = document.querySelector('.iti__country-list');
+        if (countryList) {
+          // 使用事件委托处理国家项的点击
+          countryList.addEventListener('click', function(e) {
+            const countryItem = e.target.closest('.iti__country');
+            if (countryItem) {
+              // 当点击国家项时，立即关闭下拉框并聚焦输入框
+              setTimeout(function() {
+                // 确保下拉框已关闭
+                countryList.classList.remove('iti__country-list--open');
+                countryList.style.display = 'none';
+                countryList.setAttribute('aria-hidden', 'true');
+                
+                // 移除打开状态
+                const itiContainer = input.closest('.iti');
+                if (itiContainer) {
+                  const selectedFlag = itiContainer.querySelector('.iti__selected-flag');
+                  if (selectedFlag) {
+                    selectedFlag.setAttribute('aria-expanded', 'false');
+                  }
+                }
+                
+                // 聚焦输入框
+                input.focus();
+                
+                // 移动端额外处理：点击以确保键盘显示
+                if (isMobile) {
                   setTimeout(function() {
                     input.click();
                   }, 100);
-                }, 250);
-              }
-            }, true); // 使用捕获阶段
-          }
-        }, 1000); // 延迟执行，确保下拉框已渲染
-        
-        // 额外监听：点击下拉框外部时关闭并聚焦输入框
-        document.addEventListener('click', function(e) {
-          const itiContainer = input.closest('.iti');
-          if (!itiContainer) return;
-          
-          const clickedInside = itiContainer.contains(e.target);
-          const countryList = document.querySelector('.iti__country-list');
-          
-          // 如果点击在下拉框外部，关闭下拉框并聚焦输入框
-          if (!clickedInside && countryList && countryList.classList.contains('iti__country-list--open')) {
-            countryList.classList.remove('iti__country-list--open');
-            countryList.style.display = 'none';
-            
-            // 如果焦点不在输入框上，聚焦输入框
-            if (document.activeElement !== input && input.closest('.modal.show')) {
-              setTimeout(function() {
-                input.focus();
-              }, 100);
+                }
+              }, isMobile ? 250 : 150); // 移动端延迟稍长
             }
+          }, true); // 使用捕获阶段，确保优先处理
+        }
+      }, 1000); // 延迟执行，确保下拉框已渲染
+      
+      // 额外监听：点击下拉框外部时关闭并聚焦输入框（PC和移动端都适用）
+      const handleExternalClick = function(e) {
+        const itiContainer = input.closest('.iti');
+        if (!itiContainer) return;
+        
+        const clickedInside = itiContainer.contains(e.target);
+        const countryList = document.querySelector('.iti__country-list');
+        
+        // 如果点击在下拉框外部，关闭下拉框并聚焦输入框
+        if (!clickedInside && countryList && countryList.classList.contains('iti__country-list--open')) {
+          countryList.classList.remove('iti__country-list--open');
+          countryList.style.display = 'none';
+          
+          // 如果焦点不在输入框上，聚焦输入框
+          if (document.activeElement !== input && input.closest('.modal.show')) {
+            setTimeout(function() {
+              input.focus();
+            }, 50);
           }
-        }, true);
-      }
+        }
+      };
+      
+      // 使用捕获阶段，确保优先处理外部点击
+      document.addEventListener('click', handleExternalClick, true);
 
       // Update value on form submit
       form.addEventListener('submit', function() {
