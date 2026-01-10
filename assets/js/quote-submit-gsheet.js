@@ -23,14 +23,6 @@
       };
     }
   
-    function toFormBody(obj) {
-      const p = new URLSearchParams();
-      Object.keys(obj).forEach(k => {
-        if (obj[k] !== undefined && obj[k] !== null) p.append(k, String(obj[k]));
-      });
-      return p.toString();
-    }
-  
     async function postLead(form) {
       const fd = new FormData(form);
       const data = {};
@@ -38,7 +30,19 @@
   
       Object.assign(data, getMeta());
 
-      // 彻底移除 headers，避免触发浏览器 CORS 预检
+      // --- 关键改进：在发送前抓取访客 IP 和 国家 ---
+      try {
+        const ipRes = await fetch('https://ipapi.co/json/').catch(() => null);
+        if (ipRes && ipRes.ok) {
+          const ipData = await ipRes.json();
+          data.ip = ipData.ip;              // 对应后端 data.ip
+          data.country = ipData.country_name; // 对应后端 data.country
+        }
+      } catch (e) {
+        console.warn('IP lookup failed, skipping...');
+      }
+
+      // 提交给 Google Apps Script
       return fetch(ENDPOINT, {
         method: 'POST',
         mode: 'no-cors',
@@ -65,13 +69,13 @@
   
         setLoading(form, true);
   
-        // 关键修复 3：不再使用 await 等待 fetch 结果
-        // 发出请求后直接跳转，确保用户不会看到报错弹窗
-        postLead(form); 
+        // 执行发送逻辑（现在包含等待 IP 抓取的过程）
+        await postLead(form); 
         
+        // 稍微延长跳转等待时间至 500ms，确保数据发出
         setTimeout(() => {
           window.location.href = SUCCESS_URL;
-        }, 300); // 给浏览器留 300ms 发出请求包
+        }, 500); 
       }, { passive: false });
     }
   
@@ -83,12 +87,10 @@
       ].filter(Boolean);
   
       forms.forEach(bind);
-  
-      console.log('[leads-submit] bound forms:', forms.map(f => f.id));
+      console.log('[leads-submit] IP-Enabled version bound.');
     }
   
     if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', init);
     else init();
   
   })();
-  
