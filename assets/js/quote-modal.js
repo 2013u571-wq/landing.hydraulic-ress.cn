@@ -71,7 +71,40 @@
               try {
                 // 如果包含+号，直接使用 setNumber 解析
                 if (fullValue.includes('+')) {
+                  // 强制解析并分离国家代码
                   iti.setNumber(fullValue);
+                  // 验证是否成功分离（在 nationalMode: true 下，输入框应该只包含号码部分）
+                  setTimeout(function() {
+                    const currentValue = input.value;
+                    // 如果输入框仍然包含+号或国家代码，说明分离失败，手动处理
+                    if (currentValue && (currentValue.includes('+') || currentValue.startsWith('86'))) {
+                      const digits = currentValue.replace(/\D/g, '');
+                      // 尝试匹配中国号码（86开头）
+                      if (digits.startsWith('86') && digits.length > 2) {
+                        const number = digits.substring(2);
+                        iti.setCountry('cn');
+                        input.value = number;
+                      } else {
+                        // 尝试其他常见国家代码
+                        const commonCodes = [
+                          { code: '86', iso2: 'cn' },
+                          { code: '1', iso2: 'us' },
+                          { code: '44', iso2: 'gb' },
+                          { code: '33', iso2: 'fr' },
+                          { code: '49', iso2: 'de' },
+                        ];
+                        for (let i = 0; i < commonCodes.length; i++) {
+                          const { code, iso2 } = commonCodes[i];
+                          if (digits.startsWith(code) && digits.length > code.length) {
+                            const number = digits.substring(code.length);
+                            iti.setCountry(iso2);
+                            input.value = number;
+                            break;
+                          }
+                        }
+                      }
+                    }
+                  }, 100);
                   autofillHandled = true;
                 } else {
                   // 如果不包含+号，可能是自动填充的国内号码格式
@@ -160,15 +193,75 @@
         input.addEventListener('change', function() {
           if (!autofillHandled) {
             const fullValue = input.value.trim();
-            if (fullValue && (fullValue.startsWith('+') || fullValue.replace(/\D/g, '').length > 10)) {
+            const digitsOnly = fullValue.replace(/\D/g, '');
+            
+            if (fullValue && digitsOnly.length > 10) {
               try {
-                iti.setNumber(fullValue);
+                if (fullValue.includes('+')) {
+                  iti.setNumber(fullValue);
+                  // 验证分离是否成功
+                  setTimeout(function() {
+                    const currentValue = input.value;
+                    if (currentValue && (currentValue.includes('+') || currentValue.startsWith('86'))) {
+                      const digits = currentValue.replace(/\D/g, '');
+                      if (digits.startsWith('86') && digits.length > 2) {
+                        const number = digits.substring(2);
+                        iti.setCountry('cn');
+                        input.value = number;
+                      }
+                    }
+                  }, 100);
+                } else if (digitsOnly.startsWith('86') && digitsOnly.length > 2) {
+                  // 直接处理以86开头的数字（中国号码）
+                  const number = digitsOnly.substring(2);
+                  iti.setCountry('cn');
+                  input.value = number;
+                } else if (digitsOnly.length === 11 && digitsOnly.startsWith('1')) {
+                  // 中国11位手机号
+                  iti.setCountry('cn');
+                  input.value = digitsOnly;
+                }
                 autofillHandled = true;
               } catch (err) {
                 console.warn('[quote-modal] Failed to parse number on change:', err);
               }
             }
           }
+        });
+        
+        // 额外监听 focus 事件，处理自动填充（某些浏览器在focus时填充）
+        input.addEventListener('focus', function() {
+          setTimeout(function() {
+            const fullValue = input.value.trim();
+            const digitsOnly = fullValue.replace(/\D/g, '');
+            
+            if (fullValue && !autofillHandled && digitsOnly.length > 10) {
+              if (fullValue.includes('+')) {
+                try {
+                  iti.setNumber(fullValue);
+                  setTimeout(function() {
+                    const currentValue = input.value;
+                    if (currentValue && (currentValue.includes('+') || currentValue.startsWith('86'))) {
+                      const digits = currentValue.replace(/\D/g, '');
+                      if (digits.startsWith('86') && digits.length > 2) {
+                        const number = digits.substring(2);
+                        iti.setCountry('cn');
+                        input.value = number;
+                      }
+                    }
+                  }, 100);
+                  autofillHandled = true;
+                } catch (err) {
+                  console.warn('[quote-modal] Failed to parse on focus:', err);
+                }
+              } else if (digitsOnly.startsWith('86') && digitsOnly.length > 2) {
+                const number = digitsOnly.substring(2);
+                iti.setCountry('cn');
+                input.value = number;
+                autofillHandled = true;
+              }
+            }
+          }, 200);
         });
         
         // 当输入框失去焦点时，重置 autofillHandled 标志，以便下次自动填充

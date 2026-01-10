@@ -81,18 +81,26 @@
   
         setLoading(form, true);
   
-        try {
-          // 使用 await 强制等待数据发送动作完成
-          await postLead(form);
-          console.log('Submission sent to background.');
-        } catch (err) {
-          console.error('Submission error:', err);
-        }
+        // 立即启动跳转（不等待请求完成），确保在中国境内即使请求被阻止也能跳转
+        // 使用 Promise.race 确保在请求完成或超时后跳转
+        const redirectPromise = new Promise((resolve) => {
+          setTimeout(() => {
+            resolve();
+          }, 100); // 100ms 后立即跳转，不等待请求
+        });
         
-        // 留出 300ms 缓冲区确保浏览器网络包已发出
-        setTimeout(() => {
+        const submitPromise = postLead(form).catch((err) => {
+          console.warn('Submission error (non-blocking):', err);
+          // 即使请求失败也继续，不阻止跳转
+        });
+        
+        // 无论请求成功或失败，都立即跳转
+        Promise.race([redirectPromise, submitPromise]).then(() => {
           window.location.href = SUCCESS_URL;
-        }, 300); 
+        }).catch(() => {
+          // 即使出错也跳转
+          window.location.href = SUCCESS_URL;
+        }); 
       }, { passive: false });
     }
   
