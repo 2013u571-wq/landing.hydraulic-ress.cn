@@ -1389,32 +1389,111 @@
 
     /* ===== WhatsApp FAB + Mobile Menu Fix ===== */
 
-    /* WhatsApp floating icon-only FAB */
+    /* WhatsApp floating icon-only FAB - Visual Upgrade */
     .wa-fab{
       position:fixed;
-      right:18px;
-      bottom:22px;
-      width:54px;
-      height:54px;
-      border-radius:999px;
+      right:20px;
+      bottom:24px;
+      width:58px;
+      height:58px;
+      border-radius:50%;
       display:flex;
       align-items:center;
       justify-content:center;
-      background:#25D366;
-      box-shadow:0 12px 28px rgba(0,0,0,.22);
+      background-image:url('/images/wa-avatar-128.png');
+      background-size:cover;
+      background-position:center;
+      background-repeat:no-repeat;
+      box-shadow:0 8px 24px rgba(37,211,102,.25);
       z-index:1200;
-      transition:transform .18s ease, box-shadow .18s ease, filter .18s ease;
+      transition:transform .25s ease, box-shadow .25s ease;
       text-decoration:none;
+      overflow:hidden;
+      border:2px solid rgba(255,255,255,.95);
     }
-    .wa-fab:hover{
-      transform:translateY(-2px);
-      box-shadow:0 18px 40px rgba(0,0,0,.26);
-      filter:brightness(.98);
+    
+    /* Desktop: hover lift + shadow enhancement */
+    @media (min-width:577px){
+      .wa-fab:hover{
+        transform:translateY(-4px) scale(1.02);
+        box-shadow:0 12px 32px rgba(37,211,102,.35);
+      }
+      /* Tooltip - visual only, desktop */
+      .wa-fab::after{
+        content:'WhatsApp';
+        position:absolute;
+        right:calc(100% + 12px);
+        top:50%;
+        transform:translateY(-50%);
+        background:rgba(15,23,42,.85);
+        color:#fff;
+        padding:6px 12px;
+        border-radius:6px;
+        font-size:13px;
+        font-weight:500;
+        white-space:nowrap;
+        opacity:0;
+        pointer-events:none;
+        transition:opacity .2s ease;
+      }
+      .wa-fab:hover::after{
+        opacity:1;
+      }
+      /* Tooltip arrow */
+      .wa-fab::before{
+        content:'';
+        position:absolute;
+        right:calc(100% + 6px);
+        top:50%;
+        transform:translateY(-50%);
+        border:6px solid transparent;
+        border-left-color:rgba(15,23,42,.85);
+        opacity:0;
+        pointer-events:none;
+        transition:opacity .2s ease;
+      }
+      .wa-fab:hover::before{
+        opacity:1;
+      }
     }
-    .wa-fab svg{width:26px;height:26px;display:block}
+    
+    /* Hide SVG icon - replaced by avatar image */
+    .wa-fab svg{
+      display:none;
+    }
+    
+    /* Mobile: smaller size, safe-area support, pulse animation */
     @media (max-width:576px){
-      .wa-fab{width:52px;height:52px;right:14px;bottom:18px;}
+      .wa-fab{
+        width:54px;
+        height:54px;
+        right:16px;
+        bottom:max(18px, env(safe-area-inset-bottom, 18px));
+        /* Soft pulse ring animation */
+        animation:wa-pulse-ring 2.5s ease-in-out infinite;
+      }
+      /* Hide tooltip on mobile */
+      .wa-fab::after,
+      .wa-fab::before{
+        display:none !important;
+      }
     }
+    
+    /* Pulse ring animation for mobile */
+    @keyframes wa-pulse-ring{
+      0%{
+        box-shadow:0 8px 24px rgba(37,211,102,.25);
+      }
+      50%{
+        box-shadow:0 8px 24px rgba(37,211,102,.25),
+                   0 0 0 8px rgba(37,211,102,.08),
+                   0 0 0 16px rgba(37,211,102,.04);
+      }
+      100%{
+        box-shadow:0 8px 24px rgba(37,211,102,.25);
+      }
+    }
+    
     /* Hide WhatsApp FAB when modal is open */
     body.modal-open .wa-fab,
     body.native-modal-open .wa-fab{
