@@ -25,10 +25,15 @@
     }
 
     try {
+      // 检测是否为移动端
+      const isMobile = window.matchMedia('(max-width: 768px)').matches;
+      
       const iti = window.intlTelInput(input, {
         initialCountry: "auto",
-        nationalMode: false,
-        separateDialCode: true,
+        // 移动端：使用 nationalMode: true 避免在输入框中显示国家代码
+        // PC端：使用 separateDialCode: true 在输入框外显示国家代码
+        nationalMode: isMobile ? true : false,
+        separateDialCode: isMobile ? false : true,
         autoPlaceholder: "polite",
         formatOnDisplay: true,
         utilsScript: "https://cdn.jsdelivr.net/npm/intl-tel-input@18.2.1/build/js/utils.js",
@@ -39,6 +44,33 @@
             .catch(() => callback("US"));
         }
       });
+      
+      // 阻止国家选择下拉框的点击事件冒泡，避免触发产品下拉框
+      // 使用事件委托在文档级别处理，确保下拉框打开时阻止冒泡
+      const handleCountryListClick = function(e) {
+        if (e.target.closest('.iti__country-list') || e.target.closest('.iti__dropdown')) {
+          e.stopPropagation();
+          e.stopImmediatePropagation();
+        }
+      };
+      // 使用捕获阶段确保优先处理
+      document.addEventListener('click', handleCountryListClick, true);
+      
+      // 监听下拉框打开/关闭事件，调整产品选择框的z-index
+      setTimeout(function() {
+        const countryList = document.querySelector('.iti__country-list');
+        if (countryList) {
+          // 使用MutationObserver监听下拉框的显示/隐藏
+          const observer = new MutationObserver(function(mutations) {
+            const productSelect = form.querySelector('select[name="product"]');
+            if (productSelect) {
+              const isVisible = countryList.style.display !== 'none' && countryList.offsetParent !== null;
+              productSelect.style.zIndex = isVisible ? '1' : '';
+            }
+          });
+          observer.observe(countryList, { attributes: true, attributeFilter: ['style', 'class'] });
+        }
+      }, 500);
 
       // Store reference for later use
       input._iti = iti;

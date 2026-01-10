@@ -2806,6 +2806,19 @@
     /* intl-tel-input 宽度修复：让国旗控件不挤压输入框 */
     #quoteModal .iti{ width: 100%; }
     #quoteModal .iti__country-list{ max-height: 320px; }
+    
+    /* 修复 PC 端：WhatsApp 国家选择下拉框 z-index，避免显示产品下拉框 */
+    #quoteModal .iti__country-list {
+      z-index: 9999 !important;
+    }
+    #quoteModal .iti__dropdown {
+      z-index: 9999 !important;
+    }
+    /* 阻止 intl-tel-input 下拉框点击事件冒泡到产品选择框 */
+    #quoteModal .iti__country-list,
+    #quoteModal .iti__dropdown {
+      pointer-events: auto !important;
+    }
 
     /* 可选：让关闭按钮更好点按 */
     #quoteModal .btn-close{ transform: scale(1.05); }
@@ -4256,11 +4269,11 @@ window.addEventListener("DOMContentLoaded", function(){
               <div class="row g-3">
                 <div class="col-md-6">
                   <label class="form-label">Name*</label>
-                  <input type="text" name="name" class="form-control" required>
+                  <input type="text" name="name" class="form-control" autocomplete="name" required>
                 </div>
                 <div class="col-md-6 mobile-email-optional">
                   <label class="form-label">Email*</label>
-                  <input type="email" name="email" class="form-control" required>
+                  <input type="email" name="email" class="form-control" autocomplete="email" required>
                 </div>
                 <div class="col-md-6 mobile-wa-required">
                   <label class="form-label">WhatsApp*</label>
@@ -4337,15 +4350,15 @@ window.addEventListener("DOMContentLoaded", function(){
           <div class="row g-3">
             <div class="col-md-6">
               <label class="form-label">Name*</label>
-              <input type="text" name="name" class="form-control" required>
+              <input type="text" name="name" class="form-control" autocomplete="name" required>
             </div>
             <div class="col-md-6 mobile-email-optional">
               <label class="form-label">Email*</label>
-              <input type="email" name="email" class="form-control" required>
+              <input type="email" name="email" class="form-control" autocomplete="email" required>
             </div>
             <div class="col-md-6 mobile-wa-required">
               <label class="form-label">WhatsApp</label>
-              <input type="text" name="wa" class="form-control mobile-wa-input" placeholder="+86 189 6229 2350">
+              <input type="text" name="wa" class="form-control mobile-wa-input" placeholder="+86 189 6229 2350" autocomplete="tel">
             </div>
           </div>
         </div>
