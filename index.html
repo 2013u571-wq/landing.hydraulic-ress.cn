@@ -4545,13 +4545,9 @@ window.addEventListener("DOMContentLoaded", function(){
               candidateNational = '+' + dialCode + nationalDigits;
               
               // 3) Use decision rule: try candidates and validate
-              const currentValue = input.value;
+              const originalValue = input.value;
               let rawIsValid = false;
-              let bestCandidate = null;
-              let bestCandidateSource = null;
-              
-              // 保存当前状态
-              const originalValue = currentValue;
+              const validCandidates = [];
               
               // 检查原始值是否有效
               try {
@@ -4566,10 +4562,10 @@ window.addEventListener("DOMContentLoaded", function(){
                 try {
                   iti.setNumber(candidateIntl);
                   if(iti.isValidNumber()) {
-                    if(!rawIsValid || (rawIsValid && sanitized.startsWith('+'))) {
-                      bestCandidate = candidateIntl;
-                      bestCandidateSource = 'intl';
-                    }
+                    validCandidates.push({
+                      value: candidateIntl,
+                      preservesPlus: sanitized.startsWith('+')
+                    });
                   }
                 } catch(e) {}
               }
@@ -4578,12 +4574,11 @@ window.addEventListener("DOMContentLoaded", function(){
               if(candidateNational) {
                 try {
                   iti.setNumber(candidateNational);
-                  const isValid = iti.isValidNumber();
-                  if(isValid) {
-                    if(!bestCandidate || (bestCandidateSource === 'intl' && !sanitized.startsWith('+'))) {
-                      bestCandidate = candidateNational;
-                      bestCandidateSource = 'national';
-                    }
+                  if(iti.isValidNumber()) {
+                    validCandidates.push({
+                      value: candidateNational,
+                      preservesPlus: false
+                    });
                   }
                 } catch(e) {}
               }
@@ -4592,19 +4587,33 @@ window.addEventListener("DOMContentLoaded", function(){
               if(candidateNationalNoZero) {
                 try {
                   iti.setNumber(candidateNationalNoZero);
-                  const isValid = iti.isValidNumber();
-                  if(isValid) {
-                    // 只有在其他候选无效或原始值无效时才考虑
-                    if(!bestCandidate || (!rawIsValid && bestCandidateSource !== 'intl')) {
-                      bestCandidate = candidateNationalNoZero;
-                      bestCandidateSource = 'nationalNoZero';
-                    }
+                  if(iti.isValidNumber()) {
+                    validCandidates.push({
+                      value: candidateNationalNoZero,
+                      preservesPlus: false
+                    });
                   }
                 } catch(e) {}
               }
               
-              // 如果找到有效候选且原始值无效，应用最佳候选
-              if(bestCandidate && !rawIsValid) {
+              // 如果找到有效候选且原始值无效，选择最佳候选
+              if(!rawIsValid && validCandidates.length > 0) {
+                let bestCandidate = null;
+                // 优先级规则：
+                // a) 如果原始值有 "+"，优先选择保留 "+" 的候选
+                // b) 否则优先选择 candidateNational
+                const preservesPlusCandidate = validCandidates.find(c => c.preservesPlus);
+                const nationalCandidate = validCandidates.find(c => c.value === candidateNational);
+                
+                if(preservesPlusCandidate) {
+                  bestCandidate = preservesPlusCandidate.value;
+                } else if(nationalCandidate) {
+                  bestCandidate = nationalCandidate.value;
+                } else {
+                  bestCandidate = validCandidates[0].value;
+                }
+                
+                // 应用最佳候选
                 try {
                   iti.setNumber(bestCandidate);
                   // input.value 会自动更新为格式化后的值
