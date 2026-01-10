@@ -4483,6 +4483,157 @@ window.addEventListener("DOMContentLoaded", function(){
           // 标记已初始化
           input._iti = iti;
           
+          // normalizeAndFix: 全局安全的号码规范化函数
+          const normalizeAndFix = function() {
+            try {
+              const raw = input.value || '';
+              if(!raw.trim()) return;
+              
+              // 1) Sanitize raw input
+              let sanitized = raw.trim();
+              // 移除空格、破折号、括号
+              sanitized = sanitized.replace(/[\s\-\(\)]/g, '');
+              // 如果以 "00" 开头，替换为 "+"
+              if(sanitized.startsWith('00')) {
+                sanitized = '+' + sanitized.substring(2);
+              }
+              // 保留 "+" 仅当它是第一个字符；否则只保留数字
+              if(sanitized.startsWith('+')) {
+                sanitized = '+' + sanitized.substring(1).replace(/\D/g, '');
+              } else {
+                sanitized = sanitized.replace(/\D/g, '');
+              }
+              
+              if(!sanitized) return;
+              
+              // 2) Build candidates and validate with intl-tel-input
+              const countryData = iti.getSelectedCountryData();
+              if(!countryData || !countryData.dialCode) return;
+              
+              const iso2 = countryData.iso2;
+              const dialCode = countryData.dialCode;
+              const digitsOnly = sanitized.replace(/\D/g, '');
+              
+              let candidateIntl = null;
+              let candidateNational = null;
+              let candidateNationalNoZero = null;
+              
+              // CandidateIntl
+              if(sanitized.startsWith('+')) {
+                candidateIntl = sanitized;
+              } else if(digitsOnly.startsWith(dialCode) && digitsOnly.length > dialCode.length + 6) {
+                candidateIntl = '+' + digitsOnly;
+              }
+              
+              // CandidateNational
+              let nationalDigits = digitsOnly;
+              // 如果 digitsOnly 以 dialCode 开头且足够长，去掉 dialCode（避免重复国家代码）
+              if(nationalDigits.startsWith(dialCode) && nationalDigits.length > dialCode.length + 6) {
+                nationalDigits = nationalDigits.substring(dialCode.length);
+              }
+              
+              // 如果以 "0" 开头，创建不带前导零的变体
+              if(nationalDigits.startsWith('0') && nationalDigits.length > 1) {
+                candidateNationalNoZero = '+' + dialCode + nationalDigits.substring(1);
+              }
+              
+              // 对于中国号码的特殊处理
+              if(iso2 === 'cn' && nationalDigits.length === 10 && !nationalDigits.startsWith('1')) {
+                nationalDigits = '1' + nationalDigits;
+              }
+              
+              candidateNational = '+' + dialCode + nationalDigits;
+              
+              // 3) Use decision rule: try candidates and validate
+              const currentValue = input.value;
+              let rawIsValid = false;
+              let bestCandidate = null;
+              let bestCandidateSource = null;
+              
+              // 保存当前状态
+              const originalValue = currentValue;
+              
+              // 检查原始值是否有效
+              try {
+                iti.setNumber(originalValue);
+                rawIsValid = iti.isValidNumber();
+              } catch(e) {
+                rawIsValid = false;
+              }
+              
+              // 尝试 CandidateIntl
+              if(candidateIntl) {
+                try {
+                  iti.setNumber(candidateIntl);
+                  if(iti.isValidNumber()) {
+                    if(!rawIsValid || (rawIsValid && sanitized.startsWith('+'))) {
+                      bestCandidate = candidateIntl;
+                      bestCandidateSource = 'intl';
+                    }
+                  }
+                } catch(e) {}
+              }
+              
+              // 尝试 CandidateNational
+              if(candidateNational) {
+                try {
+                  iti.setNumber(candidateNational);
+                  const isValid = iti.isValidNumber();
+                  if(isValid) {
+                    if(!bestCandidate || (bestCandidateSource === 'intl' && !sanitized.startsWith('+'))) {
+                      bestCandidate = candidateNational;
+                      bestCandidateSource = 'national';
+                    }
+                  }
+                } catch(e) {}
+              }
+              
+              // 尝试 CandidateNationalNoZero（无前导零版本）
+              if(candidateNationalNoZero) {
+                try {
+                  iti.setNumber(candidateNationalNoZero);
+                  const isValid = iti.isValidNumber();
+                  if(isValid) {
+                    // 只有在其他候选无效或原始值无效时才考虑
+                    if(!bestCandidate || (!rawIsValid && bestCandidateSource !== 'intl')) {
+                      bestCandidate = candidateNationalNoZero;
+                      bestCandidateSource = 'nationalNoZero';
+                    }
+                  }
+                } catch(e) {}
+              }
+              
+              // 如果找到有效候选且原始值无效，应用最佳候选
+              if(bestCandidate && !rawIsValid) {
+                try {
+                  iti.setNumber(bestCandidate);
+                  // input.value 会自动更新为格式化后的值
+                  // 提交时使用 iti.getNumber() 获取 E.164 格式
+                } catch(e) {
+                  console.debug('[normalizeAndFix] Failed to set best candidate:', e);
+                }
+              } else if(rawIsValid) {
+                // 如果原始值已经有效，恢复原始值
+                try {
+                  iti.setNumber(originalValue);
+                } catch(e) {}
+              }
+            } catch(e) {
+              console.debug('[normalizeAndFix] Error:', e);
+            }
+          };
+          
+          // 绑定事件：input/change/blur + setTimeout(normalizeAndFix, 300)
+          let normalizeTimeout = null;
+          const scheduleNormalize = function() {
+            if(normalizeTimeout) clearTimeout(normalizeTimeout);
+            normalizeTimeout = setTimeout(normalizeAndFix, 300);
+          };
+          
+          input.addEventListener('input', scheduleNormalize);
+          input.addEventListener('change', scheduleNormalize);
+          input.addEventListener('blur', scheduleNormalize);
+          
           // 提交时写回 E.164（例如 +9715xxxxxx），保证 Sheet/CRM 统一格式
           form.addEventListener('submit', function(){
             try{
