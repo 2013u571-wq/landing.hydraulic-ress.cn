@@ -4450,31 +4450,65 @@ window.addEventListener("DOMContentLoaded", function(){
   (function(){
     const input = document.getElementById('waInputModal');
     const form  = document.getElementById('quoteFormModal');
-    if(!input || !form || !window.intlTelInput) return;
-
-    const iti = window.intlTelInput(input, {
-      initialCountry: "auto",
-      // 优先让用户选择国家，也允许直接输入国家码
-      nationalMode: false,
-      separateDialCode: true,
-      autoPlaceholder: "polite",
-      formatOnDisplay: true,
-      utilsScript: "https://cdn.jsdelivr.net/npm/intl-tel-input@18.2.1/build/js/utils.js",
-      geoIpLookup: function(callback){
-        fetch("https://ipapi.co/json/")
-          .then(r => r.json())
-          .then(d => callback((d && d.country_code) ? d.country_code : "US"))
-          .catch(() => callback("US"));
+    if(!input || !form) return;
+    
+    // 防止重复初始化
+    if(input._iti) return;
+    
+    // 等待 intl-tel-input 库加载完成（polling，最多3秒）
+    let attempts = 0;
+    const maxAttempts = 60; // 60 * 50ms = 3秒
+    const pollInterval = 50;
+    
+    const initIntlTelInput = function() {
+      if(window.intlTelInput) {
+        try {
+          const iti = window.intlTelInput(input, {
+            initialCountry: "auto",
+            // 优先让用户选择国家，也允许直接输入国家码
+            nationalMode: false,
+            separateDialCode: true,
+            autoPlaceholder: "polite",
+            formatOnDisplay: true,
+            dropdownContainer: document.body,
+            utilsScript: "https://cdn.jsdelivr.net/npm/intl-tel-input@18.2.1/build/js/utils.js",
+            geoIpLookup: function(callback){
+              fetch("https://ipapi.co/json/")
+                .then(r => r.json())
+                .then(d => callback((d && d.country_code) ? d.country_code : "US"))
+                .catch(() => callback("US"));
+            }
+          });
+          
+          // 标记已初始化
+          input._iti = iti;
+          
+          // 提交时写回 E.164（例如 +9715xxxxxx），保证 Sheet/CRM 统一格式
+          form.addEventListener('submit', function(){
+            try{
+              const e164 = iti.getNumber(); // 默认 E.164
+              if(e164) input.value = e164;
+            }catch(e){}
+          });
+        } catch(e) {
+          console.warn('[intl-tel-input] Initialization failed:', e);
+        }
+      } else {
+        attempts++;
+        if(attempts < maxAttempts) {
+          setTimeout(initIntlTelInput, pollInterval);
+        } else {
+          console.warn('[intl-tel-input] Library not loaded after 3 seconds');
+        }
       }
-    });
-
-    // 提交时写回 E.164（例如 +9715xxxxxx），保证 Sheet/CRM 统一格式
-    form.addEventListener('submit', function(){
-      try{
-        const e164 = iti.getNumber(); // 默认 E.164
-        if(e164) input.value = e164;
-      }catch(e){}
-    });
+    };
+    
+    // 如果 DOM 已经加载完成，立即尝试初始化
+    if(document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', initIntlTelInput);
+    } else {
+      initIntlTelInput();
+    }
   })();
   </script>
 
