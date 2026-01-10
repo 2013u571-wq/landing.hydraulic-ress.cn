@@ -2950,6 +2950,10 @@
 </head>
 
 <body data-bs-spy="scroll" data-bs-target="#topNav" data-bs-root-margin="0px 0px -60%" data-bs-smooth-scroll="true" tabindex="0">
+  <!-- Google Tag Manager (noscript) -->
+  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-W3LZRKFX"
+  height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+  <!-- End Google Tag Manager (noscript) -->
 
   <!-- ===== Top Nav ===== -->
   <div class="topnav">
@@ -3885,7 +3889,7 @@
     // ===== ScrollSpy refresh after load (Deferred) =====
     window.addEventListener("load", () => {
       if (typeof bootstrap !== 'undefined') {
-        bootstrap.ScrollSpy.getOrCreateInstance(document.body, { target: "#topNav" });
+      bootstrap.ScrollSpy.getOrCreateInstance(document.body, { target: "#topNav" });
       }
       
       // Hero entrance animation trigger (non-blocking)
@@ -4165,9 +4169,9 @@ window.addEventListener("DOMContentLoaded", function(){
         const modalInstance = bootstrap.Modal.getInstance(modalEl);
         if(modalInstance && modalEl.classList.contains("show")){
           modalInstance.hide();
-          e.preventDefault();
-          return;
-        }
+      e.preventDefault();
+        return;
+      }
       }
       // Close native modal if open
       if(nativeModal && nativeModal.classList.contains("is-open")){
