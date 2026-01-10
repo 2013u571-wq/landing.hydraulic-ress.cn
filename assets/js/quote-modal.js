@@ -273,14 +273,23 @@
       }
       
       // 阻止国家选择下拉框的点击事件冒泡，避免触发产品下拉框
-      // 使用事件委托在文档级别处理，确保下拉框打开时阻止冒泡
+      // 但是要允许国家项的点击事件正常处理
+      // 使用事件委托在文档级别处理，确保下拉框打开时阻止冒泡到产品下拉框
       const handleCountryListClick = function(e) {
-        if (e.target.closest('.iti__country-list') || e.target.closest('.iti__dropdown')) {
+        // 如果点击的是国家列表本身或下拉框容器，阻止冒泡
+        // 但不阻止国家项（.iti__country）的点击，让它正常处理
+        const target = e.target;
+        const countryItem = target.closest('.iti__country');
+        const countryList = target.closest('.iti__country-list');
+        const dropdown = target.closest('.iti__dropdown');
+        
+        // 只阻止不是国家项的点击事件冒泡
+        if ((countryList || dropdown) && !countryItem) {
           e.stopPropagation();
-          e.stopImmediatePropagation();
         }
+        // 国家项的点击不应该被阻止，让它正常触发
       };
-      // 使用捕获阶段确保优先处理
+      // 使用捕获阶段确保优先处理，但优先级要低于国家项点击处理
       document.addEventListener('click', handleCountryListClick, true);
       
       // 监听下拉框打开/关闭事件，调整产品选择框的z-index
