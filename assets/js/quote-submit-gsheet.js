@@ -1,7 +1,7 @@
 (function () {
     'use strict';
   
-    const ENDPOINT = 'https://script.google.com/macros/s/AKfycbxvl9vQv2fQSJfYrSEtL_jGbHAQvVtVZt_KOfnRrgpXL6ZU6QZZJj7xYMjTPaOb6qjyRQ/exec';
+    const ENDPOINT = 'https://script.google.com/macros/s/AKfycbyAAzsFLQMBDsXQwa-iya99hT6vcOA9KvPW6bx-7brIIovkYH4yl93bpT1l64GHHfVJvw/exec';
     const SUCCESS_URL = '/thanks/';
   
     function $(sel, root=document){ return root.querySelector(sel); }
