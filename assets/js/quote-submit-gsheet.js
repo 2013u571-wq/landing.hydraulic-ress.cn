@@ -4,8 +4,6 @@
     const ENDPOINT = 'https://script.google.com/macros/s/AKfycbyAAzsFLQMBDsXQwa-iya99hT6vcOA9KvPW6bx-7brIIovkYH4yl93bpT1l64GHHfVJvw/exec';
     const SUCCESS_URL = '/thanks/';
   
-    function $(sel, root=document){ return root.querySelector(sel); }
-  
     function getMeta() {
       const url = new URL(location.href);
       return {
@@ -28,31 +26,28 @@
       const data = {};
       for (const [k, v] of fd.entries()) data[k] = v;
   
+      // 注入基础 Meta 信息
       Object.assign(data, getMeta());
 
-      // --- 关键改进：抓取访客 IP 和 国家 (带超时保护) ---
+      // --- 关键改进：非阻塞 IP 抓取 ---
       try {
-        // 设置 2 秒超时，防止 IP 接口响应慢导致页面卡死
-        const controller = new AbortController();
-        const timeoutId = setTimeout(() => controller.abort(), 2000);
-
-        const ipRes = await fetch('https://ipapi.co/json/', { signal: controller.signal });
+        const ipInfo = await Promise.race([
+          fetch('https://ipapi.co/json/').then(res => res.json()),
+          new Promise(resolve => setTimeout(() => resolve({ ip: 'timeout', country: 'timeout' }), 1800))
+        ]).catch(() => ({ ip: 'failed', country: 'failed' }));
         
-        if (ipRes && ipRes.ok) {
-          const ipData = await ipRes.json();
-          data.ip = ipData.ip;              
-          data.country = ipData.country_name; 
-        }
-        clearTimeout(timeoutId);
+        data.ip = ipInfo.ip || 'unknown';
+        data.country = ipInfo.country_name || ipInfo.country || 'unknown';
       } catch (e) {
-        console.warn('IP lookup skipped or timed out');
+        console.warn('IP tracking failed, continuing submission...');
       }
 
       // 提交给 Google Apps Script
-      // 使用 return 确保 fetch 动作被标记为 async 任务
       return fetch(ENDPOINT, {
         method: 'POST',
-        mode: 'no-cors',
+        mode: 'no-cors', // 必须使用 no-cors
+        cache: 'no-cache',
+        headers: { 'Content-Type': 'text/plain' },
         body: JSON.stringify(data)
       });
     }
@@ -71,14 +66,13 @@
     }
   
     function bind(form) {
-      // 防重复绑定：检查 form.dataset.bound 是否存在
-      if (form.dataset.bound) return;
+      if (form.dataset.bound === 'true') return;
       form.dataset.bound = 'true';
 
       form.addEventListener('submit', async (e) => {
         e.preventDefault();
         
-        // 提交状态锁：拦截重复点击
+        // 互斥锁：防止多次重复点击
         if (form.dataset.submitting === 'true') return;
         
         if (!form.checkValidity()) {
@@ -86,24 +80,24 @@
           return;
         }
 
-        // 上锁：设置提交状态
         form.dataset.submitting = 'true';
         setLoading(form, true);
 
         try {
-          // 尝试发送请求，设置 5 秒保底超时
+          // 整体提交超时保护（5秒）
           await Promise.race([
             postLead(form),
-            new Promise((_, reject) => setTimeout(() => reject(new Error('Timeout')), 5000))
+            new Promise((_, reject) => setTimeout(() => reject(new Error('Global Timeout')), 5000))
           ]);
-          // 只有走到这一步，才说明请求已发出且未报错，执行跳转
+          
+          // 请求发出成功后跳转
           window.location.href = SUCCESS_URL;
         } catch (err) {
-          // 请求失败（被墙或超时），停止加载，留在当前页并报警
+          // 提交失败（如国内被墙或接口超时）
           setLoading(form, false);
-          form.dataset.submitting = 'false'; // 失败解锁，允许重试
-          alert('Network Error: Please try again or contact us via WhatsApp directly.');
-          console.error('Submission error:', err);
+          form.dataset.submitting = 'false'; // 解锁允许重试
+          alert('Network Error: Your submission could not reach our server. Please contact us via WhatsApp (+8618962292350) or try again with a stable connection.');
+          console.error('Final Error Info:', err);
         }
       }, { passive: false });
     }
@@ -116,7 +110,7 @@
       ].filter(Boolean);
   
       forms.forEach(bind);
-      console.log('[Lineng-Lead] System initialized with IP tracking.');
+      console.log('[Lineng-Lead] Form System Standardized.');
     }
   
     if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', init);
