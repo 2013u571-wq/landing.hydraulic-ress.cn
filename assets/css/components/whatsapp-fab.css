@@ -139,36 +139,92 @@ body.native-modal-open .wa-fab-container{
   color:#6b7280;
 }
 
+/* WhatsApp icon styling */
+.wa-fab-icon{
+  flex-shrink:0;
+  display:inline-block;
+  vertical-align:middle;
+}
+
+.wa-fab-bubble-via{
+  display:flex;
+  align-items:center;
+  gap:6px;
+  font-size:11px;
+  font-weight:400;
+  color:#6b7280;
+  margin-top:2px;
+}
+
+.wa-fab-bubble-via .wa-fab-icon{
+  width:16px;
+  height:16px;
+}
+
 .wa-fab-bubble-mobile{
   display:none;
+  flex-direction:column;
+  gap:2px;
 }
 
-/* Desktop: show title + subtitle */
+.wa-fab-bubble-mobile-line1,
+.wa-fab-bubble-mobile-line2{
+  display:flex;
+  align-items:center;
+  gap:6px;
+}
+
+.wa-fab-bubble-mobile-line1{
+  font-weight:600;
+  color:#111827;
+}
+
+.wa-fab-bubble-mobile-line2{
+  font-size:11px;
+  font-weight:400;
+  color:#6b7280;
+}
+
+.wa-fab-bubble-mobile .wa-fab-icon{
+  width:14px;
+  height:14px;
+}
+
+/* Desktop: show title + subtitle + via WhatsApp */
 @media (min-width:577px){
   .wa-fab-bubble-title,
-  .wa-fab-bubble-subtitle{
+  .wa-fab-bubble-subtitle,
+  .wa-fab-bubble-via{
     display:block;
+  }
+  .wa-fab-bubble-via{
+    display:flex;
   }
   .wa-fab-bubble-mobile{
     display:none;
   }
 }
 
-/* Mobile: show only "Chat" */
+/* Mobile: show mobile layout, compact size */
 @media (max-width:576px){
   .wa-fab-bubble-title,
-  .wa-fab-bubble-subtitle{
+  .wa-fab-bubble-subtitle,
+  .wa-fab-bubble-via{
     display:none;
   }
   .wa-fab-bubble-mobile{
-    display:block;
-    font-weight:600;
-    color:#111827;
+    display:flex;
   }
   .wa-fab-bubble-content{
     padding:10px 14px;
+    font-size:12px;
+    white-space:normal;
+    max-width:70vw;
+  }
+  .wa-fab-bubble-mobile-line1{
     font-size:13px;
   }
+  .wa-fab-bubble-mobile-line2{
+    font-size:11px;
+  }
 }
-
-/* Bubble arrow/pointer (optional, can be added with ::after if needed) */
