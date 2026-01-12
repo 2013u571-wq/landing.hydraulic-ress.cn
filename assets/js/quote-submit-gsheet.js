@@ -81,26 +81,31 @@
   
         setLoading(form, true);
   
-        // 立即启动跳转（不等待请求完成），确保在中国境内即使请求被阻止也能跳转
-        // 使用 Promise.race 确保在请求完成或超时后跳转
-        const redirectPromise = new Promise((resolve) => {
-          setTimeout(() => {
-            resolve();
-          }, 100); // 100ms 后立即跳转，不等待请求
-        });
-        
-        const submitPromise = postLead(form).catch((err) => {
-          console.warn('Submission error (non-blocking):', err);
-          // 即使请求失败也继续，不阻止跳转
-        });
-        
-        // 无论请求成功或失败，都立即跳转
-        Promise.race([redirectPromise, submitPromise]).then(() => {
+        try {
+          // 创建 5 秒超时保护
+          const timeoutPromise = new Promise((resolve) => {
+            setTimeout(() => {
+              resolve({ timedOut: true });
+            }, 5000);
+          });
+  
+          // 等待请求完成（使用 await 确保请求真正发出）
+          const submitPromise = postLead(form).then(() => ({ timedOut: false })).catch((err) => {
+            console.warn('Submission error:', err);
+            // 即使请求失败也返回结果，不阻止跳转
+            return { timedOut: false, error: true };
+          });
+  
+          // 等待请求完成或超时（满足任一条件即继续）
+          await Promise.race([submitPromise, timeoutPromise]);
+  
+          // 只有在请求完成或超时后才跳转
           window.location.href = SUCCESS_URL;
-        }).catch(() => {
-          // 即使出错也跳转
+        } catch (err) {
+          console.warn('Unexpected error:', err);
+          // 即使出现意外错误也跳转
           window.location.href = SUCCESS_URL;
-        }); 
+        }
       }, { passive: false });
     }
   
