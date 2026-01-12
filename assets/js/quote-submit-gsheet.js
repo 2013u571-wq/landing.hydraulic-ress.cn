@@ -82,29 +82,18 @@
         setLoading(form, true);
   
         try {
-          // 创建 5 秒超时保护
-          const timeoutPromise = new Promise((resolve) => {
-            setTimeout(() => {
-              resolve({ timedOut: true });
-            }, 5000);
-          });
-  
-          // 等待请求完成（使用 await 确保请求真正发出）
-          const submitPromise = postLead(form).then(() => ({ timedOut: false })).catch((err) => {
-            console.warn('Submission error:', err);
-            // 即使请求失败也返回结果，不阻止跳转
-            return { timedOut: false, error: true };
-          });
-  
-          // 等待请求完成或超时（满足任一条件即继续）
-          await Promise.race([submitPromise, timeoutPromise]);
-  
-          // 只有在请求完成或超时后才跳转
+          // 尝试发送请求，设置 5 秒保底超时
+          await Promise.race([
+            postLead(form),
+            new Promise((_, reject) => setTimeout(() => reject(new Error('Timeout')), 5000))
+          ]);
+          // 只有走到这一步，才说明请求已发出且未报错，执行跳转
           window.location.href = SUCCESS_URL;
         } catch (err) {
-          console.warn('Unexpected error:', err);
-          // 即使出现意外错误也跳转
-          window.location.href = SUCCESS_URL;
+          // 请求失败（被墙或超时），停止加载，留在当前页并报警
+          setLoading(form, false);
+          alert('Network connection error. Please contact us via WhatsApp: +8618962292350');
+          console.error('Submission failed:', err);
         }
       }, { passive: false });
     }
