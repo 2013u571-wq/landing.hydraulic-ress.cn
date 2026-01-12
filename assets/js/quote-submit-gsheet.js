@@ -71,16 +71,25 @@
     }
   
     function bind(form) {
+      // 防重复绑定：检查 form.dataset.bound 是否存在
+      if (form.dataset.bound) return;
+      form.dataset.bound = 'true';
+
       form.addEventListener('submit', async (e) => {
         e.preventDefault();
-  
+        
+        // 提交状态锁：拦截重复点击
+        if (form.dataset.submitting === 'true') return;
+        
         if (!form.checkValidity()) {
           form.classList.add('was-validated');
           return;
         }
-  
+
+        // 上锁：设置提交状态
+        form.dataset.submitting = 'true';
         setLoading(form, true);
-  
+
         try {
           // 尝试发送请求，设置 5 秒保底超时
           await Promise.race([
@@ -92,8 +101,9 @@
         } catch (err) {
           // 请求失败（被墙或超时），停止加载，留在当前页并报警
           setLoading(form, false);
-          alert('Network connection error. Please contact us via WhatsApp: +8618962292350');
-          console.error('Submission failed:', err);
+          form.dataset.submitting = 'false'; // 失败解锁，允许重试
+          alert('Network Error: Please try again or contact us via WhatsApp directly.');
+          console.error('Submission error:', err);
         }
       }, { passive: false });
     }
