@@ -1,6 +1,7 @@
 (function () {
     'use strict';
   
+    // 你的 Google 脚本地址
     const ENDPOINT = 'https://script.google.com/macros/s/AKfycbyAAzsFLQMBDsXQwa-iya99hT6vcOA9KvPW6bx-7brIIovkYH4yl93bpT1l64GHHfVJvw/exec';
     const SUCCESS_URL = '/thanks/';
   
@@ -12,40 +13,25 @@
         utm_source: url.searchParams.get('utm_source') || '',
         utm_medium: url.searchParams.get('utm_medium') || '',
         utm_campaign: url.searchParams.get('utm_campaign') || '',
-        utm_content: url.searchParams.get('utm_content') || '',
-        utm_term: url.searchParams.get('utm_term') || '',
         gclid: url.searchParams.get('gclid') || '',
-        fbclid: url.searchParams.get('fbclid') || '',
         user_agent: navigator.userAgent,
-        lang: navigator.language || ''
+        timestamp: new Date().toLocaleString()
       };
     }
   
     async function postLead(form) {
       const fd = new FormData(form);
       const data = {};
-      for (const [k, v] of fd.entries()) data[k] = v;
-  
-      // 注入基础 Meta 信息
+      fd.forEach((value, key) => { data[key] = value; });
+      
+      // 合并元数据（如 UTM、Gclid 等）
       Object.assign(data, getMeta());
 
-      // --- 关键改进：非阻塞 IP 抓取 ---
-      try {
-        const ipInfo = await Promise.race([
-          fetch('https://ipapi.co/json/').then(res => res.json()),
-          new Promise(resolve => setTimeout(() => resolve({ ip: 'timeout', country: 'timeout' }), 1800))
-        ]).catch(() => ({ ip: 'failed', country: 'failed' }));
-        
-        data.ip = ipInfo.ip || 'unknown';
-        data.country = ipInfo.country_name || ipInfo.country || 'unknown';
-      } catch (e) {
-        console.warn('IP tracking failed, continuing submission...');
-      }
-
       // 提交给 Google Apps Script
+      // 使用 no-cors 模式，并通过 text/plain 发送以确保最高兼容性
       return fetch(ENDPOINT, {
         method: 'POST',
-        mode: 'no-cors', // 必须使用 no-cors
+        mode: 'no-cors', 
         cache: 'no-cache',
         headers: { 'Content-Type': 'text/plain' },
         body: JSON.stringify(data)
@@ -61,18 +47,19 @@
           btn.dataset.originalText = btn.innerText;
           btn.innerText = 'Sending...';
       } else {
-          btn.innerText = btn.dataset.originalText || 'Submit';
+          btn.innerText = btn.dataset.originalText || 'Send Inquiry Now';
       }
     }
   
     function bind(form) {
+      // 1. 防重复绑定
       if (form.dataset.bound === 'true') return;
       form.dataset.bound = 'true';
 
       form.addEventListener('submit', async (e) => {
         e.preventDefault();
         
-        // 互斥锁：防止多次重复点击
+        // 2. 提交锁：防止多次点击
         if (form.dataset.submitting === 'true') return;
         
         if (!form.checkValidity()) {
@@ -84,20 +71,21 @@
         setLoading(form, true);
 
         try {
-          // 整体提交超时保护（5秒）
+          // 3. 尝试发送，设置 10 秒超时保护
+          // 注意：no-cors 模式下只要不抛出异常即视为成功发出
           await Promise.race([
             postLead(form),
-            new Promise((_, reject) => setTimeout(() => reject(new Error('Global Timeout')), 5000))
+            new Promise((_, reject) => setTimeout(() => reject(new Error('Timeout')), 10000))
           ]);
           
-          // 请求发出成功后跳转
+          // 4. 跳转感谢页
           window.location.href = SUCCESS_URL;
         } catch (err) {
-          // 提交失败（如国内被墙或接口超时）
+          // 5. 失败处理
           setLoading(form, false);
-          form.dataset.submitting = 'false'; // 解锁允许重试
-          alert('Network Error: Your submission could not reach our server. Please contact us via WhatsApp (+8618962292350) or try again with a stable connection.');
-          console.error('Final Error Info:', err);
+          form.dataset.submitting = 'false'; 
+          alert('Network Error: We could not receive your message. Please contact us via WhatsApp: +8618962292350');
+          console.error('Submission failed:', err);
         }
       }, { passive: false });
     }
@@ -110,10 +98,12 @@
       ].filter(Boolean);
   
       forms.forEach(bind);
-      console.log('[Lineng-Lead] Form System Standardized.');
     }
   
-    if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', init);
-    else init();
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', init);
+    } else {
+      init();
+    }
   
   })();
