@@ -1,68 +1,60 @@
 /* ===== WhatsApp Floating Action Button - Enhanced for Conversion ===== */
 
-.wa-fab{
+/* Container wrapper for button and bubble */
+.wa-fab-container{
   position:fixed;
   right:max(16px, env(safe-area-inset-right));
   bottom:max(18px, env(safe-area-inset-bottom));
-  width:64px;
-  height:64px;
+  z-index:1200;
+  display:flex;
+  align-items:center;
+  gap:12px;
+}
+
+.wa-fab{
+  position:relative;
+  width:68px;
+  height:68px;
   border-radius:999px;
   background-image:url('/images/wa-avatar-128.png');
   background-size:cover;
   background-position:center;
   background-repeat:no-repeat;
-  box-shadow:0 10px 30px rgba(0,0,0,.18),
-             0 0 0 0 rgba(34,197,94,.4),
-             0 0 20px rgba(34,197,94,.2);
-  border:2px solid rgba(255,255,255,.8);
-  z-index:1200;
+  box-shadow:0 12px 32px rgba(0,0,0,.2),
+             0 4px 16px rgba(34,197,94,.15);
+  border:2px solid rgba(255,255,255,.9);
   transform:translateZ(0);
-  transition:transform .2s ease, box-shadow .2s ease, filter .2s ease;
+  transition:transform .2s ease, box-shadow .2s ease;
   text-decoration:none;
   overflow:visible;
-  display:inline-block;
-  /* Breathing pulse animation */
-  animation:waBreathe 3s ease-in-out infinite;
+  display:block;
+  flex-shrink:0;
+  /* Subtle pulse animation - max once every 6s */
+  animation:waSubtlePulse 6s ease-in-out infinite;
 }
 
-@keyframes waBreathe{
-  0%, 100%{
+@keyframes waSubtlePulse{
+  0%, 85%{
     transform:scale(1) translateZ(0);
+    box-shadow:0 12px 32px rgba(0,0,0,.2),
+               0 4px 16px rgba(34,197,94,.15);
   }
-  50%{
-    transform:scale(1.06) translateZ(0);
+  90%{
+    transform:scale(1.04) translateZ(0);
+    box-shadow:0 16px 40px rgba(0,0,0,.25),
+               0 6px 20px rgba(34,197,94,.2);
   }
-}
-
-/* Soft green glow shadow */
-.wa-fab::before{
-  content:"";
-  position:absolute;
-  inset:-4px;
-  border-radius:999px;
-  background:radial-gradient(circle, rgba(34,197,94,.15) 0%, transparent 70%);
-  opacity:0;
-  animation:waGlow 3s ease-in-out infinite;
-  pointer-events:none;
-  z-index:-1;
-}
-
-@keyframes waGlow{
-  0%, 100%{
-    opacity:0;
-    transform:scale(0.9);
-  }
-  50%{
-    opacity:1;
-    transform:scale(1.1);
+  95%, 100%{
+    transform:scale(1) translateZ(0);
+    box-shadow:0 12px 32px rgba(0,0,0,.2),
+               0 4px 16px rgba(34,197,94,.15);
   }
 }
 
 .wa-fab:hover{
   transform:translateY(-3px) scale(1.05);
-  box-shadow:0 16px 48px rgba(0,0,0,.24),
-             0 0 0 4px rgba(34,197,94,.3),
-             0 0 30px rgba(34,197,94,.3);
+  box-shadow:0 18px 48px rgba(0,0,0,.28),
+             0 6px 20px rgba(34,197,94,.25);
   animation-play-state:paused;
 }
 
@@ -74,119 +66,109 @@
 .wa-fab:focus-visible{
   outline:none;
   box-shadow:0 0 0 4px rgba(34,197,94,.4), 
-             0 16px 48px rgba(0,0,0,.24),
-             0 0 30px rgba(34,197,94,.3);
+             0 18px 48px rgba(0,0,0,.28),
+             0 6px 20px rgba(34,197,94,.25);
 }
 
-/* Mobile: smaller size, respects safe area */
+/* Mobile: slightly smaller size */
 @media (max-width:576px){
-  .wa-fab{
-    width:56px;
-    height:56px;
+  .wa-fab-container{
     right:14px;
     bottom:max(16px, env(safe-area-inset-bottom));
+    gap:10px;
   }
-}
-
-/* Hide pulse ring animation (replaced by breathing) */
-.wa-fab::after{
-  display:none;
+  
+  .wa-fab{
+    width:60px;
+    height:60px;
+  }
 }
 
 @media (prefers-reduced-motion: reduce){
   .wa-fab{
     animation:none;
   }
-  .wa-fab::before{
-    animation:none;
-  }
 }
 
 /* Hide WhatsApp FAB when modal is open */
-body.modal-open .wa-fab,
-body.native-modal-open .wa-fab{
+body.modal-open .wa-fab-container,
+body.native-modal-open .wa-fab-container{
   display:none !important;
 }
 
-/* ===== Floating Tooltip Bubble ===== */
-/* Note: Tooltip uses absolute positioning relative to fixed button */
-.wa-fab-tooltip{
-  position:absolute;
-  right:calc(100% + 16px);
-  top:50%;
-  transform:translateY(-50%) translateX(10px);
+/* ===== Bubble/Tooltip ===== */
+.wa-fab-bubble{
   opacity:0;
+  transform:translateX(10px);
   pointer-events:none;
-  white-space:nowrap;
-  z-index:1300;
   transition:opacity .4s ease, transform .4s ease;
   will-change:opacity, transform;
 }
 
-.wa-fab-tooltip.show{
+.wa-fab-bubble.show{
   opacity:1;
-  transform:translateY(-50%) translateX(0);
+  transform:translateX(0);
 }
 
-.wa-fab-tooltip-content{
+.wa-fab-bubble-content{
   background:#ffffff;
-  border-radius:999px;
-  padding:10px 16px;
+  border-radius:12px;
+  padding:12px 16px;
   box-shadow:0 8px 24px rgba(0,0,0,.15),
              0 2px 8px rgba(0,0,0,.1);
   display:flex;
-  align-items:center;
-  gap:8px;
+  flex-direction:column;
+  gap:4px;
   font-size:14px;
   font-weight:500;
   color:#111827;
   line-height:1.4;
+  white-space:nowrap;
 }
 
-/* WhatsApp icon in tooltip */
-.wa-fab-tooltip-icon{
-  width:16px;
-  height:16px;
-  flex-shrink:0;
-  display:inline-block;
-  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%2325D366'%3E%3Cpath d='M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z'/%3E%3C/svg%3E");
-  background-size:contain;
-  background-repeat:no-repeat;
-  background-position:center;
-}
-
-.wa-fab-tooltip-text{
-  display:flex;
-  flex-direction:column;
-  gap:2px;
-}
-
-.wa-fab-tooltip-line1{
+.wa-fab-bubble-title{
   display:block;
+  font-weight:600;
+  color:#111827;
 }
 
-.wa-fab-tooltip-line2{
+.wa-fab-bubble-subtitle{
   display:block;
   font-size:12px;
   font-weight:400;
   color:#6b7280;
 }
 
-/* Mobile: show only first line */
-@media (max-width:576px){
-  .wa-fab-tooltip-line2{
+.wa-fab-bubble-mobile{
+  display:none;
+}
+
+/* Desktop: show title + subtitle */
+@media (min-width:577px){
+  .wa-fab-bubble-title,
+  .wa-fab-bubble-subtitle{
+    display:block;
+  }
+  .wa-fab-bubble-mobile{
     display:none;
   }
-  .wa-fab-tooltip-content{
-    padding:8px 14px;
+}
+
+/* Mobile: show only "Chat" */
+@media (max-width:576px){
+  .wa-fab-bubble-title,
+  .wa-fab-bubble-subtitle{
+    display:none;
+  }
+  .wa-fab-bubble-mobile{
+    display:block;
+    font-weight:600;
+    color:#111827;
+  }
+  .wa-fab-bubble-content{
+    padding:10px 14px;
     font-size:13px;
   }
 }
 
-/* Tooltip positioning adjustments */
-@media (max-width:768px){
-  .wa-fab-tooltip{
-    right:calc(100% + 12px);
-  }
-}
-
+/* Bubble arrow/pointer (optional, can be added with ::after if needed) */

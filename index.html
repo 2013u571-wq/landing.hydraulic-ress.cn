@@ -2601,7 +2601,7 @@
         overscroll-behavior: contain;
       }
       /* When menu is open, hide floating WhatsApp FAB if exists */
-      body.menu-open .wa-fab{
+      body.menu-open .wa-fab-container{
         display:none !important;
       }
     }
@@ -3816,17 +3816,16 @@
   </footer>
 
   <!-- ===== WhatsApp Floating Action Button ===== -->
-  <a id="waFab" class="wa-fab" href="https://wa.me/86189622292350" target="_blank" rel="noopener nofollow" aria-label="Chat on WhatsApp" data-gtm="whatsapp_fab">
-    <span class="wa-fab-tooltip" id="waFabTooltip">
-      <span class="wa-fab-tooltip-content">
-        <span class="wa-fab-tooltip-icon" aria-hidden="true"></span>
-        <span class="wa-fab-tooltip-text">
-          <span class="wa-fab-tooltip-line1">Chat with an Engineer</span>
-          <span class="wa-fab-tooltip-line2">Reply in minutes</span>
-        </span>
-      </span>
-    </span>
-  </a>
+  <div class="wa-fab-container">
+    <a id="waFab" class="wa-fab" href="https://wa.me/86189622292350" target="_blank" rel="noopener nofollow" aria-label="Chat on WhatsApp" data-gtm="whatsapp_fab"></a>
+    <div class="wa-fab-bubble" id="waFabBubble">
+      <div class="wa-fab-bubble-content">
+        <span class="wa-fab-bubble-title">Chat with an Engineer</span>
+        <span class="wa-fab-bubble-subtitle">Reply in minutes</span>
+        <span class="wa-fab-bubble-mobile">Chat</span>
+      </div>
+    </div>
+  </div>
 
   <!-- ===== JSON-LD (Micro-site friendly: ItemList) ===== -->
   <script type="application/ld+json">
@@ -4650,29 +4649,46 @@ window.addEventListener("DOMContentLoaded", function(){
   })();
   </script>
 
-  <!-- WhatsApp FAB Click Tracking + Tooltip Behavior -->
+  <!-- WhatsApp FAB Click Tracking + Bubble Behavior -->
   <script>
   (function(){
     var el = document.getElementById('waFab');
-    var tooltip = document.getElementById('waFabTooltip');
-    if(!el) return;
+    var bubble = document.getElementById('waFabBubble');
+    if(!el || !bubble) return;
     
-    // Tooltip: show 3s after page load, hide on first click
-    var tooltipShown = false;
-    var tooltipTimer = setTimeout(function(){
-      if(!tooltipShown && tooltip){
-        tooltip.classList.add('show');
-        tooltipShown = true;
-      }
-    }, 3000);
+    // Check localStorage to see if user has clicked before
+    var hasClickedBefore = localStorage.getItem('waFabClicked') === 'true';
     
-    // Hide tooltip on first click (and on any subsequent clicks)
+    var showTimer = null;
+    var hideTimer = null;
+    
+    // Show bubble 3s after page load (if user hasn't clicked before)
+    if(!hasClickedBefore){
+      showTimer = setTimeout(function(){
+        bubble.classList.add('show');
+        
+        // Auto-hide after 8 seconds
+        hideTimer = setTimeout(function(){
+          bubble.classList.remove('show');
+        }, 8000);
+      }, 3000);
+    }
+    
+    // Hide bubble on click and mark in localStorage
     el.addEventListener('click', function(){
-      if(tooltip){
-        tooltip.classList.remove('show');
-        tooltipShown = true; // Mark as shown to prevent re-showing
-        clearTimeout(tooltipTimer);
+      if(bubble){
+        bubble.classList.remove('show');
+        // Mark that user has clicked
+        try{
+          localStorage.setItem('waFabClicked', 'true');
+        }catch(e){
+          // Ignore localStorage errors (private browsing, etc)
+        }
       }
+      
+      // Clear timers
+      if(showTimer) clearTimeout(showTimer);
+      if(hideTimer) clearTimeout(hideTimer);
       
       // Existing tracking (non-blocking)
       window.dataLayer = window.dataLayer || [];
@@ -4681,15 +4697,6 @@ window.addEventListener("DOMContentLoaded", function(){
         wa_placement: 'floating_button',
         wa_href: el.getAttribute('href') || ''
       });
-    }, {passive:true});
-    
-    // Hide tooltip when user scrolls (optional UX improvement)
-    var scrollTimeout;
-    window.addEventListener('scroll', function(){
-      if(tooltip && tooltip.classList.contains('show')){
-        tooltip.classList.remove('show');
-        clearTimeout(tooltipTimer);
-      }
     }, {passive:true});
   })();
   </script>
